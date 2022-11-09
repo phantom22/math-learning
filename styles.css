@@ -1,30 +1,65 @@
+body {
+    background-color: #222;
+}
+
 .container {
     height:100vh;
     width:100%;
     overflow:hidden;
     display: flex;
     justify-content:space-evenly;
+    min-width: 500px;
+    min-height: 281px;
 }
 
 p {
     color:#000;
+    margin:0;
+    padding:0;
     font-weight: bold;
-    border-radius: 5%;
     text-align: center;
+    font-size:30px;
+    line-height: 1.8em;
 }
 
-textarea {
+p:first-child {
+    height: 8%;
+    min-height: 62px;
+}
+
+.input-container textarea {
+    width: 80%;
+    height: 55%;
     resize:none;
+    background-color: rgb(151, 204, 221);
+    border:none;
+    display:block;
+    margin:auto;
+    outline:0px solid rgb(122, 177, 196);
+    min-height: 130px;
+    transition: all 1s;
+}
+
+.input-container textarea:focus {
+    outline:5px solid rgb(122, 177, 196);
 }
 
 .prompt-container {
-    height:20%;
+    height:80%;
     width: 45%;
     background-color: lightcoral;
 }
 
 .input-container {
-    height:20%;
+    height:80%;
     width: 45%;
     background-color: lightblue;
+}
+
+#prompt-title {
+    background-color: rgb(230, 92, 92);
+}
+
+#input-title {
+    background-color: rgb(110, 189, 216);
 }
