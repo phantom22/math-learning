@@ -25,11 +25,11 @@ _input.addEventListener("input",(e) => {
 });
 
 let sections = [];
-const categories = [
+const categories = collection(
     //  #######################
     //  ## TRIGONOMETRIA 0-9 ##
     //  #######################
-    ...category( 
+    category( 
         label(
             labelName("Sia x=0°","Sia x=360°","Sia x=2π"),
             question("cos(x) = ?","1"),
@@ -94,7 +94,7 @@ const categories = [
     //  ###########################
     //  ## LIMITI NOTEVOLI 10-11 ##
     //  ###########################
-    ...category(
+    category(
         label(
             labelName("A quanto tende il seguente limite per x->0"),
             question("sin(x)/x = ?","1"),
@@ -123,7 +123,7 @@ const categories = [
     //  ##################################
     //  ## IDENTITA' TRIGONOMETRICHE 12 ##
     //  ##################################
-    ...category(
+    category(
         label(
             labelName("Identità trigonometriche"),
             question("tan = ?","sin/cos"),
@@ -141,7 +141,7 @@ const categories = [
     // ###################
     // ## SERIE NOTE 13 ##
     // ###################
-    ...category(
+    category(
         label(
             labelName("Serie note"),
             question("Σq^n, diverge per q = ?","q≥1"),
@@ -154,27 +154,34 @@ const categories = [
             question("Σ1/n(ln(n))^a converge per a = ?","a>1"),
         ),
     )
-];
+);
 
-// after textarea is evaluated the input is nicely formatted
-function question(query:string,answer:string) {
+type tquestion = [query:string,answer:string];
+function question(query:string,answer:string):tquestion {
     return [query,answer];
 }
-
-function labelName(name:string, ...nameVariants:string[]) {
+type tname = { [nameIndex:number]: string; length:number; }
+function labelName(name:string, ...nameVariants:string[]):tname {
     return [name,...nameVariants]
 }
 
-function label(names:string[],...questions:string[][]){
-    return [names,...questions]
+type tlabel = [names:tname, questions:tquestion[]];
+function label(names:tname,...questions:tquestion[]): tlabel {
+    return [names,questions]
 }
 
-function category(...labels:string[][][]) {
+type tcategory = tlabel[];
+function category(...labels:tlabel[]) {
     sections.push(sections.length===0 ?
         labels.length : 
         sections[sections.length-1]+labels.length
     );
     return labels;
+}
+
+type tcollection = [categories:tcategory[]];
+function collection(...categories:tcategory[]) {
+    return categories;
 }
 
 
@@ -206,7 +213,7 @@ function pickQuestion() {
     updateQuestionUI();
 }
 function answerQuestion() {
-    const correctAnswer = categories[_c][_q][1],
+    const correctAnswer = categories[_c][1][_q][1],
           userAnswer = _input.value;
 
           console.log({userAnswer,correctAnswer});
@@ -220,10 +227,12 @@ function answerQuestion() {
     }
 
 }
+// collection: [ labels: [ names:string[], question: [ prompt, answer ] ] ]
 function updateQuestionUI() {
     const cat = categories[_c];
 
-    _promptTitle.textContent = cat[0][_n];
-    _prompt.textContent = cat[_q][0];
+    _promptTitle.textContent = cat[0][_n]; // title
+    const x = cat[_q][0]
+    _prompt.textContent = cat[1][_q][0];
 }
 pickQuestion();
