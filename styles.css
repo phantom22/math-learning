@@ -37,13 +37,15 @@ p:first-child {
     display:block;
     margin:auto;
     outline:0px solid rgb(122, 177, 196);
+    outline-width: 0px;
     min-height: 130px;
-    transition: all 1s;
+    transition: outline-width 1s;
     color:black;
 }
 
 .input-container textarea:focus {
     outline:5px solid rgb(122, 177, 196);
+    transition: outline-width 1s;
 }
 
 .prompt-container {
