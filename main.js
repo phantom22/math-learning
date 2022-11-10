@@ -145,7 +145,7 @@
             ]
         },
         {
-            category: "Punti notevoli",
+            category: "Scomposizioni notevoli",
             questions: [
                 { prompt: "a^2 - b^2", answer: ["(a+b)(a-b)", "(a-b)(a+b)"] },
                 { prompt: "a^2 + b^2", answer: ["(a+b)^2-2ab"] },
