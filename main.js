@@ -23,68 +23,139 @@ _input.addEventListener("input", (e) => {
     // @ts-ignore
     e.target.value = v;
 });
-let sections = [];
-const categories = collection(
-    //  #######################
-    //  ## TRIGONOMETRIA 0-9 ##
-    //  #######################
-    category(label(labelName("Sia x=0°", "Sia x=360°", "Sia x=2π"), question("cos(x) = ?", "1"), question("sin(x) = ?", "0"), question("tan(x) = ?", "0")), label(labelName("Sia x=30°", "Sia x=π/6"), question("cos(x) = ?", "√3/2"), question("sin(x) = ?", "1/2"), question("tan(x) = ?", "√3")), label(question("Sia x=45°", "Sia x=π/4"), question("cos(x) = ?", "√2/2"), question("sin(x) = ?", "√2/2"), question("tan(x) = ?", "1")), label(labelName("Sia x=60°", "Sia x=π/3", "Sia x=90°-30°"), question("cos(x) = ?", "1/2"), question("sin(x) = ?", "√3/2"), question("tan(x) = ?", "√3")), label(labelName("Sia x=90°", "Sia x=π/2"), question("cos(x) = ?", "0"), question("sin(x) = ?", "1"), question("tan(x) = ?", "-")), label(labelName("Sia x=120°", "Sia x=2/3π", "Sia x=90°+30°"), question("cos(x) = ?", "-1/2"), question("sin(x) = ?", "√3/2"), question("tan(x) = ?", "-√3")), label(labelName("Sia x=135°", "Sia x=3/4π", "Sia x=90°+45°"), question("cos(x) = ?", "-√2/2"), question("sin(x) = ?", "√2/2"), question("tan(x) = ?", "-1")), label(labelName("Sia x=150°", "Sia x=5/6π", "Sia x=180°-30°"), question("cos(x) = ?", "-√3/2"), question("sin(x) = ?", "1/2"), question("tan(x) = ?", "-√3/3")), label(labelName("Sia x=180°", "Sia x=π"), question("cos(x) = ?", "-1"), question("sin(x) = ?", "0"), question("tan(x) = ?", "0")), label(labelName("Sia x=270°", "Sia x=3/4π"), question("cos(x) = ?", "0"), question("sin(x) = ?", "-1"), question("tan(x) = ?", "-"))),
-    //  ###########################
-    //  ## LIMITI NOTEVOLI 10-11 ##
-    //  ###########################
-    category(label(labelName("A quanto tende il seguente limite per x->0"), question("sin(x)/x = ?", "1"), question("sin(x) = ?", "x"), question("(1-cos(x))/x^2 = ?", "1/2"), question("ln(1+x)/x = ?", "1"), question("ln(1+x) = ?", "x"), question("tan(x)/x = ?", "1"), question("tan(x) = ?", "x"), question("(a^x-1)/x = ?", "ln(a)"), question("(e^x-1)/x = ?", "1"), question("(e^x-1) = ?", "x"), question("arctan(x)/x = ?", "1"), question("arctan(x) = ?", "x"), question("arcsin(x)/x = ?", "1"), question("arcsin(x) = ?", "x"), question("(x->0+) xln(x) = ?", "0")), label(labelName("A quanto tende il seguente limite per x->infinito"), question("(1+1/x)^x = ?", "e"), question("(1+a/x)^x = ?", "e^a"), question("(1+x)^-x = ?", "e"))),
-    //  ##################################
-    //  ## IDENTITA' TRIGONOMETRICHE 12 ##
-    //  ##################################
-    category(label(labelName("Identità trigonometriche"), question("tan = ?", "sin/cos"), question("tan^-1 = ?", "cos/sin"), question("sec = ?", "1/cos"), question("cosec = ?", "1/sin"), question("cot = ?", "1/tan"), question("sin^2 + cos^2 = ?", "1"), question("1 - cos^2 = ?", "sin^2"), question("1 - sin^2 = ?", "cos^2"), question("sin^2 = ?", "1-cos^2"), question("cos^2 = ?", "1-sin^2"))),
-    // ###################
-    // ## SERIE NOTE 13 ##
-    // ###################
-    category(label(labelName("Serie note"), question("Σq^n, diverge per q = ?", "q≥1"), question("Σq^n, converge per q = ?", "-1<q<1"), question("Σq^n, a cosa converge se -1<q<1", "1/(1-q)"), question("Σq^n, è indeterminata per q = ?", "q≤-1"), question("Σ1/n^a diverge per a = ?", "a≤1"), question("Σ1/n^a converge per a = ?", "a>1"), question("Σ1/n(ln(n))^a diverge per a = ?", "a≤1"), question("Σ1/n(ln(n))^a converge per a = ?", "a>1")))
-);
-
-function question(query, answer) {
-    return [query, answer];
-}
-function labelName(name, ...nameVariants) {
-    return [name, ...nameVariants];
-}
-function label(names, ...questions) {
-    return [names, questions];
-}
-function category(...labels) {
-    sections.push(sections.length === 0 ?
-        labels.length :
-        sections[sections.length - 1] + labels.length);
-    return labels;
-}
-function collection(...categories) {
-    return categories;
-}
-function section(catIndex) {
-    let o = -1;
-    for (let i = 0; i < sections.length; i++) {
-        if (catIndex <= sections[i]) {
-            o = i;
-            break;
-        }
-    }
-    return o;
-}
+const categories = [
+    {
+        category: "Trigonometria",
+        questions: [
+            { prompt: [
+                    "cos(0°)", "cos(360°)", "cos(2π)",
+                    "tan(45°)", "tan(π/4)",
+                    "sin(90°)", "sin(π/2)",
+                ], answer: "1" },
+            { prompt: [
+                    "sin(0°)", "sin(360°)", "sin(2π)",
+                    "tan(0°)", "tan(360°)", "tan(2π)",
+                    "cos(90°)", "cos(π/2)",
+                    "sin(180°)", "sin(π)",
+                    "tan(180°)", "tan(π)",
+                    "cos(270°)", "cos(3/2π)",
+                ], answer: "0" },
+            { prompt: [
+                    "cos(30°)", "cos(π/6)",
+                    "sin(60°)", "sin(π/3)", "sin(90°-30°)",
+                    "sin(120°)", "sin(2/3π)", "sin(90°+30°)",
+                ], answer: "√3/2" },
+            { prompt: [
+                    "sin(30°)", "sin(π/6)",
+                    "cos(60°)", "cos(π/3)", "cos(90°-30°)",
+                    "sin(150°)", "sin(5/6π)", "sin(180°-30°)",
+                ], answer: "1/2" },
+            { prompt: [
+                    "tan(30°)", "tan(π/6)",
+                ], answer: "√3/3" },
+            { prompt: [
+                    "cos(45°)", "cos(π/4)",
+                    "sin(45°)", "sin(π/4)",
+                    "sin(135°)", "sin(3/4π)", "sin(90°+45°)",
+                ], answer: "√2/2" },
+            { prompt: [
+                    "tan(60°)", "tan(π/3)", "tan(90°-30°)",
+                ], answer: "√3" },
+            { prompt: [
+                    "tan(90°)", "tan(π/2)",
+                    "tan(270°)", "tan(3/2π)",
+                ], answer: "-" },
+            { prompt: [
+                    "cos(120°)", "cos(2/3π)", "cos(90°+30°)",
+                ], answer: "-1/2" },
+            { prompt: [
+                    "tan(120°)", "tan(2/3π)", "tan(90°+30°)",
+                ], answer: "-√3" },
+            { prompt: [
+                    "tan(135°)", "tan(3/4π)", "tan(90°+45°)",
+                    "cos(180°)", "cos(π)",
+                    "sin(270°)", "sin(3/2π)",
+                ], answer: "-1" },
+            { prompt: [
+                    "cos(135°)", "cos(3/4π)", "cos(90°+45°)",
+                ], answer: "-√2/2" },
+            { prompt: [
+                    "tan(150°)", "tan(5/6π)", "tan(180°-30°)",
+                ], answer: "-√3/3" },
+            { prompt: [
+                    "cos(150°)", "cos(5/6π)", "cos(180°-30°)",
+                ], answer: "-√3/2" },
+        ]
+    },
+    {
+        category: "Identità trigonometriche",
+        questions: [
+            { prompt: "tan", answer: "sin/cos" },
+            { prompt: "tan^-1", answer: "cos/sin" },
+            { prompt: "sec", answer: "1/cos" },
+            { prompt: "cosec", answer: "1/sin" },
+            { prompt: "cot", answer: "1/tan" },
+            { prompt: "sin^2 + cos^2", answer: "1" },
+            { prompt: "1 - cos^2", answer: "sin^2" },
+            { prompt: "1 - sin^2", answer: "cos^2" },
+            { prompt: "sin^2", answer: "1-cos^2" },
+            { prompt: "cos^2", answer: "1-sin^2" },
+        ]
+    },
+    {
+        category: "Limiti notevoli",
+        questions: [
+            { prompt: [
+                    "per x->0, Lim sin(x)/x",
+                    "per x->0, Lim ln(1+x)/x",
+                    "per x->0, Lim tan(x)/x",
+                    "per x->0, Lim (e^x-1)/x",
+                    "per x->0, Lim arctan(x)/x",
+                    "per x->0, Lim arcsin(x)/x"
+                ], answer: "1" },
+            { prompt: [
+                    "per x->0, Lim sin(x)",
+                    "per x->0, Lim ln(1+x)",
+                    "per x->0, Lim tan(x)",
+                    "per x->0, Lim (e^x-1)",
+                    "per x->0, Lim arctan(x)",
+                    "per x->0, Lim arcsin(x)"
+                ], answer: "x" },
+            { prompt: "per x->0+, Lim xln(x)", answer: "0" },
+            { prompt: "per x->0, Lim (a^x-1)/x", answer: "ln(a)" },
+            { prompt: "per x->0, Lim (1-cos(x))/x^2", answer: "1/2" },
+            { prompt: [
+                    "per x->infinito, Lim (1+1/x)^x",
+                    "per x->infinito, Lim (1+x)^-x"
+                ], answer: "e" },
+            { prompt: "per x->infinito, Lim (1+a/x)^x", answer: "e^a" },
+        ]
+    },
+    {
+        category: "Serie note",
+        questions: [
+            { prompt: "Σq^n, diverge per q", answer: "q≥1" },
+            { prompt: "Σq^n, converge per q", answer: "-1<q<1" },
+            { prompt: "Σq^n, a cosa converge se -1<q<1", answer: "1/(1-q)" },
+            { prompt: "Σq^n, è indeterminata per q", answer: "q≤-1" },
+            { prompt: ["Σ1/n^a diverge per a", "Σ1/n(ln(n))^a diverge per a"], answer: "a≤1" },
+            { prompt: ["Σ1/n^a converge per a", "Σ1/n(ln(n))^a converge per a"], answer: "a>1" },
+        ]
+    },
+];
 //alert("Indicare la 'radice quadrata' con 'v'\nIndicare 'Non Esiste' con '-'")
-let _c = -1, _n = -1, _q = -1;
+let _categoryIndex = -1, _questionIndex = -1;
 function pickQuestion() {
-    let cat = ~~(Math.random() * categories.length);
-    while (section(cat) === section(_c)) {
-        cat = ~~(Math.random() * categories.length);
+    let categoryGuess = ~~(Math.random() * categories.length);
+    while (categoryGuess === _categoryIndex && categories.length > 1) {
+        categoryGuess = ~~(Math.random() * categories.length);
     }
-    _c = cat;
-    _n = ~~(Math.random() * categories[_c][0].length);
-    _q = ~~(Math.random() * categories[_c].length - 1) + 1;
+    _categoryIndex = categoryGuess;
+    _questionIndex = ~~(Math.random() * categories[_categoryIndex].questions.length);
     updateQuestionUI();
 }
 function answerQuestion() {
-    const correctAnswer = categories[_c][1][_q][1], userAnswer = _input.value;
+    const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _input.value;
     console.log({ userAnswer, correctAnswer });
     if (correctAnswer === userAnswer) {
         pickQuestion();
@@ -97,9 +168,9 @@ function answerQuestion() {
 }
 // collection: [ labels: [ names:string[], question: [ prompt, answer ] ] ]
 function updateQuestionUI() {
-    const cat = categories[_c];
-    _promptTitle.textContent = cat[0][_n]; // title
-    const x = cat[_q][0];
-    _prompt.textContent = cat[1][_q][0];
+    const cat = categories[_categoryIndex];
+    _promptTitle.textContent = cat.category;
+    const _promptText = cat.questions[_questionIndex].prompt;
+    _prompt.textContent = (typeof _promptText === "string" ? _promptText : _promptText[~~(Math.random() * _promptText.length)]) + " = ?";
 }
 pickQuestion();
