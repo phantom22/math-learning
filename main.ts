@@ -1,4 +1,4 @@
-const _input = <HTMLTextAreaElement>document.getElementById("input"),
+(function(){const _input = <HTMLTextAreaElement>document.getElementById("input"),
       _inputTitle = document.getElementById("input-title"),
       _prompt = document.getElementById("prompt"),
       _promptTitle = document.getElementById("prompt-title");
@@ -226,3 +226,4 @@ function updateQuestionUI() {
                 + (typeof answer==="string"?" = ?" : " =* ?");
 }
 pickQuestion();
+})();
