@@ -203,7 +203,7 @@ function answerQuestion() {
     const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer,
           userAnswer = _input.value.toLowerCase();
 
-    if ((typeof correctAnswer==="string"&&correctAnswer===userAnswer)||correctAnswer.includes(userAnswer)) {
+    if ((typeof correctAnswer==="string"&&correctAnswer===userAnswer)||Array.isArray(correctAnswer)&&correctAnswer.includes(userAnswer)) {
         pickQuestion();
         _input.value = "";
         _inputTitle.textContent = "Risposta";
