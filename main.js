@@ -64,7 +64,7 @@ const categories = [
             { prompt: [
                     "tan(90°)", "tan(π/2)",
                     "tan(270°)", "tan(3/2π)",
-                ], answer: "-" },
+                ], answer: ["-", "ne"] },
             { prompt: [
                     "cos(120°)", "cos(2/3π)", "cos(90°+30°)",
                 ], answer: "-1/2" },
@@ -88,13 +88,12 @@ const categories = [
         ]
     },
     {
-        category: "Identità trigonometriche",
+        category: "Identità trigonometriche (ignorare l'argomento)",
         questions: [
             { prompt: "tan", answer: "sin/cos" },
-            { prompt: "tan^-1", answer: "cos/sin" },
+            { prompt: ["tan^-1", "cot"], answer: ["cos/sin", "1/tan"] },
             { prompt: "sec", answer: "1/cos" },
             { prompt: "cosec", answer: "1/sin" },
-            { prompt: "cot", answer: "1/tan" },
             { prompt: "sin^2 + cos^2", answer: "1" },
             { prompt: "1 - cos^2", answer: "sin^2" },
             { prompt: "1 - sin^2", answer: "cos^2" },
@@ -105,24 +104,26 @@ const categories = [
     {
         category: "Limiti notevoli",
         questions: [
-            { prompt: [
-                    "per x->0, Lim sin(x)/x",
-                    "per x->0, Lim ln(1+x)/x",
-                    "per x->0, Lim tan(x)/x",
-                    "per x->0, Lim (e^x-1)/x",
-                    "per x->0, Lim arctan(x)/x",
-                    "per x->0, Lim arcsin(x)/x"
+            { promptPrefix: "per x->0, Lim ",
+                prompt: [
+                    "sin(x)/x",
+                    "ln(1+x)/x",
+                    "tan(x)/x",
+                    "(e^x-1)/x",
+                    "arctan(x)/x",
+                    "arcsin(x)/x"
                 ], answer: "1" },
-            { prompt: [
-                    "per x->0, Lim sin(x)",
-                    "per x->0, Lim ln(1+x)",
-                    "per x->0, Lim tan(x)",
-                    "per x->0, Lim (e^x-1)",
-                    "per x->0, Lim arctan(x)",
-                    "per x->0, Lim arcsin(x)"
+            { promptPrefix: "per x->0, Lim ",
+                prompt: [
+                    "sin(x)",
+                    "ln(1+x)",
+                    "tan(x)",
+                    "(e^x-1)",
+                    "arctan(x)",
+                    "arcsin(x)"
                 ], answer: "x" },
             { prompt: "per x->0+, Lim xln(x)", answer: "0" },
-            { prompt: "per x->0, Lim (a^x-1)/x", answer: "ln(a)" },
+            { prompt: "per x->0, Lim (a^x-1)/x", answer: ["ln(a)", "log(a)"] },
             { prompt: "per x->0, Lim (1-cos(x))/x^2", answer: "1/2" },
             { prompt: [
                     "per x->infinito, Lim (1+1/x)^x",
@@ -142,8 +143,16 @@ const categories = [
             { prompt: ["Σ1/n^a converge per a", "Σ1/n(ln(n))^a converge per a"], answer: "a>1" },
         ]
     },
+    {
+        category: "Punti notevoli",
+        questions: [
+            { prompt: "a^2 - b^2", answer: ["(a+b)(a-b)", "(a-b)(a+b)"] },
+            { prompt: "a^2 + b^2", answer: ["(a+b)^2-2ab"] },
+            { prompt: "a^3 - b^3", answer: ["(a-b)(a^2+ab+b^2)", "(a^2+ab+b^2)(a-b)"] },
+            { prompt: "a^3 + b^3", answer: ["(a+b)(a^2-ab+b^2)", "(a^2-ab+b^2)(a+b)"] },
+        ]
+    },
 ];
-//alert("Indicare la 'radice quadrata' con 'v'\nIndicare 'Non Esiste' con '-'")
 let _categoryIndex = -1, _questionIndex = -1;
 function pickQuestion() {
     let categoryGuess = ~~(Math.random() * categories.length);
@@ -155,22 +164,24 @@ function pickQuestion() {
     updateQuestionUI();
 }
 function answerQuestion() {
-    const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _input.value;
-    console.log({ userAnswer, correctAnswer });
-    if (correctAnswer === userAnswer) {
+    const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _input.value.toLowerCase();
+    if ((typeof correctAnswer === "string" && correctAnswer === userAnswer) || correctAnswer.includes(userAnswer)) {
         pickQuestion();
         _input.value = "";
         _inputTitle.textContent = "Risposta";
     }
     else {
-        _inputTitle.textContent = "Risposta = " + correctAnswer;
+        _inputTitle.textContent = "Risposta = " + (typeof correctAnswer === "string" ? correctAnswer : correctAnswer.join(" oppure "));
     }
 }
-// collection: [ labels: [ names:string[], question: [ prompt, answer ] ] ]
 function updateQuestionUI() {
     const cat = categories[_categoryIndex];
     _promptTitle.textContent = cat.category;
-    const _promptText = cat.questions[_questionIndex].prompt;
-    _prompt.textContent = (typeof _promptText === "string" ? _promptText : _promptText[~~(Math.random() * _promptText.length)]) + " = ?";
+    let { prompt: _promptText, promptPrefix, answer } = cat.questions[_questionIndex];
+    promptPrefix ||= "";
+    _prompt.textContent =
+        promptPrefix
+            + (typeof _promptText === "string" ? _promptText : _promptText[~~(Math.random() * _promptText.length)])
+            + (typeof answer === "string" ? " = ?" : " =* ?");
 }
 pickQuestion();
