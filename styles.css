@@ -13,13 +13,14 @@ body {
 }
 
 p {
+    overflow: hidden;
     color:#000;
     margin:0;
     padding:0;
     font-weight: bold;
     text-align: center;
-    font-size:30px;
-    line-height: 1.8em;
+    font-size:22px;
+    line-height: 2.6em;
 }
 
 p:first-child {
@@ -38,6 +39,7 @@ p:first-child {
     outline:0px solid rgb(122, 177, 196);
     min-height: 130px;
     transition: all 1s;
+    color:black;
 }
 
 .input-container textarea:focus {
@@ -62,4 +64,20 @@ p:first-child {
 
 #input-title {
     background-color: rgb(110, 189, 216);
+}
+
+.memo {
+    position: absolute;
+    bottom:2.3%;
+    height:6%;
+    background:lightsalmon;
+    color:black;
+    width:80%;
+    font-size:15px;
+    text-align:center;
+    overflow:hidden;
+    min-width: 535px;
+    min-height: 35px;
+    line-height: 2em;
+    font-style: italic;
 }
