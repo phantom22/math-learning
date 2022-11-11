@@ -188,17 +188,36 @@ const categories: categoryCollection = [
 ];
 
 
+
 let _categoryIndex = -1,
-    _questionIndex = -1;
+    _questionIndex = -1,
+    _questionQueue = [],
+    _queueLength = 8;
+
+
 function pickQuestion() {
     let categoryGuess = ~~(Math.random() * categories.length);
     while (categoryGuess===_categoryIndex && categories.length>1) {
         categoryGuess = ~~(Math.random() * categories.length);
     }
     _categoryIndex = categoryGuess;
-    _questionIndex = ~~(Math.random() * categories[_categoryIndex].questions.length);
+    let questionGuess, alreadyAsked = true;
+    while (alreadyAsked) {
+        alreadyAsked = false;
+        questionGuess = ~~(Math.random() * categories[_categoryIndex].questions.length);
+        for (let i=0;i<_questionQueue.length;i++) {
+            let q = _questionQueue[i];
+            if (q[0]===_categoryIndex&&q[1]===questionGuess) {
+                alreadyAsked = true;
+            }
+        }
+    }
+    _questionIndex = questionGuess;
+    _questionQueue.push([_categoryIndex,_questionIndex]);
+    if (_questionQueue.length>_queueLength) _questionQueue.shift();
     updateQuestionUI();
 }
+
 function answerQuestion() {
     const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer,
           userAnswer = _input.value.toLowerCase();
@@ -224,6 +243,7 @@ function updateQuestionUI() {
                 promptPrefix 
                 + (typeof _promptText==="string"?_promptText:_promptText[~~(Math.random() * _promptText.length)]) 
                 + (typeof answer==="string"?" = ?" : " =* ?");
+    _inputTitle.textContent = "Risposta";
 }
 pickQuestion();
 })();

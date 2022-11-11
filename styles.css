@@ -1,85 +1,65 @@
 body {
-    background-color: #222;
-}
-
-.container {
-    height:100vh;
-    width:100%;
-    overflow:hidden;
-    display: flex;
-    justify-content:space-evenly;
-    min-width: 500px;
-    min-height: 281px;
-}
-
-p {
-    overflow: hidden;
-    color:#000;
     margin:0;
     padding:0;
-    font-weight: bold;
-    text-align: center;
-    font-size:22px;
-    line-height: 2.6em;
+    font-family: 'Roboto Slab', serif;
+}
+table {
+    border-collapse: collapse;
+    border:1px solid transparent;
+    height:100vh;
+    width:100%;
+}
+td {
+    border:1px solid transparent;
+}
+tr:nth-child(1) {
+    height:8%;
+}
+tr:nth-child(2) {
+    height:72%;
+}
+tr:nth-last-child() {
+    height:20%;
+}
+td {
+    width:50%;
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
 }
 
-p:first-child {
-    height: 8%;
-    min-height: 62px;
-}
-
-.input-container textarea {
-    width: 80%;
-    height: 55%;
-    resize:none;
-    background-color: rgb(151, 204, 221);
-    border:none;
-    display:block;
-    margin:auto;
-    outline:0px solid rgb(122, 177, 196);
-    outline-width: 0px;
-    min-height: 130px;
-    transition: outline-width 1s;
-    color:black;
-}
-
-.input-container textarea:focus {
-    outline:5px solid rgb(122, 177, 196);
-    transition: outline-width 1s;
-}
-
-.prompt-container {
-    height:80%;
-    width: 45%;
-    background-color: lightcoral;
-}
-
-.input-container {
-    height:80%;
-    width: 45%;
-    background-color: lightblue;
-}
-
-#prompt-title {
+tr:nth-child(1) td:first-child {
     background-color: rgb(230, 92, 92);
 }
-
-#input-title {
+tr:nth-child(1) td:last-child {
     background-color: rgb(110, 189, 216);
 }
-
-.memo {
-    position: absolute;
-    bottom:2.3%;
-    height:6%;
-    background:lightsalmon;
+tr:nth-child(2) td:first-child {
+    background-color: lightcoral;
+}
+tr:nth-child(2) td:last-child {
+    background-color: lightblue;
+}
+textarea {
+    width: 95%;
+    height: 95%;
+    display: block;
+    margin: auto;
+    resize: none;
+    background-color: rgb(151, 204, 221);
+    border: none;
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+textarea:focus {
+    outline:2px solid rgb(90, 135, 150);
+}
+textarea::placeholder {
     color:black;
-    width:80%;
-    font-size:15px;
-    text-align:center;
-    overflow:hidden;
-    min-width: 535px;
-    min-height: 35px;
-    line-height: 2em;
+}
+tr:nth-child(3) td:first-child {
+    background-color: rgb(255, 242, 122);
+    color: black;
+    font-size: 13px;
     font-style: italic;
 }

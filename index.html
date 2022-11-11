@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div class="container">
-        <div class="prompt-container">
-            <p id="prompt-title">Titolo domanda</p>
-            <br>
-            <p id="prompt">Domanda</p>
-        </div>
-        <div class="input-container">
-            <p id="input-title">Risposta</p>
-            <br>
-            <textarea id="input"></textarea>
-        </div>
-        <div class="memo">Per indicare che <b>tan(x) non esiste</b> scrivere '-' oppure 'ne'. Nelle <b>identità trigonometriche</b> omettere l'argomento, cioè non scrivere (x).<br>La risposta viene convertita in <b>minuscolo</b>. Le domande con <b>=*</b> hanno più risposte equivalenti. Rispondere premendo Enter. </div>
-    </div>
+    <table>
+        <tr>
+            <td id="prompt-title"></td>
+            <td id="input-title"></td>
+        </tr>
+        <tr>
+            <td id="prompt"></td>
+            <td>
+                <textarea id="input" placeholder="Inserire qui la risposta..."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">Per indicare che <b>tan(x) non esiste</b> scrivere '-' oppure 'ne'. Nelle <b>identità trigonometriche</b> omettere l'argomento, cioè non scrivere (x).<br>La risposta viene convertita in <b>minuscolo</b>. Le domande con <b>=*</b> hanno più risposte equivalenti. Rispondere premendo Enter.</td>
+        </tr>
+    </table>
     <script src="main.js"></script>
 </body>
 </html>
