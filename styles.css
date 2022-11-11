@@ -63,3 +63,6 @@ tr:nth-child(3) td:first-child {
     font-size: 13px;
     font-style: italic;
 }
+b {
+    text-decoration: underline;
+}

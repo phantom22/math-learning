@@ -20,6 +20,7 @@
         v = v.replaceAll(/v|V/g, "√");
         v = v.replaceAll(">=", "≥");
         v = v.replaceAll("<=", "≤");
+        v = v.replaceAll("*", "^");
         //v = v.replaceAll("p","π");
         // @ts-ignore
         e.target.value = v;
