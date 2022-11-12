@@ -37,6 +37,7 @@ tr:nth-child(1) td:last-child {
 }
 tr:nth-child(2) td:first-child {
     background-color: lightcoral;
+    font-style: italic;
 }
 tr:nth-child(2) td:last-child {
     background-color: lightblue;
