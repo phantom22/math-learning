@@ -255,25 +255,30 @@ window.addEventListener("load", () => {
         const cat = categories[_categoryIndex];
         _promptTitle.textContent = cat.category;
 
-        let {prompt:{equation,text},answer} = cat.questions[_questionIndex];
+        try {
+            let {prompt:{equation,text},answer} = cat.questions[_questionIndex];
 
-        _inputTitle.textContent = "Risposta";
-        if (equation) {
-            try {
-                /** @ts-ignore */
-                _prompt.innerHTML = MathJax.tex2mml(equation, {}) 
-                    + (text ? "<p>" + text.replaceAll("<","&lt").replaceAll(">","&gt") + (typeof answer === "string" ? " = ?" : " =* ?") + "</p>" : "");
+            _inputTitle.textContent = "Risposta";
+            if (equation) {
+                try {
+                    /** @ts-ignore */
+                    _prompt.innerHTML = MathJax.tex2mml(equation, {}) 
+                        + (text ? "<p>" + text.replaceAll("<","&lt").replaceAll(">","&gt") + (typeof answer === "string" ? " = ?" : " =* ?") + "</p>" : "");
+                }
+                catch(e) {
+                    setTimeout(updateQuestionUI,100);
+                }
             }
-            catch(e) {
-                setTimeout(updateQuestionUI,100);
+            else if (text) {
+                _prompt.textContent = 
+                        text
+                        + (typeof answer==="string"?" = ?" : " =* ?");
             }
+            else throw `[Category='${categories[_categoryIndex].category}',Question=${_questionIndex}] No question text/equation provided, nothing to show!`;
         }
-        else if (text) {
-            _prompt.textContent = 
-                    text
-                    + (typeof answer==="string"?" = ?" : " =* ?");
+        catch(e) {
+            throw `[Category='${categories[_categoryIndex].category}',Question=${_questionIndex}] No question text/equation provided, nothing to show!`;
         }
-        else throw `[Category=${Object.keys[_categoryIndex]},Question=${_questionIndex}] No question text/equation provided, nothing to show!`;
     }
 
     pickQuestion();
