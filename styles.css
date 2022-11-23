@@ -68,3 +68,6 @@ tr:nth-child(3) td:first-child {
 b {
     text-decoration: underline;
 }
+.MJX_LiveRegion, .MJX_HoverRegion, .MJX_ToolTip {
+    display: none !important;
+}

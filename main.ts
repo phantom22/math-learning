@@ -21,6 +21,8 @@ window.addEventListener("load", () => {
         v = v.replaceAll(">=","≥");
         v = v.replaceAll("<=","≤");
         v = v.replaceAll("*","^");
+        v = v.replaceAll("+-","±");
+        v = v.replaceAll("-+","∓");
         //v = v.replaceAll("p","π");
         // @ts-ignore
         e.target.value = v;
@@ -44,141 +46,148 @@ window.addEventListener("load", () => {
         {
             category:"Trigonometria",
             questions: [
-                { prompt:{equation:"\\cos 0^\\circ = \\unicode{0xFF1F}"}, answer:"1"}, 
-                { prompt:{equation:"\\cos 360^\\circ = \\unicode{0xFF1F}"}, answer:"1"}, 
-                { prompt:{equation:"\\cos 2 \\pi  = \\unicode{0xFF1F}"}, answer:"1"},
-                { prompt:{equation:"\\tan 45^\\circ = \\unicode{0xFF1F}"}, answer:"1"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 4}  = \\unicode{0xFF1F}"}, answer:"1"},
-                { prompt:{equation:"\\sin 90^\\circ = \\unicode{0xFF1F}"}, answer:"1"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 2}  = \\unicode{0xFF1F}"}, answer:"1"},
+                { prompt:{equation:"\\cos 0^\\circ"}, answer:"1"}, 
+                { prompt:{equation:"\\cos 360^\\circ"}, answer:"1"}, 
+                { prompt:{equation:"\\cos 2 \\pi "}, answer:"1"},
+                { prompt:{equation:"\\tan 45^\\circ"}, answer:"1"}, 
+                { prompt:{equation:"\\tan {\\pi \\over 4} "}, answer:"1"},
+                { prompt:{equation:"\\sin 90^\\circ"}, answer:"1"}, 
+                { prompt:{equation:"\\sin {\\pi \\over 2} "}, answer:"1"},
 
-                { prompt:{equation:"\\sin 0^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\sin 360^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\sin 2 \\pi  = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\tan 0^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\tan 360^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\tan 2 \\pi  = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\cos 90^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 2}  = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\sin 180^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\sin \\pi  = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\tan 180^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\tan \\pi  = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\cos 270^\\circ = \\unicode{0xFF1F}"}, answer:"0"}, 
-                { prompt:{equation:"\\cos {3 \\over 2} \\pi  = \\unicode{0xFF1F}"}, answer:"0"},
+                { prompt:{equation:"\\sin 0^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\sin 360^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\sin 2 \\pi "}, answer:"0"},
+                { prompt:{equation:"\\tan 0^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\tan 360^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\tan 2 \\pi "}, answer:"0"},
+                { prompt:{equation:"\\cos 90^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\cos {\\pi \\over 2} "}, answer:"0"},
+                { prompt:{equation:"\\sin 180^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\sin \\pi "}, answer:"0"},
+                { prompt:{equation:"\\tan 180^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\tan \\pi "}, answer:"0"},
+                { prompt:{equation:"\\cos 270^\\circ"}, answer:"0"}, 
+                { prompt:{equation:"\\cos {3 \\over 2} \\pi "}, answer:"0"},
 
-                { prompt:{equation:"\\cos 30^\\circ = \\unicode{0xFF1F}"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 6}  = \\unicode{0xFF1F}"}, answer:"√3/2"},
-                { prompt:{equation:"\\sin 60^\\circ = \\unicode{0xFF1F}"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 3}  = \\unicode{0xFF1F}"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"√3/2"},
-                { prompt:{equation:"\\sin 120^\\circ = \\unicode{0xFF1F}"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin {2 \\over 3} \\pi  = \\unicode{0xFF1F}"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ + 30^\\circ) = \\unicode{0xFF1F}"}, answer:"√3/2"},
+                { prompt:{equation:"\\cos 30^\\circ"}, answer:"√3/2"}, 
+                { prompt:{equation:"\\cos {\\pi \\over 6} "}, answer:"√3/2"},
+                { prompt:{equation:"\\sin 60^\\circ"}, answer:"√3/2"}, 
+                { prompt:{equation:"\\sin {\\pi \\over 3} "}, answer:"√3/2"}, 
+                { prompt:{equation:"\\sin (90^\\circ - 30^\\circ)"}, answer:"√3/2"},
+                { prompt:{equation:"\\sin 120^\\circ"}, answer:"√3/2"}, 
+                { prompt:{equation:"\\sin {2 \\over 3} \\pi "}, answer:"√3/2"}, 
+                { prompt:{equation:"\\sin (90^\\circ + 30^\\circ)"}, answer:"√3/2"},
 
-                { prompt:{equation:"\\sin 30^\\circ = \\unicode{0xFF1F}"}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 6}  = \\unicode{0xFF1F}"}, answer:"1/2"},
-                { prompt:{equation:"\\cos 60^\\circ = \\unicode{0xFF1F}"}, answer:"1/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 3}  = \\unicode{0xFF1F}"}, answer:"1/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"1/2"},
-                { prompt:{equation:"\\sin 150^\\circ = \\unicode{0xFF1F}"}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin {5 \\over 6} \\pi  = \\unicode{0xFF1F}"}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin (180^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"1/2"},
+                { prompt:{equation:"\\sin 30^\\circ"}, answer:"1/2"}, 
+                { prompt:{equation:"\\sin {\\pi \\over 6} "}, answer:"1/2"},
+                { prompt:{equation:"\\cos 60^\\circ"}, answer:"1/2"}, 
+                { prompt:{equation:"\\cos {\\pi \\over 3} "}, answer:"1/2"}, 
+                { prompt:{equation:"\\cos (90^\\circ - 30^\\circ)"}, answer:"1/2"},
+                { prompt:{equation:"\\sin 150^\\circ"}, answer:"1/2"}, 
+                { prompt:{equation:"\\sin {5 \\over 6} \\pi "}, answer:"1/2"}, 
+                { prompt:{equation:"\\sin (180^\\circ - 30^\\circ)"}, answer:"1/2"},
 
-                { prompt:{equation:"\\tan 30^\\circ = \\unicode{0xFF1F}"}, answer:"√3/3"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 6}  = \\unicode{0xFF1F}"}, answer:"√3/3"},
+                { prompt:{equation:"\\tan 30^\\circ"}, answer:"√3/3"}, 
+                { prompt:{equation:"\\tan {\\pi \\over 6} "}, answer:"√3/3"},
 
-                { prompt:{equation:"\\cos 45^\\circ = \\unicode{0xFF1F}"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 4}  = \\unicode{0xFF1F}"}, answer:"√2/2"},
-                { prompt:{equation:"\\sin 45^\\circ = \\unicode{0xFF1F}"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 4}  = \\unicode{0xFF1F}"}, answer:"√2/2"},
-                { prompt:{equation:"\\sin 135^\\circ = \\unicode{0xFF1F}"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin {3 \\over 4} \\pi  = \\unicode{0xFF1F}"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ + 45^\\circ) = \\unicode{0xFF1F}"}, answer:"√2/2"},
+                { prompt:{equation:"\\cos 45^\\circ"}, answer:"√2/2"}, 
+                { prompt:{equation:"\\cos {\\pi \\over 4} "}, answer:"√2/2"},
+                { prompt:{equation:"\\sin 45^\\circ"}, answer:"√2/2"}, 
+                { prompt:{equation:"\\sin {\\pi \\over 4} "}, answer:"√2/2"},
+                { prompt:{equation:"\\sin 135^\\circ"}, answer:"√2/2"}, 
+                { prompt:{equation:"\\sin {3 \\over 4} \\pi "}, answer:"√2/2"}, 
+                { prompt:{equation:"\\sin (90^\\circ + 45^\\circ)"}, answer:"√2/2"},
 
-                { prompt:{equation:"\\tan 60^\\circ = \\unicode{0xFF1F}"}, answer:"√3"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 3}  = \\unicode{0xFF1F}"}, answer:"√3"}, 
-                { prompt:{equation:"\\tan (90^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"√3"},
+                { prompt:{equation:"\\tan 60^\\circ"}, answer:"√3"}, 
+                { prompt:{equation:"\\tan {\\pi \\over 3} "}, answer:"√3"}, 
+                { prompt:{equation:"\\tan (90^\\circ - 30^\\circ)"}, answer:"√3"},
 
-                { prompt:{equation:"\\tan 90^\\circ = \\unicode{0xFF1F}"}, answer:["-","ne"]}, 
-                { prompt:{equation:"\\tan {\\pi \\over 2}  = \\unicode{0xFF1F}"}, answer:["-","ne"]},
-                { prompt:{equation:"\\tan 270^\\circ = \\unicode{0xFF1F}"}, answer:["-","ne"]}, 
-                { prompt:{equation:"\\tan {3 \\over 2} \\pi  = \\unicode{0xFF1F}"}, answer:["-","ne"]},
+                { prompt:{equation:"\\tan 90^\\circ"}, answer:["-","ne"]}, 
+                { prompt:{equation:"\\tan {\\pi \\over 2} "}, answer:["-","ne"]},
+                { prompt:{equation:"\\tan 270^\\circ"}, answer:["-","ne"]}, 
+                { prompt:{equation:"\\tan {3 \\over 2} \\pi "}, answer:["-","ne"]},
 
-                { prompt:{equation:"\\cos 120^\\circ = \\unicode{0xFF1F}"}, answer:"-1/2"}, 
-                { prompt:{equation:"\\cos {2 \\over 3} \\pi  = \\unicode{0xFF1F}"}, answer:"-1/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ + 30^\\circ) = \\unicode{0xFF1F}"}, answer:"-1/2"},
+                { prompt:{equation:"\\cos 120^\\circ"}, answer:"-1/2"}, 
+                { prompt:{equation:"\\cos {2 \\over 3} \\pi "}, answer:"-1/2"}, 
+                { prompt:{equation:"\\cos (90^\\circ + 30^\\circ)"}, answer:"-1/2"},
 
-                { prompt:{equation:"\\tan 120^\\circ = \\unicode{0xFF1F}"}, answer:"-√3"}, 
-                { prompt:{equation:"\\tan {2 \\over 3} \\pi  = \\unicode{0xFF1F}"}, answer:"-√3"}, 
-                { prompt:{equation:"\\tan (90^\\circ + 30^\\circ) = \\unicode{0xFF1F}"}, answer:"-√3"},
+                { prompt:{equation:"\\tan 120^\\circ"}, answer:"-√3"}, 
+                { prompt:{equation:"\\tan {2 \\over 3} \\pi "}, answer:"-√3"}, 
+                { prompt:{equation:"\\tan (90^\\circ + 30^\\circ)"}, answer:"-√3"},
 
-                { prompt:{equation:"\\tan 135^\\circ = \\unicode{0xFF1F}"}, answer:"-1"}, 
-                { prompt:{equation:"\\tan {3 \\over 4} \\pi  = \\unicode{0xFF1F}"}, answer:"-1"}, 
-                { prompt:{equation:"\\tan (90^\\circ + 45^\\circ) = \\unicode{0xFF1F}"}, answer:"-1"},
-                { prompt:{equation:"\\cos 180^\\circ = \\unicode{0xFF1F}"}, answer:"-1"}, 
-                { prompt:{equation:"\\cos \\pi  = \\unicode{0xFF1F}"}, answer:"-1"},
-                { prompt:{equation:"\\sin 270^\\circ = \\unicode{0xFF1F}"}, answer:"-1"}, 
-                { prompt:{equation:"\\sin {3 \\over 2} \\pi  = \\unicode{0xFF1F}"}, answer:"-1"},
+                { prompt:{equation:"\\tan 135^\\circ"}, answer:"-1"}, 
+                { prompt:{equation:"\\tan {3 \\over 4} \\pi "}, answer:"-1"}, 
+                { prompt:{equation:"\\tan (90^\\circ + 45^\\circ)"}, answer:"-1"},
+                { prompt:{equation:"\\cos 180^\\circ"}, answer:"-1"}, 
+                { prompt:{equation:"\\cos \\pi "}, answer:"-1"},
+                { prompt:{equation:"\\sin 270^\\circ"}, answer:"-1"}, 
+                { prompt:{equation:"\\sin {3 \\over 2} \\pi "}, answer:"-1"},
 
-                { prompt:{equation:"\\cos 135^\\circ = \\unicode{0xFF1F}"}, answer:"-√2/2"}, 
-                { prompt:{equation:"\\cos {3 \\over 4} \\pi  = \\unicode{0xFF1F}"}, answer:"-√2/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ + 45^\\circ) = \\unicode{0xFF1F}"}, answer:"-√2/2"},
+                { prompt:{equation:"\\cos 135^\\circ"}, answer:"-√2/2"}, 
+                { prompt:{equation:"\\cos {3 \\over 4} \\pi "}, answer:"-√2/2"}, 
+                { prompt:{equation:"\\cos (90^\\circ + 45^\\circ)"}, answer:"-√2/2"},
 
-                { prompt:{equation:"\\tan 150^\\circ = \\unicode{0xFF1F}"}, answer:"-√3/3"}, 
-                { prompt:{equation:"\\tan {5 \\over 6} \\pi  = \\unicode{0xFF1F}"}, answer:"-√3/3"}, 
-                { prompt:{equation:"\\tan (180^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"-√3/3"},
+                { prompt:{equation:"\\tan 150^\\circ"}, answer:"-√3/3"}, 
+                { prompt:{equation:"\\tan {5 \\over 6} \\pi "}, answer:"-√3/3"}, 
+                { prompt:{equation:"\\tan (180^\\circ - 30^\\circ)"}, answer:"-√3/3"},
 
-                { prompt:{equation:"\\cos 150^\\circ = \\unicode{0xFF1F}"}, answer:"-√3/2"}, 
-                { prompt:{equation:"\\cos {5 \\over 6} \\pi  = \\unicode{0xFF1F}"}, answer:"-√3/2"}, 
-                { prompt:{equation:"\\cos (180^\\circ - 30^\\circ) = \\unicode{0xFF1F}"}, answer:"-√3/2"},
+                { prompt:{equation:"\\cos 150^\\circ"}, answer:"-√3/2"}, 
+                { prompt:{equation:"\\cos {5 \\over 6} \\pi "}, answer:"-√3/2"}, 
+                { prompt:{equation:"\\cos (180^\\circ - 30^\\circ)"}, answer:"-√3/2"},
             ]
         },
         {
             category:"Identità trigonometriche (ignorare l'argomento)",
             questions: [
-                { prompt:{equation:"\\tan x = \\unicode{0xFF1F}"}, answer:"sin/cos"},
-                { prompt:{equation:"\\tan^{-1} x = \\unicode{0xFF1F}"}, answer:["cos/sin","1/tan"]},
-                { prompt:{equation:"\\cot x = \\unicode{0xFF1F}"}, answer:["cos/sin","1/tan"]},
-                { prompt:{equation:"\\sec x = \\unicode{0xFF1F}"}, answer:"1/cos"},
-                { prompt:{equation:"\\csc x = \\unicode{0xFF1F}"}, answer:"1/sin"},
-                { prompt:{equation:"\\sin^2 x + \\cos^2 x = \\unicode{0xFF1F}"}, answer:"1"},
-                { prompt:{equation:"1 - \\cos^2 x = \\unicode{0xFF1F}"},answer:"sin^2"},
-                { prompt:{equation:"1 - \\sin^2 x = \\unicode{0xFF1F}"},answer:"cos^2"},
-                { prompt:{equation:"\\sin^2 x = \\unicode{0xFF1F}"}, answer:"1-cos^2"},
-                { prompt:{equation:"\\cos^2 x = \\unicode{0xFF1F}"},answer:"1-sin^2"},
+                { prompt:{equation:"\\tan x"}, answer:"sin/cos"},
+                { prompt:{equation:"\\tan^{-1} x"}, answer:["cos/sin","1/tan"]},
+                { prompt:{equation:"\\cot x"}, answer:["cos/sin","1/tan"]},
+                { prompt:{equation:"\\sec x"}, answer:"1/cos"},
+                { prompt:{equation:"\\csc x"}, answer:"1/sin"},
+                { prompt:{equation:"\\sin^2 x + \\cos^2 x"}, answer:"1"},
+                { prompt:{equation:"1 - \\cos^2 x"},answer:"sin^2"},
+                { prompt:{equation:"1 - \\sin^2 x"},answer:"cos^2"},
+                { prompt:{equation:"\\sin^2 x"}, answer:"1-cos^2"},
+                { prompt:{equation:"\\cos^2 x"},answer:"1-sin^2"},
+                { prompt:{equation:"\\cos (a \\pm b)"},answer:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"]},
+                { prompt:{equation:"\\sin (a \\pm b)"},answer:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"]},
             ]
         },
         {
         category:"Limiti notevoli",
             questions:[
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {\\sin x \\over x} = \\unicode{0xFF1F}"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x } = \\unicode{0xFF1F}"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {\\sin x \\over x}"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x }"}, answer:"1" },
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\tan (x) \\over x } = \\unicode{0xFF1F}"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { e^x - 1 \\over x } = \\unicode{0xFF1F}"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arctan x \\over x } = \\unicode{0xFF1F}"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arcsin x \\over x } = \\unicode{0xFF1F}"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\tan (x) \\over x }"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { e^x - 1 \\over x }"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arctan x \\over x }"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arcsin x \\over x }"}, answer:"1" },
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x = \\unicode{0xFF1F}"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x) = \\unicode{0xFF1F}"},answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x = \\unicode{0xFF1F}"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1 = \\unicode{0xFF1F}"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x = \\unicode{0xFF1F}"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x = \\unicode{0xFF1F}"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x)"},answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x"}, answer:"x" },
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x } = \\unicode{0xFF1F}"}, answer:"k" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x }"}, answer:"k" },
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0^+} x \\ln x = \\unicode{0xFF1F}"}, answer:"0"},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {a^x - 1 \\over x} = \\unicode{0xFF1F}"}, answer:["ln(a)","log(a)"]},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2} = \\unicode{0xFF1F}"}, answer:"1/2"},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0^+} x \\ln x"}, answer:"0"},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {a^x - 1 \\over x}"}, answer:["ln(a)","log(a)"]},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2}"}, answer:"1/2"},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x = \\unicode{0xFF1F}"}, answer:"e" },
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + x)^{-x} = \\unicode{0xFF1F}"}, answer:"e" },
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x"}, answer:"e" },
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}"}, answer:"e" },
 
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x = \\unicode{0xFF1F}"}, answer:"e^a" },
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x"}, answer:"e^a" },
             ]
         },
+        {
+            category:"Equivalenze asintotiche",
+                questions:[
+                ]
+            },
         {
         category:"Serie note",
             questions:[
@@ -195,10 +204,10 @@ window.addEventListener("load", () => {
         {
         category:"Scomposizioni notevoli",
             questions:[
-                { prompt:{equation:"a^2 - b^2 = \\unicode{0xFF1F}"}, answer:["(a+b)(a-b)","(a-b)(a+b)"] },
-                { prompt:{equation:"a^2 + b^2 = \\unicode{0xFF1F}"}, answer:["(a+b)^2-2ab"] },
-                { prompt:{equation:"a^3 - b^3 = \\unicode{0xFF1F}"}, answer:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"] },
-                { prompt:{equation:"a^3 + b^3 = \\unicode{0xFF1F}"}, answer:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"] },
+                { prompt:{equation:"a^2 - b^2"}, answer:["(a+b)(a-b)","(a-b)(a+b)"] },
+                { prompt:{equation:"a^2 + b^2"}, answer:["(a+b)^2-2ab"] },
+                { prompt:{equation:"a^3 - b^3"}, answer:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"] },
+                { prompt:{equation:"a^3 + b^3"}, answer:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"] },
             ]
         },
     ];
@@ -262,11 +271,11 @@ window.addEventListener("load", () => {
             if (equation) {
                 try {
                     /** @ts-ignore */
-                    _prompt.innerHTML = MathJax.tex2mml(equation, {}) 
+                    _prompt.innerHTML = MathJax.tex2mml(equation + (typeof text==="string" ? "" : " = \\unicode{0xFF1F}"), {}) 
                         + (text ? "<p>" + text.replaceAll("<","&lt").replaceAll(">","&gt") + (typeof answer === "string" ? " = ?" : " =* ?") + "</p>" : "");
                 }
                 catch(e) {
-                    setTimeout(updateQuestionUI,100);
+                    setTimeout(updateQuestionUI,50);
                 }
             }
             else if (text) {
