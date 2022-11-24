@@ -16,14 +16,14 @@ window.addEventListener("load", () => {
     _input.addEventListener("input",(e) => {
         // @ts-ignore
         let v = e.target.value;
-        v = v.replaceAll(/\s/g,"");
-        v = v.replaceAll(/v|V/g,"√");
-        v = v.replaceAll(">=","≥");
-        v = v.replaceAll("<=","≤");
-        v = v.replaceAll("*","^");
-        v = v.replaceAll("+-","±");
-        v = v.replaceAll("-+","∓");
-        v = v.replaceAll("x0","x₀");
+        v = v.toLowerCase()
+            .replaceAll(/\s/g,"")
+            .replaceAll("v","√")
+            .replaceAll(">=","≥")
+            .replaceAll("<=","≤")
+            .replaceAll("*","^")
+            .replaceAll("+-","±")
+            .replaceAll("-+","∓");
         //v = v.replaceAll("p","π");
         // @ts-ignore
         e.target.value = v;
@@ -245,16 +245,43 @@ window.addEventListener("load", () => {
                 { prompt:{equation:"{f(x) = \\cos x} \\text{, } { f'(x)}"}, answer:["-sin(x)","-sin","-sinx"] },
                 { prompt:{equation:"{f(x) = -\\sin x} \\text{, } { f'(x)}"}, answer:["-cos(x)","-cos","-cosx"] },
                 { prompt:{equation:"{f(x) = -\\cos x} \\text{, } { f'(x)}"}, answer:["sin(x)","sin","sinx"] },
+                { prompt:{equation:"{f(x) = \\arctan x} \\text{, } { f'(x)}"}, answer:"1/(1+x^2)" },
+                { prompt:{equation:"{f(x) = \\arcsin x} \\text{, } { f'(x)}"}, answer:"1/√(1+x^2)" },
+                { prompt:{equation:"{f(x) = \\arccos x} \\text{, } { f'(x)}"}, answer:["-1/√(1+x^2)","-(1/√(1+x^2))"] },
             ]
         },
         {
             category:"Regole di derivazione",
             questions:[
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x) \\pm g'(x)}"}, answer:"f'(x₀)±g'(x₀)" },
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x)g'(x)}"}, answer:["f'(x₀)g(x₀)+f(x₀)g'(x₀)","f'(x₀)*g(x₀)+f(x₀)*g'(x₀)"] },
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {1/f'(x)}"}, answer:["-g'(x₀)/(g(x₀))^2","-g'(x₀)/g(x₀)^2","-(g'(x₀)/(g(x₀))^2)","-(g'(x₀)/g(x₀)^2)"] },
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x) \\over g'(x)}"}, answer:
-                ["(f'(x₀)g(x₀)-g'(x₀)f(x₀))/(g(x₀))^2","(f'(x₀)g(x₀)-g'(x₀)f(x₀))/g(x₀)^2"] },
+                // somma
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:"f'(x)±g'(x)" },
+                // prodotto
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"] },
+                // reciproco
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"] },
+                // divisione
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"] },
+                // composizione
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:["f'(g(x))g'(x)","f'(g(x))*g'(x)"] },
+                // inversa
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:["1/f'(f'(x))","1/(f'(f'(x)))"] },
+            ]
+        },
+        {
+            category:"Polinomi di Taylor",
+            questions:[
+                // somma
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:"f'(x)±g'(x)" },
+                // prodotto
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"] },
+                // reciproco
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"] },
+                // divisione
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"] },
+                // composizione
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:["f'(g(x))g'(x)","f'(g(x))*g'(x)"] },
+                // inversa
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:["1/f'(f'(x))","1/(f'(f'(x)))"] },
             ]
         },
     ];
