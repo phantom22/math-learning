@@ -20,6 +20,9 @@ window.addEventListener("load", () => {
         v = v.replaceAll(">=", "≥");
         v = v.replaceAll("<=", "≤");
         v = v.replaceAll("*", "^");
+        v = v.replaceAll("+-", "±");
+        v = v.replaceAll("-+", "∓");
+        v = v.replaceAll("x0", "x₀");
         //v = v.replaceAll("p","π");
         // @ts-ignore
         e.target.value = v;
@@ -118,6 +121,10 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "1 - \\sin^2 x" }, answer: "cos^2" },
                 { prompt: { equation: "\\sin^2 x" }, answer: "1-cos^2" },
                 { prompt: { equation: "\\cos^2 x" }, answer: "1-sin^2" },
+                /*{ prompt:{equation:"\\sin x"}, answer:["±√1-cos^2","±√(1-cos^2)"]},
+                { prompt:{equation:"\\cos x"}, answer:["±√1-sin^2","±√(1-sin^2)"]},*/
+                { prompt: { equation: "\\cos (a \\pm b)" }, answer: ["cos(a)*cos(b)∓sin(a)*sin(b)", "cos(a)cos(b)∓sin(a)sin(b)"] },
+                { prompt: { equation: "\\sin (a \\pm b)" }, answer: ["sin(a)*cos(b)±cos(a)*sin(b)", "sin(a)cos(b)±cos(a)sin(b)"] },
             ]
         },
         {
@@ -129,12 +136,12 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "\\lim_{x \\rightarrow 0} { e^x - 1 \\over x }" }, answer: "1" },
                 { prompt: { equation: "\\lim_{x \\rightarrow 0} { \\arctan x \\over x }" }, answer: "1" },
                 { prompt: { equation: "\\lim_{x \\rightarrow 0} { \\arcsin x \\over x }" }, answer: "1" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} \\sin x" }, answer: "x" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} \\ln (1+x)" }, answer: "x" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} \\tan x" }, answer: "x" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} e^x - 1" }, answer: "x" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} \\arctan x" }, answer: "x" },
-                { prompt: { equation: "\\lim_{x \\rightarrow 0} \\arcsin x" }, answer: "x" },
+                /*{ prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x)"},answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x"}, answer:"x" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x"}, answer:"x" },*/
                 { prompt: { equation: "\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x }" }, answer: "k" },
                 { prompt: { equation: "\\lim_{x \\rightarrow 0^+} x \\ln x" }, answer: "0" },
                 { prompt: { equation: "\\lim_{x \\rightarrow 0} {a^x - 1 \\over x}" }, answer: ["ln(a)", "log(a)"] },
@@ -142,6 +149,32 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x" }, answer: "e" },
                 { prompt: { equation: "\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}" }, answer: "e" },
                 { prompt: { equation: "\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x" }, answer: "e^a" },
+            ]
+        },
+        {
+            category: "Equivalenze asintotiche",
+            questions: [
+                { prompt: { equation: "\\sin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+                { prompt: { equation: "\\tan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+                { prompt: { equation: "e^x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+                { prompt: { equation: "\\cos x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: ["-x^2/2", "-(x^2/2)"] },
+                { prompt: { equation: "\\cos x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "1" },
+                { prompt: { equation: "\\arctan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+                { prompt: { equation: "\\arcsin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+                { prompt: { equation: "\\log (1+x) \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x" },
+            ]
+        },
+        {
+            category: "Sviluppi con o-piccolo",
+            questions: [
+                { prompt: { equation: "\\sin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
+                { prompt: { equation: "\\tan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
+                { prompt: { equation: "e^x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
+                { prompt: { equation: "\\cos x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: ["-x^2/2+o(x^2)", "-(x^2/2)+o(x^2)"] },
+                { prompt: { equation: "\\cos x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "1+o(x)" },
+                { prompt: { equation: "\\arctan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
+                { prompt: { equation: "\\arcsin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
+                { prompt: { equation: "\\log (1+x) = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0", text: "" }, answer: "x+o(x)" },
             ]
         },
         {
@@ -164,6 +197,28 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "a^2 + b^2" }, answer: ["(a+b)^2-2ab"] },
                 { prompt: { equation: "a^3 - b^3" }, answer: ["(a-b)(a^2+ab+b^2)", "(a^2+ab+b^2)(a-b)"] },
                 { prompt: { equation: "a^3 + b^3" }, answer: ["(a+b)(a^2-ab+b^2)", "(a^2-ab+b^2)(a+b)"] },
+            ]
+        },
+        {
+            category: "Derivate delle funzioni elementari",
+            questions: [
+                { prompt: { equation: "{f(x) = c} \\text{, } {f'(x)}" }, answer: "0" },
+                { prompt: { equation: "{f(x) = x^a} \\text{, } {f'(x)}" }, answer: ["ax^(a-1)", "a*x^(a-1)"] },
+                { prompt: { equation: "{f(x) = e^x} \\text{, } {f'(x)}" }, answer: "e^x" },
+                { prompt: { equation: "{f(x) = \\log x} \\text{, } { f'(x)}" }, answer: "1/x" },
+                { prompt: { equation: "{f(x) = \\sin x} \\text{, } { f'(x)}" }, answer: ["cos(x)", "cos", "cosx"] },
+                { prompt: { equation: "{f(x) = \\cos x} \\text{, } { f'(x)}" }, answer: ["-sin(x)", "-sin", "-sinx"] },
+                { prompt: { equation: "{f(x) = -\\sin x} \\text{, } { f'(x)}" }, answer: ["-cos(x)", "-cos", "-cosx"] },
+                { prompt: { equation: "{f(x) = -\\cos x} \\text{, } { f'(x)}" }, answer: ["sin(x)", "sin", "sinx"] },
+            ]
+        },
+        {
+            category: "Regole di derivazione",
+            questions: [
+                { prompt: { equation: "\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x) \\pm g'(x)}" }, answer: "f'(x₀)±g'(x₀)" },
+                { prompt: { equation: "\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x)g'(x)}" }, answer: ["f'(x₀)g(x₀)+f(x₀)g'(x₀)", "f'(x₀)*g(x₀)+f(x₀)*g'(x₀)"] },
+                { prompt: { equation: "\\text{Sia } {f(x)} \\text{ una funzione, } {1/f'(x)}" }, answer: ["-g'(x₀)/(g(x₀))^2", "-g'(x₀)/g(x₀)^2", "-(g'(x₀)/(g(x₀))^2)", "-(g'(x₀)/g(x₀)^2)"] },
+                { prompt: { equation: "\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {f'(x) \\over g'(x)}" }, answer: ["(f'(x₀)g(x₀)-g'(x₀)f(x₀))/(g(x₀))^2", "(f'(x₀)g(x₀)-g'(x₀)f(x₀))/g(x₀)^2"] },
             ]
         },
     ];
