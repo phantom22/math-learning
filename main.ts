@@ -43,6 +43,7 @@ window.addEventListener("load", () => {
         length:number;
     };
     // https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+    
     const categories: categoryCollection = [
         {
             category:"Trigonometria",
@@ -138,80 +139,73 @@ window.addEventListener("load", () => {
             ]
         },
         {
-            category:"Identità trigonometriche (ignorare l'argomento)",
+            category:"Identità trigonometriche",
             questions: [
-                { prompt:{equation:"\\tan x"}, answer:{correctAnswers:"sin/cos"}},
-                { prompt:{equation:"\\tan^{-1} x"}, answer:{correctAnswers:["cos/sin","1/tan"]}},
-                { prompt:{equation:"\\cot x"}, answer:{correctAnswers:["cos/sin","1/tan"]}},
-                { prompt:{equation:"\\sec x"}, answer:{correctAnswers:"1/cos"}},
-                { prompt:{equation:"\\csc x"}, answer:{correctAnswers:"1/sin"}},
-                { prompt:{equation:"\\sin^2 x + \\cos^2 x"}, answer:{correctAnswers:"1"}},
-                { prompt:{equation:"1 - \\cos^2 x"},answer:{correctAnswers:"sin^2"}},
-                { prompt:{equation:"1 - \\sin^2 x"},answer:{correctAnswers:"cos^2"}},
-                { prompt:{equation:"\\sin^2 x"}, answer:{correctAnswers:"1-cos^2"}},
-                { prompt:{equation:"\\cos^2 x"},answer:{correctAnswers:"1-sin^2"}},
+                { prompt:{equation:"{\\tan x}"}, answer:{correctAnswers:["sin/cos","sin(x)/cos(x)"],equation:"{{\\tan x}=\\frac{\\sin x}{\\cos x}}"}},
+                { prompt:{equation:"{\\tan^{-1} x}"}, answer:{correctAnswers:["cos/sin","1/tan","cos(x)/sin(x)","1/tan(x)"],equation:"{{\\tan^{-1} x}=\\frac{\\cos x}{\\sin x}=\\frac{1}{\\tan x}}"}},
+                { prompt:{equation:"{\\cot x}"}, answer:{correctAnswers:["cos/sin","1/tan","cos(x)/sin(x)","1/tan(x)"],equation:"{{\\tan^{-1} x}=\\frac{\\cos x}{\\sin x}=\\frac{1}{\\tan x}}"}},
+                { prompt:{equation:"{\\sec x}"}, answer:{correctAnswers:["1/cos","1/cos(x)"],equation:"{{\\sec x}=\\frac{1}{\\cos x}}"}},
+                { prompt:{equation:"{\\csc x}"}, answer:{correctAnswers:["1/sin","1/sin(x)"],equation:"{{\\csc x}=\\frac{1}{\\sin x}}"}},
+                { prompt:{equation:"{\\sin^2 x + \\cos^2 x}"}, answer:{correctAnswers:"1",equation:"{{\\sin^2 x + \\cos^2 x}=1}"}},
+                { prompt:{equation:"{1-\\cos^2 x}"},answer:{correctAnswers:["sin^2","sin^2(x)"],equation:"{{1-\\cos^2 x}=\\sin^2 x}"}},
+                { prompt:{equation:"{1-\\sin^2 x}"},answer:{correctAnswers:["cos^2","cos^2(x)"],equation:"{{1-\\sin^2 x}=\\cos^2 x}"}},
+                { prompt:{equation:"{\\sin^2 x}"}, answer:{correctAnswers:["1-cos^2","1-cos^2(x)"],equation:"{{\\sin^2 x}=1-\\cos^2 x}"}},
+                { prompt:{equation:"{\\cos^2 x}"},answer:{correctAnswers:["1-sin^2","1-sin^2(x)"],equation:"{{\\cos^2 x}=1-\\sin^2 x}"}},
                 /*{ prompt:{equation:"\\sin x"}, answer:{correctAnswers:["±√1-cos^2","±√(1-cos^2)"]}},
                 { prompt:{equation:"\\cos x"}, answer:{correctAnswers:["±√1-sin^2","±√(1-sin^2)"]}},*/
-                { prompt:{equation:"\\cos (a \\pm b)"},answer:{correctAnswers:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"],equation:"{\\cos a \\cos b \\mp \\sin a \\sin b}"}},
-                { prompt:{equation:"\\sin (a \\pm b)"},answer:{correctAnswers:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"],equation:"{\\sin a \\cos b \\pm \\cos a \\sin b}"}},
+                { prompt:{equation:"{\\cos (a \\pm b)}"},answer:{correctAnswers:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"],equation:"{{\\cos (\\alpha \\pm \\beta)}={\\cos \\alpha \\cos \\beta \\mp \\sin \\alpha \\sin \\beta}}"}},
+                { prompt:{equation:"{\\sin (a \\pm b)}"},answer:{correctAnswers:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"],equation:"{{\\sin(\\alpha \\pm \\beta)}={\\sin \\alpha \\cos \\beta \\pm \\cos \\alpha \\sin \\beta}}"}},
             ]
         },
         {
             category:"Limiti notevoli",
             questions:[
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {\\sin x \\over x}"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} {\\sin x \\over x} = 1}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x }"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x } = 1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}=1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}=1}"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\tan (x) \\over x }"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} { \\tan (x) \\over x } = 1}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { e^x - 1 \\over x }"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} { e^x - 1 \\over x } = 1}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arctan x \\over x }"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} { \\arctan x \\over x } = 1}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arcsin x \\over x }"}, answer:{correctAnswers:"1",equation:"{\\lim_{x \\rightarrow 0} { \\arcsin x \\over x } = 1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}=1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}=1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}=1}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}"}, answer:{correctAnswers:"1",equation:"{{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}=1}"}},
 
-                /*{ prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x"}, answer:{correctAnswers:"x" }},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x)"},answer:{correctAnswers:"x" }},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x"}, answer:{correctAnswers:"x" }},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1"}, answer:{correctAnswers:"x" }},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x"}, answer:{correctAnswers:"x"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x"}, answer:{correctAnswers:"x"}},*/
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}"}, answer:{correctAnswers:"k",equation:"{{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}=k, \\forall k \\in \\mathbb{R}}"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x }"}, answer:{correctAnswers:"k",equation:"{\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x } = k}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0^+} x \\ln x}"}, answer:{correctAnswers:"0",equation:"{{\\lim_{x \\rightarrow 0^+} x \\ln x}=0}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}"}, answer:{correctAnswers:["ln(a)","log(a)"],equation:"{{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}=\\ln a}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}"}, answer:{correctAnswers:"1/2",equation:"{{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}=\\frac{1}{2}}"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0^+} x \\ln x"}, answer:{correctAnswers:"0",equation:"{\\lim_{x \\rightarrow 0^+} x \\ln x = 0}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {a^x - 1 \\over x}"}, answer:{correctAnswers:["ln(a)","log(a)"],equation:"{\\lim_{x \\rightarrow 0} {a^x - 1 \\over x} = \\log a}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2}"}, answer:{correctAnswers:"1/2",equation:"{\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2} = {1 \\over 2}}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow \\infty} (1 + \\frac{1}{x})^x}"}, answer:{correctAnswers:"e",equation:"{{\\lim_{x \\rightarrow \\infty} (1 + \\frac{1}{x})^x}=e}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}}"}, answer:{correctAnswers:"e",equation:"{{\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}}=e}"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x"}, answer:{correctAnswers:"e",equation:"{\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x = e}"}},
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}"}, answer:{correctAnswers:"e",equation:"{\\lim_{x \\rightarrow \\infty} (1 + x)^{-x} = e}"}},
-
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x"}, answer:{correctAnswers:"e^a",equation:"{\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x = e^a}"}},
+                { prompt:{equation:"{\\lim_{x \\rightarrow \\infty} (1 + \\frac{\\alpha}{x})^x}"}, answer:{correctAnswers:"e^a",equation:"{{\\lim_{x \\rightarrow \\infty} (1 + \\frac{\\alpha}{x})^x}=e^\\alpha}"}},
             ]
         },
         {
             category:"Equivalenze asintotiche",
             questions:[
-                    { prompt:{equation:"\\sin x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\sin x \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\tan x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\tan x \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x - 1 \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{e^x - 1 \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x",equation:"{{e^x \\sim 1+x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x - 1 \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2","-(x^2/2)"],equation:"{\\cos x - 1 \\sim -{x^2 \\over 2} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1",equation:"{\\cos x \\sim 1 \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arctan x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arctan x \\sim x \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arcsin x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\log (1+x) \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\log (1+x) \\sim x \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"{\\sin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{{\\sin x \\sim x} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\tan x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{{\\tan x \\sim x} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{e^x - 1 \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{{e^x - 1 \\sim x} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{e^x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+x",equation:"{{e^x \\sim 1+x} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\cos x - 1 \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:["-x^2/2","-(x^2/2)"],equation:"{\\cos x - 1 \\sim -\\frac{x^2}{2} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\sin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1",equation:"{\\cos x \\sim 1 \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\arctan x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\arctan x \\sim x \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\arcsin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\log (1+x) \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\log (1+x) \\sim x \\text{, per } {x \\rightarrow 0}}"}},
             ]
         },
         {
             category:"Sviluppi con o-piccolo",
             questions:[
-                    { prompt:{equation:"\\sin x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\sin x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\tan x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\tan x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x - 1 = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{e^x - 1 = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x+o(x)",equation:"{{e^x = 1 + x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x - 1 = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"],equation:"{\\cos x - 1 = -{x^2 \\over 2}+o(x^2) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+o(x)",equation:"{\\cos x = 1+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arctan x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arctan x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arcsin x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arcsin x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\log (1+x) = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\log (1+x) = x+o(x) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"{\\sin x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\sin x = x + o(x)} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\tan x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\tan x = x + o(x)} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{e^x - 1 = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{e^x - 1 = x + o(x)} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{e^x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+x+o(x)",equation:"{{e^x = 1 + x + o(x)} \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\cos x - 1 = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"],equation:"{\\cos x - 1 = -\\frac{x^2}{2}+o(x^2) \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\cos x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+o(x)",equation:"{\\cos x = 1+o(x) \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\arctan x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arctan x = x+o(x) \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\arcsin x = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arcsin x = x+o(x) \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\log (1+x) = ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\log (1+x) = x+o(x) \\text{, per } {x \\rightarrow 0}}"}},
             ]
         },
         {
@@ -256,18 +250,19 @@ window.addEventListener("load", () => {
             category:"Regole di derivazione",
             questions:[
                 // somma
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)",equation:"{(f \\pm g)'}={f'(x) \\pm g'(x)}"}},
+                { prompt:{equation:"{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}}"}, answer:{correctAnswers:"f'(x)±g'(x)",equation:"{(f \\pm g)'=f'(x) \\pm g'(x)}"}},
                 // prodotto
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"],equation:"{(f g)'}={f'(x)g(x)+f(x)g'(x)}"}},
+                { prompt:{equation:"{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"],
+                equation:"{(f g)'=f'(x)g(x)+f(x)g'(x)}"}},
                 // reciproco
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(\\frac{1}{f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"],
-                equation:"{(\\frac{1}{f})'}=-\\frac{g'(x)}{g(x)^2}"}},
+                { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(\\frac{1}{f})'}}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"],
+                equation:"{(\\frac{1}{f})'=-\\frac{g'(x)}{g(x)^2}}"}},
                 // divisione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(\\frac{f}{g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"],equation:"{(\\frac{f}{g})'}={{f'(x)g(x)-g'(x)f(x)} \\over g(x)^2}"}},
+                { prompt:{equation:"{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(\\frac{f}{g})'}}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"],equation:"{(\\frac{f}{g})'=\\frac{f'(x)g(x)-g'(x)f(x)}{g(x)^2}}"}},
                 // composizione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"],equation:"{(f \\circ g)'} = {f'(g(x)) \\over g'(x)}"}},
+                { prompt:{equation:"{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"],equation:"{(f \\circ g)'=f'(g(x))g'(x)}"}},
                 // inversa
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{{(f^{-1})'} = \\frac{1}{f' \\circ f'}}"}},
+                { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f'}}"}},
             ]
         },
         /*{
