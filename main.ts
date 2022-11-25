@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
 
     document.body.addEventListener("keypress",(e)=>{
         if (e.key==="Enter") answerQuestion();
+        else if (e.key===" " && _input.placeholder!=="Inserire qui la risposta...") _input.value = _input.placeholder;
     });
 
     _input.addEventListener("input",(e) => {
@@ -35,8 +36,7 @@ window.addEventListener("load", () => {
         questions: {
             [questionIndex:number]: {
                 prompt?: {equation:string,text?:string};
-                answer: string | string[];
-                answerMathJax?: string;
+                answer:{correctAnswers:string | string[],equation?:string};
             }
             length:number;
         }
@@ -47,243 +47,243 @@ window.addEventListener("load", () => {
         {
             category:"Trigonometria",
             questions: [
-                { prompt:{equation:"\\cos 0^\\circ"}, answer:"1"}, 
-                { prompt:{equation:"\\cos 360^\\circ"}, answer:"1"}, 
-                { prompt:{equation:"\\cos 2 \\pi "}, answer:"1"},
-                { prompt:{equation:"\\tan 45^\\circ"}, answer:"1"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 4} "}, answer:"1"},
-                { prompt:{equation:"\\sin 90^\\circ"}, answer:"1"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 2} "}, answer:"1"},
+                { prompt:{equation:"\\cos 0^\\circ"}, answer:{correctAnswers:"1"}}, 
+                { prompt:{equation:"\\cos 360^\\circ"}, answer:{correctAnswers:"1"}}, 
+                { prompt:{equation:"\\cos 2 \\pi "}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\tan 45^\\circ"}, answer:{correctAnswers:"1"}}, 
+                { prompt:{equation:"\\tan {\\pi \\over 4} "}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\sin 90^\\circ"}, answer:{correctAnswers:"1"}}, 
+                { prompt:{equation:"\\sin {\\pi \\over 2} "}, answer:{correctAnswers:"1"}},
 
-                { prompt:{equation:"\\sin 0^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\sin 360^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\sin 2 \\pi "}, answer:"0"},
-                { prompt:{equation:"\\tan 0^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\tan 360^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\tan 2 \\pi "}, answer:"0"},
-                { prompt:{equation:"\\cos 90^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 2} "}, answer:"0"},
-                { prompt:{equation:"\\sin 180^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\sin \\pi "}, answer:"0"},
-                { prompt:{equation:"\\tan 180^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\tan \\pi "}, answer:"0"},
-                { prompt:{equation:"\\cos 270^\\circ"}, answer:"0"}, 
-                { prompt:{equation:"\\cos {3 \\over 2} \\pi "}, answer:"0"},
+                { prompt:{equation:"\\sin 0^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\sin 360^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\sin 2 \\pi "}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\tan 0^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\tan 360^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\tan 2 \\pi "}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\cos 90^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\cos {\\pi \\over 2} "}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\sin 180^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\sin \\pi "}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\tan 180^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\tan \\pi "}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\cos 270^\\circ"}, answer:{correctAnswers:"0"}}, 
+                { prompt:{equation:"\\cos {3 \\over 2} \\pi "}, answer:{correctAnswers:"0"}},
 
-                { prompt:{equation:"\\cos 30^\\circ"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 6} "}, answer:"√3/2"},
-                { prompt:{equation:"\\sin 60^\\circ"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 3} "}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ - 30^\\circ)"}, answer:"√3/2"},
-                { prompt:{equation:"\\sin 120^\\circ"}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin {2 \\over 3} \\pi "}, answer:"√3/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ + 30^\\circ)"}, answer:"√3/2"},
+                { prompt:{equation:"\\cos 30^\\circ"}, answer:{correctAnswers:"√3/2"}}, 
+                { prompt:{equation:"\\cos {\\pi \\over 6} "}, answer:{correctAnswers:"√3/2"}},
+                { prompt:{equation:"\\sin 60^\\circ"}, answer:{correctAnswers:"√3/2"}}, 
+                { prompt:{equation:"\\sin {\\pi \\over 3} "}, answer:{correctAnswers:"√3/2"}}, 
+                { prompt:{equation:"\\sin (90^\\circ - 30^\\circ)"}, answer:{correctAnswers:"√3/2"}},
+                { prompt:{equation:"\\sin 120^\\circ"}, answer:{correctAnswers:"√3/2"}}, 
+                { prompt:{equation:"\\sin {2 \\over 3} \\pi "}, answer:{correctAnswers:"√3/2"}}, 
+                { prompt:{equation:"\\sin (90^\\circ + 30^\\circ)"}, answer:{correctAnswers:"√3/2"}},
 
-                { prompt:{equation:"\\sin 30^\\circ"}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 6} "}, answer:"1/2"},
-                { prompt:{equation:"\\cos 60^\\circ"}, answer:"1/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 3} "}, answer:"1/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ - 30^\\circ)"}, answer:"1/2"},
-                { prompt:{equation:"\\sin 150^\\circ"}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin {5 \\over 6} \\pi "}, answer:"1/2"}, 
-                { prompt:{equation:"\\sin (180^\\circ - 30^\\circ)"}, answer:"1/2"},
+                { prompt:{equation:"\\sin 30^\\circ"}, answer:{correctAnswers:"1/2"}}, 
+                { prompt:{equation:"\\sin {\\pi \\over 6} "}, answer:{correctAnswers:"1/2"}},
+                { prompt:{equation:"\\cos 60^\\circ"}, answer:{correctAnswers:"1/2"}}, 
+                { prompt:{equation:"\\cos {\\pi \\over 3} "}, answer:{correctAnswers:"1/2"}}, 
+                { prompt:{equation:"\\cos (90^\\circ - 30^\\circ)"}, answer:{correctAnswers:"1/2"}},
+                { prompt:{equation:"\\sin 150^\\circ"}, answer:{correctAnswers:"1/2"}}, 
+                { prompt:{equation:"\\sin {5 \\over 6} \\pi "}, answer:{correctAnswers:"1/2"}}, 
+                { prompt:{equation:"\\sin (180^\\circ - 30^\\circ)"}, answer:{correctAnswers:"1/2"}},
 
-                { prompt:{equation:"\\tan 30^\\circ"}, answer:"√3/3"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 6} "}, answer:"√3/3"},
+                { prompt:{equation:"\\tan 30^\\circ"}, answer:{correctAnswers:"√3/3"}}, 
+                { prompt:{equation:"\\tan {\\pi \\over 6} "}, answer:{correctAnswers:"√3/3"}},
 
-                { prompt:{equation:"\\cos 45^\\circ"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\cos {\\pi \\over 4} "}, answer:"√2/2"},
-                { prompt:{equation:"\\sin 45^\\circ"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin {\\pi \\over 4} "}, answer:"√2/2"},
-                { prompt:{equation:"\\sin 135^\\circ"}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin {3 \\over 4} \\pi "}, answer:"√2/2"}, 
-                { prompt:{equation:"\\sin (90^\\circ + 45^\\circ)"}, answer:"√2/2"},
+                { prompt:{equation:"\\cos 45^\\circ"}, answer:{correctAnswers:"√2/2"}}, 
+                { prompt:{equation:"\\cos {\\pi \\over 4} "}, answer:{correctAnswers:"√2/2"}},
+                { prompt:{equation:"\\sin 45^\\circ"}, answer:{correctAnswers:"√2/2"}}, 
+                { prompt:{equation:"\\sin {\\pi \\over 4} "}, answer:{correctAnswers:"√2/2"}},
+                { prompt:{equation:"\\sin 135^\\circ"}, answer:{correctAnswers:"√2/2"}}, 
+                { prompt:{equation:"\\sin {3 \\over 4} \\pi "}, answer:{correctAnswers:"√2/2"}}, 
+                { prompt:{equation:"\\sin (90^\\circ + 45^\\circ)"}, answer:{correctAnswers:"√2/2"}},
 
-                { prompt:{equation:"\\tan 60^\\circ"}, answer:"√3"}, 
-                { prompt:{equation:"\\tan {\\pi \\over 3} "}, answer:"√3"}, 
-                { prompt:{equation:"\\tan (90^\\circ - 30^\\circ)"}, answer:"√3"},
+                { prompt:{equation:"\\tan 60^\\circ"}, answer:{correctAnswers:"√3"}}, 
+                { prompt:{equation:"\\tan {\\pi \\over 3} "}, answer:{correctAnswers:"√3"}}, 
+                { prompt:{equation:"\\tan (90^\\circ - 30^\\circ)"}, answer:{correctAnswers:"√3"}},
 
-                { prompt:{equation:"\\tan 90^\\circ"}, answer:["-","ne"]}, 
-                { prompt:{equation:"\\tan {\\pi \\over 2} "}, answer:["-","ne"]},
-                { prompt:{equation:"\\tan 270^\\circ"}, answer:["-","ne"]}, 
-                { prompt:{equation:"\\tan {3 \\over 2} \\pi "}, answer:["-","ne"]},
+                { prompt:{equation:"\\tan 90^\\circ"}, answer:{correctAnswers:["-","ne"]}}, 
+                { prompt:{equation:"\\tan {\\pi \\over 2} "}, answer:{correctAnswers:["-","ne"]}},
+                { prompt:{equation:"\\tan 270^\\circ"}, answer:{correctAnswers:["-","ne"]}}, 
+                { prompt:{equation:"\\tan {3 \\over 2} \\pi "}, answer:{correctAnswers:["-","ne"]}},
 
-                { prompt:{equation:"\\cos 120^\\circ"}, answer:"-1/2"}, 
-                { prompt:{equation:"\\cos {2 \\over 3} \\pi "}, answer:"-1/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ + 30^\\circ)"}, answer:"-1/2"},
+                { prompt:{equation:"\\cos 120^\\circ"}, answer:{correctAnswers:"-1/2"}}, 
+                { prompt:{equation:"\\cos {2 \\over 3} \\pi "}, answer:{correctAnswers:"-1/2"}}, 
+                { prompt:{equation:"\\cos (90^\\circ + 30^\\circ)"}, answer:{correctAnswers:"-1/2"}},
 
-                { prompt:{equation:"\\tan 120^\\circ"}, answer:"-√3"}, 
-                { prompt:{equation:"\\tan {2 \\over 3} \\pi "}, answer:"-√3"}, 
-                { prompt:{equation:"\\tan (90^\\circ + 30^\\circ)"}, answer:"-√3"},
+                { prompt:{equation:"\\tan 120^\\circ"}, answer:{correctAnswers:"-√3"}}, 
+                { prompt:{equation:"\\tan {2 \\over 3} \\pi "}, answer:{correctAnswers:"-√3"}}, 
+                { prompt:{equation:"\\tan (90^\\circ + 30^\\circ)"}, answer:{correctAnswers:"-√3"}},
 
-                { prompt:{equation:"\\tan 135^\\circ"}, answer:"-1"}, 
-                { prompt:{equation:"\\tan {3 \\over 4} \\pi "}, answer:"-1"}, 
-                { prompt:{equation:"\\tan (90^\\circ + 45^\\circ)"}, answer:"-1"},
-                { prompt:{equation:"\\cos 180^\\circ"}, answer:"-1"}, 
-                { prompt:{equation:"\\cos \\pi "}, answer:"-1"},
-                { prompt:{equation:"\\sin 270^\\circ"}, answer:"-1"}, 
-                { prompt:{equation:"\\sin {3 \\over 2} \\pi "}, answer:"-1"},
+                { prompt:{equation:"\\tan 135^\\circ"}, answer:{correctAnswers:"-1"}}, 
+                { prompt:{equation:"\\tan {3 \\over 4} \\pi "}, answer:{correctAnswers:"-1"}}, 
+                { prompt:{equation:"\\tan (90^\\circ + 45^\\circ)"}, answer:{correctAnswers:"-1"}},
+                { prompt:{equation:"\\cos 180^\\circ"}, answer:{correctAnswers:"-1"}}, 
+                { prompt:{equation:"\\cos \\pi "}, answer:{correctAnswers:"-1"}},
+                { prompt:{equation:"\\sin 270^\\circ"}, answer:{correctAnswers:"-1"}}, 
+                { prompt:{equation:"\\sin {3 \\over 2} \\pi "}, answer:{correctAnswers:"-1"}},
 
-                { prompt:{equation:"\\cos 135^\\circ"}, answer:"-√2/2"}, 
-                { prompt:{equation:"\\cos {3 \\over 4} \\pi "}, answer:"-√2/2"}, 
-                { prompt:{equation:"\\cos (90^\\circ + 45^\\circ)"}, answer:"-√2/2"},
+                { prompt:{equation:"\\cos 135^\\circ"}, answer:{correctAnswers:"-√2/2"}}, 
+                { prompt:{equation:"\\cos {3 \\over 4} \\pi "}, answer:{correctAnswers:"-√2/2"}}, 
+                { prompt:{equation:"\\cos (90^\\circ + 45^\\circ)"}, answer:{correctAnswers:"-√2/2"}},
 
-                { prompt:{equation:"\\tan 150^\\circ"}, answer:"-√3/3"}, 
-                { prompt:{equation:"\\tan {5 \\over 6} \\pi "}, answer:"-√3/3"}, 
-                { prompt:{equation:"\\tan (180^\\circ - 30^\\circ)"}, answer:"-√3/3"},
+                { prompt:{equation:"\\tan 150^\\circ"}, answer:{correctAnswers:"-√3/3"}}, 
+                { prompt:{equation:"\\tan {5 \\over 6} \\pi "}, answer:{correctAnswers:"-√3/3"}}, 
+                { prompt:{equation:"\\tan (180^\\circ - 30^\\circ)"}, answer:{correctAnswers:"-√3/3"}},
 
-                { prompt:{equation:"\\cos 150^\\circ"}, answer:"-√3/2"}, 
-                { prompt:{equation:"\\cos {5 \\over 6} \\pi "}, answer:"-√3/2"}, 
-                { prompt:{equation:"\\cos (180^\\circ - 30^\\circ)"}, answer:"-√3/2"},
+                { prompt:{equation:"\\cos 150^\\circ"}, answer:{correctAnswers:"-√3/2"}}, 
+                { prompt:{equation:"\\cos {5 \\over 6} \\pi "}, answer:{correctAnswers:"-√3/2"}}, 
+                { prompt:{equation:"\\cos (180^\\circ - 30^\\circ)"}, answer:{correctAnswers:"-√3/2"}},
             ]
         },
         {
             category:"Identità trigonometriche (ignorare l'argomento)",
             questions: [
-                { prompt:{equation:"\\tan x"}, answer:"sin/cos"},
-                { prompt:{equation:"\\tan^{-1} x"}, answer:["cos/sin","1/tan"]},
-                { prompt:{equation:"\\cot x"}, answer:["cos/sin","1/tan"]},
-                { prompt:{equation:"\\sec x"}, answer:"1/cos"},
-                { prompt:{equation:"\\csc x"}, answer:"1/sin"},
-                { prompt:{equation:"\\sin^2 x + \\cos^2 x"}, answer:"1"},
-                { prompt:{equation:"1 - \\cos^2 x"},answer:"sin^2"},
-                { prompt:{equation:"1 - \\sin^2 x"},answer:"cos^2"},
-                { prompt:{equation:"\\sin^2 x"}, answer:"1-cos^2"},
-                { prompt:{equation:"\\cos^2 x"},answer:"1-sin^2"},
-                /*{ prompt:{equation:"\\sin x"}, answer:["±√1-cos^2","±√(1-cos^2)"]},
-                { prompt:{equation:"\\cos x"}, answer:["±√1-sin^2","±√(1-sin^2)"]},*/
-                { prompt:{equation:"\\cos (a \\pm b)"},answer:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"]},
-                { prompt:{equation:"\\sin (a \\pm b)"},answer:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"]},
+                { prompt:{equation:"\\tan x"}, answer:{correctAnswers:"sin/cos"}},
+                { prompt:{equation:"\\tan^{-1} x"}, answer:{correctAnswers:["cos/sin","1/tan"]}},
+                { prompt:{equation:"\\cot x"}, answer:{correctAnswers:["cos/sin","1/tan"]}},
+                { prompt:{equation:"\\sec x"}, answer:{correctAnswers:"1/cos"}},
+                { prompt:{equation:"\\csc x"}, answer:{correctAnswers:"1/sin"}},
+                { prompt:{equation:"\\sin^2 x + \\cos^2 x"}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"1 - \\cos^2 x"},answer:{correctAnswers:"sin^2"}},
+                { prompt:{equation:"1 - \\sin^2 x"},answer:{correctAnswers:"cos^2"}},
+                { prompt:{equation:"\\sin^2 x"}, answer:{correctAnswers:"1-cos^2"}},
+                { prompt:{equation:"\\cos^2 x"},answer:{correctAnswers:"1-sin^2"}},
+                /*{ prompt:{equation:"\\sin x"}, answer:{correctAnswers:["±√1-cos^2","±√(1-cos^2)"]}},
+                { prompt:{equation:"\\cos x"}, answer:{correctAnswers:["±√1-sin^2","±√(1-sin^2)"]}},*/
+                { prompt:{equation:"\\cos (a \\pm b)"},answer:{correctAnswers:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"]}},
+                { prompt:{equation:"\\sin (a \\pm b)"},answer:{correctAnswers:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"]}},
             ]
         },
         {
             category:"Limiti notevoli",
             questions:[
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {\\sin x \\over x}"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x }"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {\\sin x \\over x}"}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\ln (1+x) \\over x }"}, answer:{correctAnswers:"1"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\tan (x) \\over x }"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { e^x - 1 \\over x }"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arctan x \\over x }"}, answer:"1" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arcsin x \\over x }"}, answer:"1" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\tan (x) \\over x }"}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { e^x - 1 \\over x }"}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arctan x \\over x }"}, answer:{correctAnswers:"1"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { \\arcsin x \\over x }"}, answer:{correctAnswers:"1"}},
 
-                /*{ prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x)"},answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x"}, answer:"x" },
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x"}, answer:"x" },*/
+                /*{ prompt:{equation:"\\lim_{x \\rightarrow 0} \\sin x"}, answer:{correctAnswers:"x" }},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\ln (1+x)"},answer:{correctAnswers:"x" }},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\tan x"}, answer:{correctAnswers:"x" }},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} e^x - 1"}, answer:{correctAnswers:"x" }},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arctan x"}, answer:{correctAnswers:"x"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} \\arcsin x"}, answer:{correctAnswers:"x"}},*/
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x }"}, answer:"k" },
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} { (1 + x)^k - 1 \\over x }"}, answer:{correctAnswers:"k" }},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow 0^+} x \\ln x"}, answer:"0"},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {a^x - 1 \\over x}"}, answer:["ln(a)","log(a)"]},
-                { prompt:{equation:"\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2}"}, answer:"1/2"},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0^+} x \\ln x"}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {a^x - 1 \\over x}"}, answer:{correctAnswers:["ln(a)","log(a)"]}},
+                { prompt:{equation:"\\lim_{x \\rightarrow 0} {1 - \\cos x \\over x^2}"}, answer:{correctAnswers:"1/2"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x"}, answer:"e" },
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}"}, answer:"e" },
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {1 \\over x})^x"}, answer:{correctAnswers:"e"}},
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + x)^{-x}"}, answer:{correctAnswers:"e"}},
 
-                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x"}, answer:"e^a" },
+                { prompt:{equation:"\\lim_{x \\rightarrow \\infty} (1 + {a \\over x})^x"}, answer:{correctAnswers:"e^a"}},
             ]
         },
         {
             category:"Equivalenze asintotiche",
             questions:[
-                    { prompt:{equation:"\\sin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
-                    { prompt:{equation:"\\tan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
-                    { prompt:{equation:"e^x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
-                    { prompt:{equation:"\\cos x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:["-x^2/2","-(x^2/2)"] },
-                    { prompt:{equation:"\\cos x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"1" },
-                    { prompt:{equation:"\\arctan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
-                    { prompt:{equation:"\\arcsin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
-                    { prompt:{equation:"\\log (1+x) \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x" },
+                    { prompt:{equation:"\\sin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
+                    { prompt:{equation:"\\tan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
+                    { prompt:{equation:"e^x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
+                    { prompt:{equation:"\\cos x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2","-(x^2/2)"]}},
+                    { prompt:{equation:"\\cos x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1"}},
+                    { prompt:{equation:"\\arctan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
+                    { prompt:{equation:"\\arcsin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
+                    { prompt:{equation:"\\log (1+x) \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x"}},
             ]
         },
         {
             category:"Sviluppi con o-piccolo",
             questions:[
-                    { prompt:{equation:"\\sin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
-                    { prompt:{equation:"\\tan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
-                    { prompt:{equation:"e^x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
-                    { prompt:{equation:"\\cos x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"] },
-                    { prompt:{equation:"\\cos x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"1+o(x)" },
-                    { prompt:{equation:"\\arctan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
-                    { prompt:{equation:"\\arcsin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
-                    { prompt:{equation:"\\log (1+x) = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:"x+o(x)" },
+                    { prompt:{equation:"\\sin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
+                    { prompt:{equation:"\\tan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
+                    { prompt:{equation:"e^x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
+                    { prompt:{equation:"\\cos x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"]}},
+                    { prompt:{equation:"\\cos x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+o(x)"}},
+                    { prompt:{equation:"\\arctan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
+                    { prompt:{equation:"\\arcsin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
+                    { prompt:{equation:"\\log (1+x) = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)"}},
             ]
         },
         {
             category:"Serie note",
             questions:[
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"diverge per q"}, answer:"q≥1" },
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"converge per q"},answer:"-1<q<1" },
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"se -1<q<1, a cosa converge"}, answer:"1/(1-q)" },
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"è indeterminata per q"}, answer:"q≤-1" },
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"diverge per a"}, answer:"a≤1" },
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"converge per a"}, answer:"a>1" },
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"diverge per a"}, answer:"a≤1" },
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"converge per a"}, answer:"a>1" },
+                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"diverge per q"}, answer:{correctAnswers:"q≥1"}},
+                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"converge per q"},answer:{correctAnswers:"-1<q<1"}},
+                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"se -1<q<1, a cosa converge"}, answer:{correctAnswers:"1/(1-q)"}},
+                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"è indeterminata per q"}, answer:{correctAnswers:"q≤-1"}},
+                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"diverge per a"}, answer:{correctAnswers:"a≤1"}},
+                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"converge per a"}, answer:{correctAnswers:"a>1"}},
+                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"diverge per a"}, answer:{correctAnswers:"a≤1"}},
+                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"converge per a"}, answer:{correctAnswers:"a>1"}},
             ]
         },
         {
             category:"Scomposizioni notevoli",
             questions:[
-                { prompt:{equation:"a^2 - b^2"}, answer:["(a+b)(a-b)","(a-b)(a+b)"] },
-                { prompt:{equation:"a^2 + b^2"}, answer:["(a+b)^2-2ab"] },
-                { prompt:{equation:"a^3 - b^3"}, answer:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"] },
-                { prompt:{equation:"a^3 + b^3"}, answer:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"] },
+                { prompt:{equation:"a^2 - b^2"}, answer:{correctAnswers:["(a+b)(a-b)","(a-b)(a+b)"]}},
+                { prompt:{equation:"a^2 + b^2"}, answer:{correctAnswers:["(a+b)^2-2ab"]}},
+                { prompt:{equation:"a^3 - b^3"}, answer:{correctAnswers:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"]}},
+                { prompt:{equation:"a^3 + b^3"}, answer:{correctAnswers:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"]}},
             ]
         },
         {
             category:"Derivate delle funzioni elementari",
             questions:[
-                { prompt:{equation:"{f(x) = c} \\text{, } {f'(x)}"}, answer:"0" },
-                { prompt:{equation:"{f(x) = x^a} \\text{, } {f'(x)}"}, answer:["ax^(a-1)","a*x^(a-1)"] },
-                { prompt:{equation:"{f(x) = e^x} \\text{, } {f'(x)}"}, answer:"e^x" },
-                { prompt:{equation:"{f(x) = \\log x} \\text{, } { f'(x)}"}, answer:"1/x" },
-                { prompt:{equation:"{f(x) = \\sin x} \\text{, } { f'(x)}"}, answer:["cos(x)","cos","cosx"] },
-                { prompt:{equation:"{f(x) = \\cos x} \\text{, } { f'(x)}"}, answer:["-sin(x)","-sin","-sinx"] },
-                { prompt:{equation:"{f(x) = -\\sin x} \\text{, } { f'(x)}"}, answer:["-cos(x)","-cos","-cosx"] },
-                { prompt:{equation:"{f(x) = -\\cos x} \\text{, } { f'(x)}"}, answer:["sin(x)","sin","sinx"] },
-                { prompt:{equation:"{f(x) = \\arctan x} \\text{, } { f'(x)}"}, answer:"1/(1+x^2)" },
-                { prompt:{equation:"{f(x) = \\arcsin x} \\text{, } { f'(x)}"}, answer:"1/√(1+x^2)" },
-                { prompt:{equation:"{f(x) = \\arccos x} \\text{, } { f'(x)}"}, answer:["-1/√(1+x^2)","-(1/√(1+x^2))"] },
+                { prompt:{equation:"{f(x) = c} \\text{, } {f'(x)}"}, answer:{correctAnswers:"0"}},
+                { prompt:{equation:"{f(x) = x^a} \\text{, } {f'(x)}"}, answer:{correctAnswers:["ax^(a-1)","a*x^(a-1)"]}},
+                { prompt:{equation:"{f(x) = e^x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"e^x"}},
+                { prompt:{equation:"{f(x) = \\log x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/x"}},
+                { prompt:{equation:"{f(x) = \\sin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["cos(x)","cos","cosx"]}},
+                { prompt:{equation:"{f(x) = \\cos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-sin(x)","-sin","-sinx"]}},
+                { prompt:{equation:"{f(x) = -\\sin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-cos(x)","-cos","-cosx"]}},
+                { prompt:{equation:"{f(x) = -\\cos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["sin(x)","sin","sinx"]}},
+                { prompt:{equation:"{f(x) = \\arctan x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/(1+x^2)"}},
+                { prompt:{equation:"{f(x) = \\arcsin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/√(1+x^2)"}},
+                { prompt:{equation:"{f(x) = \\arccos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-1/√(1+x^2)","-(1/√(1+x^2))"]}},
             ]
         },
         {
             category:"Regole di derivazione",
             questions:[
                 // somma
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:"f'(x)±g'(x)" },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)",equation:"{f'(x) \\pm g'(x)}"}},
                 // prodotto
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"],equation:"f'(x)g(x)+f(x)g'(x)"}},
                 // reciproco
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"] },
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"],equation:"-{g'(x) \\over g(x)^2}"}},
                 // divisione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"],equation:"{{f'(x)g(x)-g'(x)f(x)} \\over g(x)^2}"}},
                 // composizione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:["f'(g(x))g'(x)","f'(g(x))*g'(x)"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"],equation:"{f'(g(x)) \\over g'(x)}"}},
                 // inversa
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:["1/f'(f'(x))","1/(f'(f'(x)))"] },
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{ 1 \\over f' \\circ f'}"}},
             ]
         },
-        {
+        /*{
             category:"Polinomi di Taylor",
             questions:[
                 // somma
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:"f'(x)±g'(x)" },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)"}},
                 // prodotto
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"]}},
                 // reciproco
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"] },
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"]}},
                 // divisione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"]}},
                 // composizione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:["f'(g(x))g'(x)","f'(g(x))*g'(x)"] },
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"]}},
                 // inversa
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:["1/f'(f'(x))","1/(f'(f'(x)))"] },
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"]}},
             ]
-        },
+        },*/
     ];
 
 
@@ -297,6 +297,7 @@ window.addEventListener("load", () => {
     function pickQuestion() {
         let categoryGuess = ~~(Math.random() * categories.length);
         _input.value = "";
+        _input.placeholder = "Inserire qui la risposta...";
         while (categoryGuess===_categoryIndex && categories.length>1) {
             categoryGuess = ~~(Math.random() * categories.length);
         }
@@ -319,17 +320,25 @@ window.addEventListener("load", () => {
     }
 
     function answerQuestion() {
-        const correctAnswer = categories[_categoryIndex].questions[_questionIndex].answer,
+        const {correctAnswers,equation} = categories[_categoryIndex].questions[_questionIndex].answer,
             userAnswer = _input.value.toLowerCase();
         if (userAnswer==="skip"||userAnswer==="s") {
             pickQuestion();
         }
-        else if ((typeof correctAnswer==="string"&&correctAnswer===userAnswer)||Array.isArray(correctAnswer)&&correctAnswer.includes(userAnswer)) {
+        else if ((typeof correctAnswers==="string"&&correctAnswers===userAnswer)||Array.isArray(correctAnswers)&&correctAnswers.includes(userAnswer)) {
             pickQuestion();
             _inputTitle.textContent = "Risposta";
         }
         else {
-            _inputTitle.textContent = "Risposta = " + (typeof correctAnswer==="string" ? correctAnswer : correctAnswer.join(" oppure "));
+            _input.value = "";
+            _input.placeholder = typeof correctAnswers==="string"?correctAnswers:correctAnswers[0];
+            if (typeof equation==="string") {
+                // @ts-ignore
+                _inputTitle.innerHTML = MathJax.tex2mml("\\text{Risposta = }" + equation, {});
+            }
+            else {
+                _inputTitle.textContent = "Risposta = " + (typeof correctAnswers==="string" ? correctAnswers : correctAnswers.join(" oppure "));
+            }
         }
 
     }
