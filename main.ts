@@ -22,7 +22,6 @@ window.addEventListener("load", () => {
             .replaceAll("v","√")
             .replaceAll(">=","≥")
             .replaceAll("<=","≤")
-            .replaceAll("*","^")
             .replaceAll("+-","±")
             .replaceAll("-+","∓");
         //v = v.replaceAll("p","π");
@@ -217,56 +216,57 @@ window.addEventListener("load", () => {
         {
             category:"Serie note",
             questions:[
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"diverge per q"}, answer:{correctAnswers:"q≥1",equation:"q \\ge 1"}},
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"converge per q"},answer:{correctAnswers:"-1<q<1",equation:"{-1 \\lt q \\lt 1}"}},
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"se -1<q<1, a cosa converge"}, answer:{correctAnswers:"1/(1-q)",equation:"{1 \\over {1-q}}"}},
-                    { prompt:{equation:"\\sum_{n=0}^{\\infty} q^n",text:"è indeterminata per q"}, answer:{correctAnswers:"q≤-1",equation:"{q \\le -1}"}},
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"diverge per a"}, answer:{correctAnswers:"a≤1",equation:"{a \\le 1}"}},
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n^a}",text:"converge per a"}, answer:{correctAnswers:"a>1",equation:"{a \\gt 1}"}},
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"diverge per a"}, answer:{correctAnswers:"a≤1",equation:"{a \\le 1}"}},
-                    { prompt:{equation:"\\sum_{n=1}^{\\infty} {1 \\over n (\\ln n)^a}",text:"converge per a"}, answer:{correctAnswers:"a>1",equation:"{a \\gt 1}"}},
+                    { prompt:{equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ diverge per } q}"}, answer:{correctAnswers:"q≥1",equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ diverge se } {q \\ge 1}}"}},
+                    { prompt:{equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ converge per } q}"},answer:{correctAnswers:"-1<q<1",equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ converge se }  {q \\in (-1,1)}}"}},
+                    { prompt:{equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{, se } q \\in (-1,1) \\text{, converge a}}"}, answer:{correctAnswers:"1/(1-q)",equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{, se }  {q \\in (-1,1)}} \\text{, converge a } \\frac{1}{1-q}"}},
+                    { prompt:{equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ è indeterminata per } q}"}, answer:{correctAnswers:"q≤-1",equation:"{\\sum_{n=0}^{+\\infty} q^n \\text{ è indeterminata se }  {q \\le -1}}"}},
+                    { prompt:{equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n^\\alpha} \\text{ diverge per } \\alpha}"}, answer:{correctAnswers:"a≤1",equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n^\\alpha} \\text{ diverge se } {\\alpha \\le 1}}"}},
+                    { prompt:{equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n^\\alpha} \\text{ converge per } \\alpha}"}, answer:{correctAnswers:"a>1",equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n^\\alpha} \\text{ converge se } {\\alpha \\gt 1}}"}},
+                    { prompt:{equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n (\\ln n)^\\alpha} \\text{ diverge per } \\alpha}"}, answer:{correctAnswers:"a≤1",equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n (\\ln n)^a} \\text{ diverge se } {\\alpha \\le1}}"}},
+                    { prompt:{equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n (\\ln n)^\\alpha} \\text{ converge per } \\alpha}"}, answer:{correctAnswers:"a>1",equation:"{\\sum_{n=1}^{+\\infty} {1 \\over n (\\ln n)^a} \\text{ converge se } {\\alpha \\gt1}}"}},
             ]
         },
         {
             category:"Scomposizioni notevoli",
             questions:[
-                { prompt:{equation:"a^2 - b^2"}, answer:{correctAnswers:["(a+b)(a-b)","(a-b)(a+b)"],equation:"{a^2-b^2} = {(a+b)(a-b)}"}},
-                { prompt:{equation:"a^2 + b^2"}, answer:{correctAnswers:["(a+b)^2-2ab"],equation:"{a^2+b^2} = {(a+b)^2-2ab}"}},
-                { prompt:{equation:"a^3 - b^3"}, answer:{correctAnswers:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"],equation:"{a^3-b^3} = {(a-b)(a^2+ab+b^2)}"}},
-                { prompt:{equation:"a^3 + b^3"}, answer:{correctAnswers:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"],equation:"{a^3+b^3} = {(a+b)(a^2-ab+b^2)}"}},
+                { prompt:{equation:"{a^2-b^2}"}, answer:{correctAnswers:["(a+b)(a-b)","(a-b)(a+b)"],equation:"{a^2-b^2}={(a+b)(a-b)}"}},
+                { prompt:{equation:"{a^2+b^2}"}, answer:{correctAnswers:["(a+b)^2-2ab"],equation:"{a^2+b^2}={(a+b)^2-2ab}"}},
+                { prompt:{equation:"{a^3-b^3}"}, answer:{correctAnswers:["(a-b)(a^2+ab+b^2)","(a^2+ab+b^2)(a-b)"],equation:"{a^3-b^3}={(a-b)(a^2+ab+b^2)}"}},
+                { prompt:{equation:"{a^3+b^3}"}, answer:{correctAnswers:["(a+b)(a^2-ab+b^2)","(a^2-ab+b^2)(a+b)"],equation:"{a^3+b^3}={(a+b)(a^2-ab+b^2)}"}},
             ]
         },
         {
             category:"Derivate delle funzioni elementari",
             questions:[
-                { prompt:{equation:"{f(x) = c} \\text{, } {f'(x)}"}, answer:{correctAnswers:"0",equation:"(C)'=0"}},
-                { prompt:{equation:"{f(x) = x^a} \\text{, } {f'(x)}"}, answer:{correctAnswers:["ax^(a-1)","a*x^(a-1)"],equation:"(x^a)'=ax^{a-1}"}},
-                { prompt:{equation:"{f(x) = e^x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"e^x",equation:"(e^x)'=e^x"}},
-                { prompt:{equation:"{f(x) = \\log x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/x",equation:"(\\log x)'={1 \\over x}"}},
-                { prompt:{equation:"{f(x) = \\sin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["cos(x)","cos","cosx"],equation:"(\\sin x)'=\\cos x"}},
-                { prompt:{equation:"{f(x) = \\cos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-sin(x)","-sin","-sinx"],equation:"(\\cos x)'=-\\sin x"}},
-                { prompt:{equation:"{f(x) = -\\sin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-cos(x)","-cos","-cosx"],equation:"(-\\sin x)'=-\\cos x"}},
-                { prompt:{equation:"{f(x) = -\\cos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["sin(x)","sin","sinx"],equation:"(-\\cos x)'=\\sin x"}},
-                { prompt:{equation:"{f(x) = \\arctan x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/(1+x^2)",equation:"(\\arctan x)'={1 \\over 1+x^2}"}},
-                { prompt:{equation:"{f(x) = \\arcsin x} \\text{, } { f'(x)}"}, answer:{correctAnswers:"1/√(1+x^2)",equation:"(\\arcsin x)'=-{1 \\over \\sqrt {1-x^2}}"}},
-                { prompt:{equation:"{f(x) = \\arccos x} \\text{, } { f'(x)}"}, answer:{correctAnswers:["-1/√(1+x^2)","-(1/√(1+x^2))"],equation:"(\\arccos x)'={1 \\over \\sqrt {1-x^2}}"}},
+                { prompt:{equation:"{f(x) = c} \\text{, } {f'(x)}"}, answer:{correctAnswers:"0",equation:"{(C)'=0}"}},
+                { prompt:{equation:"{f(x) = x^\\alpha} \\text{, } {f'(x)}"}, answer:{correctAnswers:["ax^(a-1)","a*x^(a-1)"],equation:"{(x^\\alpha)'=\\alpha x^{\\alpha-1}}"}},
+                { prompt:{equation:"{f(x) = e^x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"e^x",equation:"{(e^x)'=e^x}"}},
+                { prompt:{equation:"{f(x) = \\log x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"1/x",equation:"{(\\log x)'=\\frac{1}{x}}"}},
+                { prompt:{equation:"{f(x) = \\sin x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["cos(x)","cos","cosx"],equation:"{(\\sin x)'=\\cos x}"}},
+                { prompt:{equation:"{f(x) = \\cos x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["-sin(x)","-sin","-sinx"],equation:"{(\\cos x)'=-\\sin x}"}},
+                { prompt:{equation:"{f(x) = -\\sin x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["-cos(x)","-cos","-cosx"],equation:"{(-\\sin x)'=-\\cos x}"}},
+                { prompt:{equation:"{f(x) = -\\cos x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["sin(x)","sin","sinx"],equation:"{(-\\cos x)'=\\sin x}"}},
+                { prompt:{equation:"{f(x) = \\arctan x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"1/(1+x^2)",equation:"{(\\arctan x)'=\\frac{1}{1+x^2}}"}},
+                { prompt:{equation:"{f(x) = \\arcsin x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"1/√(1+x^2)",equation:"{(\\arcsin x)'=\\frac{1}{\\sqrt{1-x^2}}}"}},
+                { prompt:{equation:"{f(x) = \\arccos x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["-1/√(1+x^2)","-(1/√(1+x^2))"],equation:"{(\\arccos x)'=-\\frac{1}{\\sqrt{1-x^2}}}}"}},
             ]
         },
         {
             category:"Regole di derivazione",
             questions:[
                 // somma
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)",equation:"{(f \\pm g)'} = {f'(x) \\pm g'(x)}"}},
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)",equation:"{(f \\pm g)'}={f'(x) \\pm g'(x)}"}},
                 // prodotto
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"],equation:"{(f g)'} = {f'(x)g(x)+f(x)g'(x)}"}},
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"],equation:"{(f g)'}={f'(x)g(x)+f(x)g'(x)}"}},
                 // reciproco
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"],equation:"{({1 \\over f})'} = -{g'(x) \\over g(x)^2}"}},
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(\\frac{1}{f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"],
+                equation:"{(\\frac{1}{f})'}=-\\frac{g'(x)}{g(x)^2}"}},
                 // divisione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"],equation:"{({f \\over g})'} = {{f'(x)g(x)-g'(x)f(x)} \\over g(x)^2}"}},
+                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(\\frac{f}{g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"],equation:"{(\\frac{f}{g})'}={{f'(x)g(x)-g'(x)f(x)} \\over g(x)^2}"}},
                 // composizione
                 { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"],equation:"{(f \\circ g)'} = {f'(g(x)) \\over g'(x)}"}},
                 // inversa
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{(f^{-1})'} = { 1 \\over f' \\circ f'}"}},
+                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{{(f^{-1})'} = \\frac{1}{f' \\circ f'}}"}},
             ]
         },
         /*{
