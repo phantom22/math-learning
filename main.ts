@@ -42,6 +42,7 @@ window.addEventListener("load", () => {
         }
         length:number;
     };
+    // https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
     const categories: categoryCollection = [
         {
             category:"Trigonometria",
@@ -188,29 +189,29 @@ window.addEventListener("load", () => {
         {
             category:"Equivalenze asintotiche",
             questions:[
-                    { prompt:{equation:"\\sin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\sin x \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\tan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\tan x \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{e^x - 1 \\sim x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x",equation:"{{e^x \\sim 1+x} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x - 1 \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2","-(x^2/2)"],equation:"{\\cos x - 1 \\sim -{x^2 \\over 2} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1",equation:"{\\cos x \\sim 1 \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arctan x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arctan x \\sim x \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arcsin x \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\log (1+x) \\sim \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\log (1+x) \\sim x \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\sin x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\sin x \\sim x} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\tan x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{\\tan x \\sim x} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"e^x - 1 \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{{e^x - 1 \\sim x} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"e^x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x",equation:"{{e^x \\sim 1+x} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\cos x - 1 \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2","-(x^2/2)"],equation:"{\\cos x - 1 \\sim -{x^2 \\over 2} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\cos x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1",equation:"{\\cos x \\sim 1 \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\arctan x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arctan x \\sim x \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\arcsin x \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\log (1+x) \\sim ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x",equation:"{\\log (1+x) \\sim x \\text{, per } x \\rightarrow 0}"}},
             ]
         },
         {
             category:"Sviluppi con o-piccolo",
             questions:[
-                    { prompt:{equation:"\\sin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\sin x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\tan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\tan x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{e^x - 1 = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"e^x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x+o(x)",equation:"{{e^x = 1 + x + o(x)} \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x - 1 = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"],equation:"{\\cos x - 1 = -{x^2 \\over 2}+o(x^2) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\cos x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+o(x)",equation:"{\\cos x = 1+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arctan x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arctan x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\arcsin x = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arcsin x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
-                    { prompt:{equation:"\\log (1+x) = \\unicode{0xFF1F} \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\log (1+x) = x+o(x) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\sin x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\sin x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\tan x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{\\tan x = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"e^x - 1 = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{{e^x - 1 = x + o(x)} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"e^x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+x+o(x)",equation:"{{e^x = 1 + x + o(x)} \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\cos x - 1 = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:["-x^2/2+o(x^2)","-(x^2/2)+o(x^2)"],equation:"{\\cos x - 1 = -{x^2 \\over 2}+o(x^2) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\cos x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"1+o(x)",equation:"{\\cos x = 1+o(x) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\arctan x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arctan x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\arcsin x = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\arcsin x = x+o(x) \\text{, per } x \\rightarrow 0}"}},
+                    { prompt:{equation:"\\log (1+x) = ？ \\text{per } x \\rightarrow 0",text:""}, answer:{correctAnswers:"x+o(x)",equation:"{\\log (1+x) = x+o(x) \\text{, per } x \\rightarrow 0}"}},
             ]
         },
         {
@@ -356,7 +357,7 @@ window.addEventListener("load", () => {
             if (equation) {
                 try {
                     /** @ts-ignore */
-                    _prompt.innerHTML = MathJax.tex2mml(equation + (typeof text==="string" ? "" : " = \\unicode{0xFF1F}"), {}) 
+                    _prompt.innerHTML = MathJax.tex2mml(equation + (typeof text==="string" ? "" : " = ？"), {}) 
                         + (text ? "<p>" + text.replaceAll("<","&lt").replaceAll(">","&gt") + (typeof answer === "string" ? " = ?" : " =* ?") + "</p>" : "");
                 }
                 catch(e) {
