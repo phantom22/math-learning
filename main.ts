@@ -288,7 +288,8 @@ window.addEventListener("load", () => {
     let _categoryIndex = -1,
     _questionIndex = -1,
     _questionQueue = [],
-    _queueLength = 8;
+    /* @ts-ignore */
+    _queueLength = (categories.length-1) * Math.min(categories.map(v=>v.questions.length));
 
 
     function pickQuestion() {
