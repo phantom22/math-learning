@@ -211,6 +211,7 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "{f(x) = \\arctan x} \\text{, } {f'(x)}" }, answer: { correctAnswers: "1/(1+x^2)", equation: "{(\\arctan x)'=\\frac{1}{1+x^2}}" } },
                 { prompt: { equation: "{f(x) = \\arcsin x} \\text{, } {f'(x)}" }, answer: { correctAnswers: "1/√(1+x^2)", equation: "{(\\arcsin x)'=\\frac{1}{\\sqrt{1-x^2}}}" } },
                 { prompt: { equation: "{f(x) = \\arccos x} \\text{, } {f'(x)}" }, answer: { correctAnswers: ["-1/√(1+x^2)", "-(1/√(1+x^2))"], equation: "{(\\arccos x)'=-\\frac{1}{\\sqrt{1-x^2}}}}" } },
+                { prompt: { equation: "{f(x) = |x|} \\text{, } {f'(x)}" }, answer: { correctAnswers: ["|x|/x", "x/|x|"], equation: "{(|x|)'=\\frac{|x|}{x}=\\frac{x}{|x|}}" } },
             ]
         },
         {
@@ -250,9 +251,7 @@ window.addEventListener("load", () => {
             ]
         },*/
     ];
-    let _categoryIndex = -1, _questionIndex = -1, _questionQueue = [], 
-    /* @ts-ignore */
-    _queueLength = (categories.length - 1) * Math.min(categories.map(v => v.questions.length));
+    let _categoryIndex = -1, _questionIndex = -1, _questionQueue = [], _queueLength = /*(categories.length-1)*/ 2 * Math.min(categories.map(v => v.questions.length)), _totalQuestionCount = categories.map(v => v.questions.length).reduce((a, b) => a + b);
     function pickQuestion() {
         let categoryGuess = ~~(Math.random() * categories.length);
         _input.value = "";
@@ -261,8 +260,9 @@ window.addEventListener("load", () => {
             categoryGuess = ~~(Math.random() * categories.length);
         }
         _categoryIndex = categoryGuess;
-        let questionGuess, alreadyAsked = true;
-        while (alreadyAsked) {
+        let questionGuess, alreadyAsked = true, iterationCounter = 0;
+        while (alreadyAsked && iterationCounter < _totalQuestionCount) {
+            iterationCounter++;
             alreadyAsked = false;
             questionGuess = ~~(Math.random() * categories[_categoryIndex].questions.length);
             for (let i = 0; i < _questionQueue.length; i++) {
@@ -274,7 +274,9 @@ window.addEventListener("load", () => {
         }
         _questionIndex = questionGuess;
         _questionQueue.push([_categoryIndex, _questionIndex]);
-        if (_questionQueue.length > _queueLength)
+        if (iterationCounter === _totalQuestionCount)
+            _questionQueue = [];
+        else if (_questionQueue.length > _queueLength)
             _questionQueue.shift();
         updateQuestionUI();
     }
@@ -305,7 +307,7 @@ window.addEventListener("load", () => {
         try {
             let { prompt: { equation, text }, answer } = cat.questions[_questionIndex];
             _inputTitle.textContent = "Risposta";
-            if (equation) {
+            if (typeof equation === "string") {
                 try {
                     /** @ts-ignore */
                     _prompt.innerHTML = MathJax.tex2mml(equation + (typeof text === "string" ? "" : " = ？"), {})
@@ -315,13 +317,13 @@ window.addEventListener("load", () => {
                     setTimeout(updateQuestionUI, 50);
                 }
             }
-            else if (text) {
+            else if (typeof text === "string") {
                 _prompt.textContent =
                     text
                         + (typeof answer === "string" ? " = ?" : " =* ?");
             }
             else
-                throw `[Category='${categories[_categoryIndex].category}',Question=${_questionIndex}] No question text/equation provided, nothing to show!`;
+                throw "";
         }
         catch (e) {
             throw `[Category='${categories[_categoryIndex].category}',Question=${_questionIndex}] No question text/equation provided, nothing to show!`;
