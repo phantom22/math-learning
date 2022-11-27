@@ -223,8 +223,8 @@ window.addEventListener("load", () => {
                 { prompt: { equation: "{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}}" }, answer: { correctAnswers: ["f'(x)g(x)+f(x)g'(x)", "f'(x)*g(x)+f(x)*g'(x)"],
                         equation: "{(f g)'=f'(x)g(x)+f(x)g'(x)}" } },
                 // reciproco
-                { prompt: { equation: "{\\text{Sia } {f(x)} \\text{ una funzione, } {(\\frac{1}{f})'}}" }, answer: { correctAnswers: ["-g'(x)/(g(x))^2", "-g'(x)/g(x)^2", "-(g'(x)/(g(x))^2)", "-(g'(x)/g(x)^2)"],
-                        equation: "{(\\frac{1}{f})'=-\\frac{g'(x)}{g(x)^2}}" } },
+                { prompt: { equation: "{\\text{Sia } {f(x)} \\text{ una funzione, } {(\\frac{1}{f})'}}" }, answer: { correctAnswers: ["-f'(x)/(f(x))^2", "-f'(x)/f(x)^2", "-(f'(x)/(f(x))^2)", "-(f'(x)/f(x)^2)"],
+                        equation: "{(\\frac{1}{f})'=-\\frac{f'(x)}{f(x)^2}}" } },
                 // divisione
                 { prompt: { equation: "{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(\\frac{f}{g})'}}" }, answer: { correctAnswers: ["(f'(x)g(x)-g'(x)f(x))/(g(x))^2", "(f'(x)g(x)-g'(x)f(x))/g(x)^2"], equation: "{(\\frac{f}{g})'=\\frac{f'(x)g(x)-g'(x)f(x)}{g(x)^2}}" } },
                 // composizione
