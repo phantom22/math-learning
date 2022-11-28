@@ -192,7 +192,7 @@ window.addEventListener("load", () => {
                     { prompt:{equation:"{\\sin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1",equation:"{\\cos x \\sim 1 \\text{, per } {x \\rightarrow 0}}"}},
                     { prompt:{equation:"{\\arctan x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\arctan x \\sim x \\text{, per } {x \\rightarrow 0}}"}},
                     { prompt:{equation:"{\\arcsin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } {x \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\log (1+x) \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\log (1+x) \\sim x \\text{, per } {x \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\ln (1+x) \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\ln (1+x) \\sim x \\text{, per } {x \\rightarrow 0}}"}},
             ]
         },
         {
@@ -200,37 +200,184 @@ window.addEventListener("load", () => {
             questions:[
 
                     // seno
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{{\\sin t = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["t-t^3/3!+o(t^3)","t-t^3/6+o(t^3)"],equation:"{{\\sin t = t-\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quinto grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["t-t^3/3!+t^5/5!+o(t^3)","t-t^3/6+t^5/120+o(t^5)"],equation:"{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}+o(t^5)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di settimo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["t-t^3/3!+t^5/5!-t^7/7!+o(t^7)","t-t^3/6+t^5/120+o(t^3)"],equation:"{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}+o(t^5)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["((-1)^k*t^(2k+1)/(2k+1)!)+o(t^(2k+1))","(-1)^k*t^(2k+1)/(2k+1)!+o(t^(2k+1))"],equation:"{{\\sin t = \\frac{(-1)^k t^{2k+1}}{(2k+1)!} + o(t^{2k+1})} \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{{\\sin t = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
+                    
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "t-t^3/3!+o(t^3)",
+                        "t-t^3/6+o(t^3)"
+                    ],equation:"{{\\sin t = t-\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
+                    
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quinto grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "t-t^3/3!+t^5/5!+o(t^5)",
+                        "t-t^3/6+t^5/120+o(t^5)"
+                    ],equation:"{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}+o(t^5)} \\text{, per } {t \\rightarrow 0}}"}},
+                    
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di settimo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "t-t^3/3!+t^5/5!-t^7/7!+o(t^7)",
+                        "t-t^3/6+t^5/120-t^7/5040+o(t^7)"
+                    ],equation:"{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}-\\frac{t^7}{7!}+o(t^7)} \\text{, per } {t \\rightarrow 0}}"}},
+                    
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\sin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "((-1)^k*t^(2k+1)/(2k+1)!)+o(t^(2k+1))",
+                        "(-1)^k*t^(2k+1)/(2k+1)!+o(t^(2k+1))"
+                    ],equation:"{{\\sin t = \\text{...} + \\frac{(-1)^k t^{2k+1}}{(2k+1)!} + o(t^{2k+1})} \\text{, per } {t \\rightarrow 0}}"}},
 
                     // tangente
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\tan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{{\\tan t = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\tan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{{\\tan t = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
 
                     // esponenziale
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{{e^t-1 = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["t+t^2/2+o(t^2)","t+t^2/2!+o(t^2)"],equation:"{{e^t-1 = t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["t+t^2/2+t^3/6+o(t^3)","t+t^2/2!+t^3/3!+o(t^3)"],equation:"{{e^t-1 = t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{{e^t-1 = t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
 
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di grado nullo di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+o(t)",equation:"{{e^t = 1+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+t+o(t)",equation:"{{e^t = 1+t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["1+t+t^2/2+o(t^2)","1+t+t^2/2!+o(t^2)"],equation:"{{e^t = 1+t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["1+t+t^2/2+t^3/6+o(t^3)","1+t+t^2/2!+t^3/3!+o(t^3)"],equation:"{{e^t = 1+t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t^k/k!+o(t^k)",equation:"{{e^t = \\frac{t^k}{k!} + o(t^k)} \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "t+t^2/2+o(t^2)",
+                        "t+t^2/2!+o(t^2)"
+                    ],equation:"{{e^t-1 = t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "t+t^2/2+t^3/6+o(t^3)",
+                        "t+t^2/2!+t^3/3!+o(t^3)"
+                    ],equation:"{{e^t-1 = t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di grado nullo di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1+o(t)",
+                    equation:"{{e^t = 1+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1+t+o(t)",
+                    equation:"{{e^t = 1+t+o(t)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1+t+t^2/2+o(t^2)",
+                        "1+t+t^2/2!+o(t^2)"
+                    ],equation:"{{e^t = 1+t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1+t+t^2/2+t^3/6+o(t^3)",
+                        "1+t+t^2/2!+t^3/3!+o(t^3)"
+                    ],equation:"{{e^t = 1+t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } e^t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t^k/k!+o(t^k)",
+                    equation:"{{e^t = \\text{...} + \\frac{t^k}{k!} + o(t^k)} \\text{, per } {t \\rightarrow 0}}"}},
 
                     // coseno
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["-t^2/2+o(t^2)","-t^2/2+o(t^2)"],equation:"{\\cos t-1 = -\\frac{t^2}{2}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quarto grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:["-t^2/2+t^4/24+o(t^4)","-t^2/2+t^4/4!+o(t^4)"],equation:"{\\cos t-1 = -\\frac{t^2}{2!}+\\frac{t^4}{4!}+o(t^4) \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "-t^2/2+o(t^2)",
+                        "-t^2/2!+o(t^2)"
+                    ],equation:"{\\cos t-1 = -\\frac{t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
 
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\cos t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+o(t)",equation:"{\\cos t = 1+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quarto grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "-t^2/2+t^4/24+o(t^4)",
+                        "-t^2/2!+t^4/4!+o(t^4)"
+                    ],equation:"{\\cos t-1 = -\\frac{t^2}{2!}+\\frac{t^4}{4!}+o(t^4) \\text{, per } {t \\rightarrow 0}}"}},
 
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di sesto grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "-t^2/2+t^4/24-t^6/720+o(t^6)",
+                        "-t^2/2!+t^4/4!-t^6/6!+o(t^6)"
+                    ],equation:"{\\cos t-1 = -\\frac{t^2}{2!}+\\frac{t^4}{4!}-\\frac{t^6}{6!}+o(t^6) \\text{, per } {t \\rightarrow 0}}"}},
 
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{\\arctan t = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arcsin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{\\arcsin t = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\log (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"t+o(t)",equation:"{\\log (1+t) = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
-                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:"1+o(t)",equation:"{\\log (1+t) = 1+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } \\cos t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1-t^2/2+o(t^2)",
+                        "1-t^2/2!+o(t^2)"
+                    ],equation:"{\\cos t = 1-\\frac{t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quarto grado di } \\cos t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1-t^2/2+t^4/24+o(t^4)",
+                        "1-t^2/2!+t^4/4!+o(t^4)"
+                    ],equation:"{\\cos t = 1-\\frac{t^2}{2!}+\\frac{t^4}{4!}+o(t^4) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di sesto grado di } \\cos t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1-t^2/2+t^4/24-t^6/720+o(t^6)",
+                        "1-t^2/2!+t^4/4!-t^6/6!+o(t^6)"
+                    ],equation:"{\\cos t = 1-\\frac{t^2}{2!}+\\frac{t^4}{4!}-\\frac{t^6}{6!}+o(t^6) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\cos t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "(-1)^k*t^(2k)/(2k)!+o(t^(2k))",
+                        "((-1)^k*t^(2k))/(2k)!+o(t^(2k))"
+                    ],equation:"{{\\cos t = \\text{...} + \\frac{(-1)^k t^{2k}}{2k!} + o(t^{2k})} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    // arcotangente
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{\\arctan t = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1-t^3/3+o(t^3)",
+                    equation:"{\\arctan t = 1-\\frac{t^3}{3}+o(t^3) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di quinto grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1-t^3/3+t^5/5+o(t^5)",
+                    equation:"{\\arctan t = 1-\\frac{t^3}{3}+\\frac{t^5}{5}+o(t^5) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di settimo grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1-t^3/3+t^5/5-t^7/7+o(t^7)",
+                    equation:"{\\arctan t = 1-\\frac{t^3}{3}+\\frac{t^5}{5}-\\frac{t^7}{7}+o(t^7) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\arctan t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "(-1)^k*t^(2k+1)/(2k+1)+o(t^(2k+1))",
+                        "((-1)^k*t^(2k+1))/(2k+1)+o(t^(2k+1))"
+                    ],equation:"{{\\arctan t = \\text{...} + \\frac{(-1)^k t^{2k+1}}{2k+1} + o(t^{2k+1})} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    // arcoseno
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arcsin t \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{\\arcsin t = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    // logaritmo
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } \\ln (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t+o(t)",
+                    equation:"{\\ln (1+t) = t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } \\ln (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t-t^2/2+o(t^2)"
+                    ,equation:"{\\ln (1+t) = t-\\frac{t^2}{2}+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } \\ln (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t-t^2/2+t^3/3+o(t^3)"
+                    ,equation:"{\\ln (1+t) = t-\\frac{t^2}{2}+\\frac{t^3}{3}+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo quarto di } \\ln (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "t-t^2/2+t^3/3-t^4/4+o(t^4)"
+                    ,equation:"{\\ln (1+t) = t-\\frac{t^2}{2}+\\frac{t^3}{3}-\\frac{t^4}{4}+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\ln (1+t) \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "(-1)^(k+1)*t^k/k+o(t^k)",
+                        "((-1)^(k+1)*t^k)/k+o(t^k)"
+                    ],equation:"{{\\ln (1+t) = \\text{...} + \\frac{(-1)^{k+1} t^k}{k} + o(t^k)} \\text{, per } {t \\rightarrow 0}}"}},
+
+                    // esponenziale
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
+                        "1+at+o(t)",
+                    equation:"{\\ln (1+t) = 1+\\alpha t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1+at+a(a-1)t^2/2+o(t^2)",
+                        "1+at+(a(a-1)t^2)/2+o(t^2)",
+                        "1+at+a(a-1)t^2/2!+o(t^2)",
+                        "1+at+(a(a-1)t^2)/2!+o(t^2)",
+                    ],equation:"{\\ln (1+t) = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "1+at+a(a-1)t^2/2+a(a-1)(a-2)t^3/6+o(t^3)",
+                        "1+at+(a(a-1)t^2)/2+(a(a-1)(a-2)t^3)/6+o(t^3)",
+                        "1+at+a(a-1)t^2/2!+a(a-1)(a-2)t^3/3!+o(t^3)",
+                        "1+at+(a(a-1)t^2)/2!+(a(a-1)(a-2)t^3)/3!+o(t^3)",
+                    ],equation:"{\\ln (1+t) = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
+
+                    { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
+                        "a(a-1)(a-2)...(a-k+1)t^k/k!+o(t^k)",
+                        "a(a-1)(a-2)..(a-k+1)t^k/k!+o(t^k)",
+                        "a(a-1)(a-2).(a-k+1)t^k/k!+o(t^k)",
+                        "(a(a-1)(a-2)...(a-k+1)t^k)/k!+o(t^k)",
+                        "(a(a-1)(a-2)..(a-k+1)t^k)/k!+o(t^k)",
+                        "(a(a-1)(a-2).(a-k+1)t^k)/k!+o(t^k)",
+                    ],equation:"{\\ln (1+t) = \\text{...} +\\frac{\\alpha (\\alpha-1)(\\alpha-2)...(\\alpha-k+1)t^k}{k!}+o(t^k) \\text{ } \\forall \\alpha \\in \\mathbb{R} \\text{, per } {t \\rightarrow 0}}"}},
             ]
         },
         {
@@ -261,7 +408,7 @@ window.addEventListener("load", () => {
                 { prompt:{equation:"{f(x) = c} \\text{, } {f'(x)}"}, answer:{correctAnswers:"0",equation:"{(C)'=0}"}},
                 { prompt:{equation:"{f(x) = x^\\alpha} \\text{, } {f'(x)}"}, answer:{correctAnswers:["ax^(a-1)","a*x^(a-1)"],equation:"{(x^\\alpha)'=\\alpha x^{\\alpha-1}}"}},
                 { prompt:{equation:"{f(x) = e^x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"e^x",equation:"{(e^x)'=e^x}"}},
-                { prompt:{equation:"{f(x) = \\log x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"1/x",equation:"{(\\log x)'=\\frac{1}{x}}"}},
+                { prompt:{equation:"{f(x) = \\ln x} \\text{, } {f'(x)}"}, answer:{correctAnswers:"1/x",equation:"{(\\ln x)'=\\frac{1}{x}}"}},
                 { prompt:{equation:"{f(x) = \\sin x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["cos(x)","cos","cosx"],equation:"{(\\sin x)'=\\cos x}"}},
                 { prompt:{equation:"{f(x) = \\cos x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["-sin(x)","-sin","-sinx"],equation:"{(\\cos x)'=-\\sin x}"}},
                 { prompt:{equation:"{f(x) = -\\sin x} \\text{, } {f'(x)}"}, answer:{correctAnswers:["-cos(x)","-cos","-cosx"],equation:"{(-\\sin x)'=-\\cos x}"}},
@@ -290,24 +437,7 @@ window.addEventListener("load", () => {
                 // inversa
                 { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f^(-1)(x))","1/(f'(f^(-1)(x)))","1/f'∘f^(-1)","1/(f'∘f^(-1))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}"}},
             ]
-        },
-        /*{
-            category:"Polinomi di Taylor",
-            questions:[
-                // somma
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\pm g)'}"}, answer:{correctAnswers:"f'(x)±g'(x)"}},
-                // prodotto
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f g)'}"}, answer:{correctAnswers:["f'(x)g(x)+f(x)g'(x)","f'(x)*g(x)+f(x)*g'(x)"]}},
-                // reciproco
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {({1 \\over f})'}"}, answer:{correctAnswers:["-g'(x)/(g(x))^2","-g'(x)/g(x)^2","-(g'(x)/(g(x))^2)","-(g'(x)/g(x)^2)"]}},
-                // divisione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {({f \\over g})'}"}, answer:{correctAnswers:["(f'(x)g(x)-g'(x)f(x))/(g(x))^2","(f'(x)g(x)-g'(x)f(x))/g(x)^2"]}},
-                // composizione
-                { prompt:{equation:"\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"]}},
-                // inversa
-                { prompt:{equation:"\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"]}},
-            ]
-        },*/
+        }
     ];
 
 
