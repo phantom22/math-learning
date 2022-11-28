@@ -163,17 +163,33 @@ window.addEventListener("load", () => {
             ]
         },
         {
-            category: "Sviluppi con o-piccolo",
+            category: "Sviluppi di Taylor, centrati in 0",
             questions: [
-                { prompt: { equation: "{\\sin x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{{\\sin x = x+o(x)} \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\tan x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{{\\tan x = x+o(x)} \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{e^x-1 = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{{e^x-1 = x+o(x)} \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{e^x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+x+o(x)", equation: "{{e^x = 1+x+o(x)} \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\cos x-1 = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["-x^2/2+o(x^2)", "-(x^2/2)+o(x^2)"], equation: "{\\cos x-1 = -\\frac{x^2}{2}+o(x^2) \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\cos x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+o(x)", equation: "{\\cos x = 1+o(x) \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\arctan x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{\\arctan x = x+o(x) \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\arcsin x = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{\\arcsin x = x+o(x) \\text{, per } {x \\rightarrow 0}}" } },
-                { prompt: { equation: "{\\log (1+x) = ？ \\text{per } {x \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "x+o(x)", equation: "{\\log (1+x) = x+o(x) \\text{, per } {x \\rightarrow 0}}" } },
+                // seno
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{{\\sin t = t+o(t)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di terzo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["t-t^3/3!+o(t^3)", "t-t^3/6+o(t^3)"], equation: "{{\\sin t = t-\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di quinto grado di } \\sin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["t-t^3/3!+t^5/5!+o(t^3)", "t-t^3/6+t^5/120+o(t^5)"], equation: "{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}+o(t^5)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di settimo grado di } \\sin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["t-t^3/3!+t^5/5!-t^7/7!+o(t^7)", "t-t^3/6+t^5/120+o(t^3)"], equation: "{{\\sin t = t-\\frac{t^3}{3!}+\\frac{t^5}{5!}+o(t^5)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } \\sin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["((-1)^k*t^(2k+1)/(2k+1)!)+o(t^(2k+1))", "(-1)^k*t^(2k+1)/(2k+1)!+o(t^(2k+1))"], equation: "{{\\sin t = \\frac{(-1)^k t^{2k+1}}{(2k+1)!} + o(t^{2k+1})} \\text{, per } {t \\rightarrow 0}}" } },
+                // tangente
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\tan t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{{\\tan t = t+o(t)} \\text{, per } {t \\rightarrow 0}}" } },
+                // esponenziale
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{{e^t-1 = t+o(t)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["t+t^2/2+o(t^2)", "t+t^2/2!+o(t^2)"], equation: "{{e^t-1 = t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t-1 \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["t+t^2/2+t^3/6+o(t^3)", "t+t^2/2!+t^3/3!+o(t^3)"], equation: "{{e^t-1 = t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di grado nullo di } e^t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+o(t)", equation: "{{e^t = 1+o(t)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } e^t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+t+o(t)", equation: "{{e^t = 1+t+o(t)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di secondo grado di } e^t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["1+t+t^2/2+o(t^2)", "1+t+t^2/2!+o(t^2)"], equation: "{{e^t = 1+t+\\frac{t^2}{2!}+o(t^2)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di terzo grado di } e^t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["1+t+t^2/2+t^3/6+o(t^3)", "1+t+t^2/2!+t^3/3!+o(t^3)"], equation: "{{e^t = 1+t+\\frac{t^2}{2!}+\\frac{t^3}{3!}+o(t^3)} \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } e^t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t^k/k!+o(t^k)", equation: "{{e^t = \\frac{t^k}{k!} + o(t^k)} \\text{, per } {t \\rightarrow 0}}" } },
+                // coseno
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di secondo grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["-t^2/2+o(t^2)", "-(t^2/2)+o(t^2)"], equation: "{\\cos t-1 = -\\frac{t^2}{2}+o(t^2) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\cos t-1 \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: ["-t^2/2+o(t^2)", "-(t^2/2)+o(t^2)"], equation: "{\\cos t-1 = -\\frac{t^2}{2}+o(t^2) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\cos t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+o(t)", equation: "{\\cos t = 1+o(t) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arctan t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{\\arctan t = t+o(t) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\arcsin t \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{\\arcsin t = t+o(t) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } \\log (1+t) \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "t+o(t)", equation: "{\\log (1+t) = t+o(t) \\text{, per } {t \\rightarrow 0}}" } },
+                { prompt: { equation: "{\\text{Qual'è il polinomio di Taylor di primo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}", text: "" }, answer: { correctAnswers: "1+o(t)", equation: "{\\log (1+t) = 1+o(t) \\text{, per } {t \\rightarrow 0}}" } },
             ]
         },
         {
