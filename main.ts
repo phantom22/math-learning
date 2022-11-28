@@ -23,7 +23,8 @@ window.addEventListener("load", () => {
             .replaceAll(">=","≥")
             .replaceAll("<=","≤")
             .replaceAll("+-","±")
-            .replaceAll("-+","∓");
+            .replaceAll("-+","∓")
+            .replaceAll("composto","∘");
         //v = v.replaceAll("p","π");
         // @ts-ignore
         e.target.value = v;
@@ -263,7 +264,7 @@ window.addEventListener("load", () => {
                 // composizione
                 { prompt:{equation:"{\\text{Siano } {f(x)} \\text{ e } {g(x)} \\text{ funzioni, } {(f \\circ g)'}}"}, answer:{correctAnswers:["f'(g(x))g'(x)","f'(g(x))*g'(x)"],equation:"{(f \\circ g)'=f'(g(x))g'(x)}"}},
                 // inversa
-                { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f'(x))","1/(f'(f'(x)))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f'}}"}},
+                { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f^(-1)(x))","1/(f'(f^(-1)(x)))","1/f'∘f^(-1)","1/(f'∘f^(-1))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}"}},
             ]
         },
         /*{
@@ -334,7 +335,7 @@ window.addEventListener("load", () => {
         }
         else {
             _input.value = "";
-            _input.placeholder = typeof correctAnswers==="string"?correctAnswers:correctAnswers[0];
+            _input.placeholder = typeof correctAnswers==="string"?correctAnswers:correctAnswers[~~(Math.random() * correctAnswers.length)];
             if (typeof equation==="string") {
                 // @ts-ignore
                 _inputTitle.innerHTML = MathJax.tex2mml("\\text{Risposta }\\Longrightarrow"+equation, {});
