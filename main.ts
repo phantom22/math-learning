@@ -437,7 +437,10 @@ window.addEventListener("load", () => {
                 // inversa
                 { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f^(-1)(x))","1/(f'(f^(-1)(x)))","1/f'∘f^(-1)","1/(f'∘f^(-1))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}"}},
             ]
-        }
+        },
+        /**
+         * Proprietà degli o-piccolo
+         */
     ];
 
 
