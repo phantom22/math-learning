@@ -196,6 +196,19 @@ window.addEventListener("load", () => {
             ]
         },
         {
+            category:"Proprietà degli o-piccolo",
+            questions:[
+                { prompt:{equation:"{o(f(x))}"}, answer:{correctAnswers:"f(x)o(1)", equation:"{o(f(x)) = f(x)o(1)}"}},
+                { prompt:{equation:"{o(o(f(x)))}"}, answer:{correctAnswers:"o(f(x))", equation:"{o(o(f(x))) = o(f(x))}"}},
+                { prompt:{equation:"{f(x) \\text{ } o(g(x))}"}, answer:{correctAnswers:["o(f(x)g(x))","o(f(x)*g(x))"], equation:"{f(x) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}"}},
+                { prompt:{equation:"{\\alpha \\text{ } o(f(x))}"}, answer:{correctAnswers:"o(f(x))", equation:"{\\alpha \\text{ } o(f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}"}},
+                { prompt:{equation:"{o(\\alpha \\text{ } f(x))}"}, answer:{correctAnswers:"o(f(x))", equation:"{o(\\alpha \\text{ } f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}"}},
+                { prompt:{equation:"{[o(f(x))]^{\\alpha}"}, answer:{correctAnswers:["o([f(x)]^a)","o(f(x)^a)"], equation:"{[o(f(x))]^{\\alpha} = o([f(x)]^{\\alpha}) \\text{, } \\forall \\alpha \\gt 0}"}},
+                { prompt:{equation:"{o(f(x)+o(f(x)))}"}, answer:{correctAnswers:"o(f(x))", equation:"{o(f(x)+o(f(x))) = o(f(x))}"}},
+                { prompt:{equation:"{o(f(x)) \\text{ } o(g(x))}"}, answer:{correctAnswers:["o(f(x)g(x))","o(f(x)*g(x))"], equation:"{o(f(x)) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}"}},
+            ]
+        },
+        {
             category:"Sviluppi di Taylor, centrati in 0",
             questions:[
 

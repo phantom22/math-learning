@@ -163,6 +163,19 @@ window.addEventListener("load", () => {
             ]
         },
         {
+            category: "Proprietà degli o-piccolo",
+            questions: [
+                { prompt: { equation: "{o(f(x))}" }, answer: { correctAnswers: "f(x)o(1)", equation: "{o(f(x)) = f(x)o(1)}" } },
+                { prompt: { equation: "{o(o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(o(f(x))) = o(f(x))}" } },
+                { prompt: { equation: "{f(x) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{f(x) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
+                { prompt: { equation: "{\\alpha \\text{ } o(f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{\\alpha \\text{ } o(f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
+                { prompt: { equation: "{o(\\alpha \\text{ } f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(\\alpha \\text{ } f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
+                { prompt: { equation: "{[o(f(x))]^{\\alpha}" }, answer: { correctAnswers: ["o([f(x)]^a)", "o(f(x)^a)"], equation: "{[o(f(x))]^{\\alpha} = o([f(x)]^{\\alpha}) \\text{, } \\forall \\alpha \\gt 0}" } },
+                { prompt: { equation: "{o(f(x)+o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(f(x)+o(f(x))) = o(f(x))}" } },
+                { prompt: { equation: "{o(f(x)) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{o(f(x)) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
+            ]
+        },
+        {
             category: "Sviluppi di Taylor, centrati in 0",
             questions: [
                 // seno
@@ -352,7 +365,10 @@ window.addEventListener("load", () => {
                 // inversa
                 { prompt: { equation: "{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}" }, answer: { correctAnswers: ["1/f'(f^(-1)(x))", "1/(f'(f^(-1)(x)))", "1/f'∘f^(-1)", "1/(f'∘f^(-1))"], equation: "{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}" } },
             ]
-        }
+        },
+        /**
+         * Proprietà degli o-piccolo
+         */
     ];
     let _categoryIndex = -1, _questionIndex = -1, _questionQueue = [], _queueLength = /*(categories.length-1)*/ 2 * Math.min(categories.map(v => v.questions.length)), _totalQuestionCount = categories.map(v => v.questions.length).reduce((a, b) => a + b);
     function pickQuestion() {
