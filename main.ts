@@ -367,21 +367,21 @@ window.addEventListener("load", () => {
                     // esponenziale
                     { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di primo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:
                         "1+at+o(t)",
-                    equation:"{\\ln (1+t) = 1+\\alpha t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
+                    equation:"{(a+t)^{\\alpha} = 1+\\alpha t+o(t) \\text{, per } {t \\rightarrow 0}}"}},
 
                     { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di secondo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
                         "1+at+a(a-1)t^2/2+o(t^2)",
                         "1+at+(a(a-1)t^2)/2+o(t^2)",
                         "1+at+a(a-1)t^2/2!+o(t^2)",
                         "1+at+(a(a-1)t^2)/2!+o(t^2)",
-                    ],equation:"{\\ln (1+t) = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
+                    ],equation:"{(a+t)^{\\alpha} = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
 
                     { prompt:{equation:"{\\text{Qual'è il polinomio di Taylor di terzo grado di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
                         "1+at+a(a-1)t^2/2+a(a-1)(a-2)t^3/6+o(t^3)",
                         "1+at+(a(a-1)t^2)/2+(a(a-1)(a-2)t^3)/6+o(t^3)",
                         "1+at+a(a-1)t^2/2!+a(a-1)(a-2)t^3/3!+o(t^3)",
                         "1+at+(a(a-1)t^2)/2!+(a(a-1)(a-2)t^3)/3!+o(t^3)",
-                    ],equation:"{\\ln (1+t) = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
+                    ],equation:"{(a+t)^{\\alpha} = 1+\\alpha t+\\frac{\\alpha (\\alpha -1)t^2}{2!}+o(t^2) \\text{, per } {t \\rightarrow 0}}"}},
 
                     { prompt:{equation:"{\\text{Qual'è il k-esimo termine del polinomio di Taylor di } (1+t)^{\\alpha} \\text{, per } {t \\rightarrow 0}}",text:""}, answer:{correctAnswers:[
                         "a(a-1)(a-2)...(a-k+1)t^k/k!+o(t^k)",
@@ -390,7 +390,7 @@ window.addEventListener("load", () => {
                         "(a(a-1)(a-2)...(a-k+1)t^k)/k!+o(t^k)",
                         "(a(a-1)(a-2)..(a-k+1)t^k)/k!+o(t^k)",
                         "(a(a-1)(a-2).(a-k+1)t^k)/k!+o(t^k)",
-                    ],equation:"{\\ln (1+t) = \\text{...} +\\frac{\\alpha (\\alpha-1)(\\alpha-2)...(\\alpha-k+1)t^k}{k!}+o(t^k) \\text{ } \\forall \\alpha \\in \\mathbb{R} \\text{, per } {t \\rightarrow 0}}"}},
+                    ],equation:"{(a+t)^{\\alpha} = \\text{...} +\\frac{\\alpha (\\alpha-1)(\\alpha-2)...(\\alpha-k+1)t^k}{k!}+o(t^k) \\text{ } \\forall \\alpha \\in \\mathbb{R} \\text{, per } {t \\rightarrow 0}}"}},
             ]
         },
         {
@@ -451,9 +451,19 @@ window.addEventListener("load", () => {
                 { prompt:{equation:"{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}"}, answer:{correctAnswers:["1/f'(f^(-1)(x))","1/(f'(f^(-1)(x)))","1/f'∘f^(-1)","1/(f'∘f^(-1))"],equation:"{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}"}},
             ]
         },
-        /**
-         * Proprietà degli o-piccolo
-         */
+        {
+            category: "Proprietà degli o-piccolo",
+            questions: [
+                { prompt: { equation: "{o(f(x))}" }, answer: { correctAnswers: "f(x)o(1)", equation: "{o(f(x)) = f(x)o(1)}" } },
+                { prompt: { equation: "{o(o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(o(f(x))) = o(f(x))}" } },
+                { prompt: { equation: "{f(x) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{f(x) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
+                { prompt: { equation: "{\\alpha \\text{ } o(f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{\\alpha \\text{ } o(f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
+                { prompt: { equation: "{o(\\alpha \\text{ } f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(\\alpha \\text{ } f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
+                { prompt: { equation: "{[o(f(x))]^{\\alpha}" }, answer: { correctAnswers: ["o([f(x)]^a)", "o(f(x)^a)"], equation: "{[o(f(x))]^{\\alpha} = o([f(x)]^{\\alpha}) \\text{, } \\forall \\alpha \\gt 0}" } },
+                { prompt: { equation: "{o(f(x)+o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(f(x)+o(f(x))) = o(f(x))}" } },
+                { prompt: { equation: "{o(f(x)) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{o(f(x)) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
+            ]
+        },
     ];
 
 
@@ -508,7 +518,7 @@ window.addEventListener("load", () => {
             _input.placeholder = typeof correctAnswers==="string"?correctAnswers:correctAnswers[~~(Math.random() * correctAnswers.length)];
             if (typeof equation==="string") {
                 // @ts-ignore
-                _inputTitle.innerHTML = MathJax.tex2mml("\\text{Risposta }\\Longrightarrow"+equation, {});
+                _inputTitle.innerHTML = MathJax.tex2mml("\\text{Risposta }\\implies"+equation, {});
             }
             else {
                 _inputTitle.textContent = "Risposta = "+(typeof correctAnswers==="string" ? correctAnswers : correctAnswers.join(" oppure "));

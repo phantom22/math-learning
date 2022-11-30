@@ -12,6 +12,7 @@ table {
 }
 td {
     border:1px solid transparent;
+    overflow-x: scroll;
 }
 tr:nth-child(1) {
     height:8%;
