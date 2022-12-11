@@ -1,5 +1,10 @@
 {
     "compilerOptions": {
         "target": "esnext",
-    }
+        "outFile": "learning.js"
+    },
+    "files": [
+        "data.ts",
+        "main.ts"
+    ]
 }
