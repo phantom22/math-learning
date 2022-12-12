@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "outFile": "learning.js"
+        "outFile": "../js/test.js"
     },
     "files": [
         "data.ts",
