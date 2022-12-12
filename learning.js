@@ -337,6 +337,7 @@ const categories = [
     }
 ];
 window.addEventListener("load", () => {
+    const debug = /(&|\?)debug=true/.test(window.location.href), dictionary = /(&|\?)dictionary=true/.test(window.location.href);
     function catLog(category, text) {
         return `[Category='${category}'] ${text}`;
     }
@@ -360,9 +361,9 @@ window.addEventListener("load", () => {
             o = 1;
         return [o, lb, rb];
     }
-    if (/(&|\?)debug=true/.test(window.location.href)) {
+    // Simple debug info, to prevent strange errors
+    if (debug) {
         console.group("Data debug");
-        // Simple debug info, to prevent strange errors
         if (typeof categories === "undefined")
             throw `No categories provided, hence no questions to display!`;
         for (let i = 0; i < categories.length; i++) {
@@ -397,22 +398,29 @@ window.addEventListener("load", () => {
         }
         console.groupEnd();
     }
-    const _input = document.getElementById("input"), _inputTitle = document.getElementById("input-title"), _prompt = document.getElementById("prompt"), _promptTitle = document.getElementById("prompt-title");
-    if (!(_input instanceof HTMLTextAreaElement))
-        throw "Couldn't find textarea#input";
-    if (_inputTitle === null)
-        throw "Couldn't find #input-title!";
-    if (_prompt === null)
-        throw "Couldn't find #prompt!";
+    const _answerInput = document.getElementById("answer-input"), _promptText = document.getElementById("prompt-text"), _answerContainer = document.getElementById("answer-container"), _answerTitle = document.getElementById("answer-title"), _promptTitle = document.getElementById("prompt-title");
+    if (!(_answerInput instanceof HTMLTextAreaElement))
+        throw "Couldn't find textarea#answer-input";
+    if (_promptText === null)
+        throw "Couldn't find #prompt-text!";
+    if (_answerTitle === null)
+        throw "Couldn't find #answer-title!";
     if (_promptTitle === null)
         throw "Couldn't find #prompt-title!";
+    if (_answerContainer === null)
+        throw "Couldn't find #answer-container!";
+    if (dictionary) {
+        _answerInput.style.display = "hidden";
+    }
     document.body.addEventListener("keypress", (e) => {
-        if (e.key === "Enter")
+        if (e.key === "Enter" && !dictionary)
             answerQuestion();
-        else if (e.key === " " && _input.placeholder !== "Inserire qui la risposta...")
-            _input.value = _input.placeholder;
+        else if (e.key === "Enter")
+            pickQuestion();
+        else if (e.key === " " && _answerInput.placeholder !== "Inserire qui la risposta...")
+            _answerInput.value = _answerInput.placeholder;
     });
-    _input.addEventListener("input", (e) => {
+    _answerInput.addEventListener("input", (e) => {
         // @ts-ignore
         let v = e.target.value;
         v = v.toLowerCase()
@@ -428,10 +436,18 @@ window.addEventListener("load", () => {
         e.target.value = v;
     });
     let _categoryIndex = -1, _questionIndex = -1, _questionQueue = [], _queueLength = /*(categories.length-1)*/ 2 * Math.min(categories.map(v => v.questions.length)), _totalQuestionCount = categories.map(v => v.questions.length).reduce((a, b) => a + b);
+    function chooseQuestion(category, questionIndex) {
+        if (!dictionary)
+            return;
+        _categoryIndex = category;
+        _questionIndex = questionIndex;
+        updateQuestionUI();
+        displayAnswer();
+    }
     function pickQuestion() {
         let categoryGuess = ~~(Math.random() * categories.length);
-        _input.value = "";
-        _input.placeholder = "Inserire qui la risposta...";
+        _answerInput.value = "";
+        _answerInput.placeholder = "Inserire qui la risposta...";
         while (categoryGuess === _categoryIndex && categories.length > 1) {
             categoryGuess = ~~(Math.random() * categories.length);
         }
@@ -455,26 +471,32 @@ window.addEventListener("load", () => {
         else if (_questionQueue.length > _queueLength)
             _questionQueue.shift();
         updateQuestionUI();
+        if (dictionary)
+            displayAnswer();
     }
     function answerQuestion() {
-        const { correctAnswers, equation } = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _input.value.toLowerCase();
+        const { correctAnswers, equation } = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _answerInput.value.toLowerCase();
         if (userAnswer === "skip" || userAnswer === "s") {
             pickQuestion();
         }
         else if ((typeof correctAnswers === "string" && correctAnswers === userAnswer) || Array.isArray(correctAnswers) && correctAnswers.includes(userAnswer)) {
             pickQuestion();
-            _inputTitle.textContent = "Risposta";
+            _answerTitle.textContent = "Risposta";
+        }
+        else
+            displayAnswer();
+    }
+    function displayAnswer() {
+        const { correctAnswers, equation } = categories[_categoryIndex].questions[_questionIndex].answer;
+        _answerInput.value = "";
+        _answerInput.placeholder = typeof correctAnswers === "string" ? correctAnswers : correctAnswers[~~(Math.random() * correctAnswers.length)];
+        const _target = dictionary ? _answerContainer : _answerTitle;
+        if (typeof equation === "string") {
+            // @ts-ignore
+            _target.innerHTML = MathJax.tex2mml((!dictionary ? "\\text{Risposta }\\implies" : "") + equation, {});
         }
         else {
-            _input.value = "";
-            _input.placeholder = typeof correctAnswers === "string" ? correctAnswers : correctAnswers[~~(Math.random() * correctAnswers.length)];
-            if (typeof equation === "string") {
-                // @ts-ignore
-                _inputTitle.innerHTML = MathJax.tex2mml("\\text{Risposta }\\implies" + equation, {});
-            }
-            else {
-                _inputTitle.textContent = "Risposta = " + (typeof correctAnswers === "string" ? correctAnswers : correctAnswers.join(" oppure "));
-            }
+            _target.textContent = "Risposta = " + (typeof correctAnswers === "string" ? correctAnswers : correctAnswers.join(" oppure "));
         }
     }
     function updateQuestionUI() {
@@ -482,11 +504,11 @@ window.addEventListener("load", () => {
         _promptTitle.textContent = cat.category;
         try {
             let { prompt: { equation, text }, answer } = cat.questions[_questionIndex];
-            _inputTitle.textContent = "Risposta";
+            _answerTitle.textContent = "Risposta";
             if (typeof equation === "string") {
                 try {
                     /** @ts-ignore */
-                    _prompt.innerHTML = MathJax.tex2mml(equation + (typeof text === "string" ? "" : " = ？"), {})
+                    _promptText.innerHTML = MathJax.tex2mml(equation + (typeof text === "string" ? "" : " = ？"), {})
                         + (text ? "<p>" + text.replaceAll("<", "&lt").replaceAll(">", "&gt") + (typeof answer === "string" ? " = ?" : " =* ?") + "</p>" : "");
                 }
                 catch (e) {
@@ -494,7 +516,7 @@ window.addEventListener("load", () => {
                 }
             }
             else if (typeof text === "string") {
-                _prompt.textContent =
+                _promptText.textContent =
                     text
                         + (typeof answer === "string" ? " = ?" : " =* ?");
             }
