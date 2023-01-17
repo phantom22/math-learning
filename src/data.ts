@@ -109,22 +109,52 @@ const categories: categoryCollection = [
         ]
     },
     {
-        category:"Identità trigonometriche",
+        category:"Identità trigonometriche generali",
         questions: [
             { prompt:{equation:"{\\tan x}"}, answer:{correctAnswers:["sin/cos","sin(x)/cos(x)"],equation:"{{\\tan x}=\\frac{\\sin x}{\\cos x}}"}},
-            { prompt:{equation:"{\\tan^{-1} x}"}, answer:{correctAnswers:["cos/sin","1/tan","cos(x)/sin(x)","1/tan(x)"],equation:"{{\\tan^{-1} x}=\\frac{\\cos x}{\\sin x}=\\frac{1}{\\tan x}}"}},
+            { prompt:{equation:"{(\\tan x)^{-1}}"}, answer:{correctAnswers:["cos/sin","1/tan","cos(x)/sin(x)","1/tan(x)"],equation:"{{\\tan^{-1} x}=\\frac{\\cos x}{\\sin x}=\\frac{1}{\\tan x}}"}},
             { prompt:{equation:"{\\cot x}"}, answer:{correctAnswers:["cos/sin","1/tan","cos(x)/sin(x)","1/tan(x)"],equation:"{{\\tan^{-1} x}=\\frac{\\cos x}{\\sin x}=\\frac{1}{\\tan x}}"}},
             { prompt:{equation:"{\\sec x}"}, answer:{correctAnswers:["1/cos","1/cos(x)"],equation:"{{\\sec x}=\\frac{1}{\\cos x}}"}},
             { prompt:{equation:"{\\csc x}"}, answer:{correctAnswers:["1/sin","1/sin(x)"],equation:"{{\\csc x}=\\frac{1}{\\sin x}}"}},
+        ]
+    },
+    {
+        category:"Funzioni iperboliche",
+        questions: [
+            { prompt:{equation:"{\\sinh x}"}, answer:{correctAnswers:["1/2(e^x-e^(-x))","(e^x-e^(-x))/2","1/2e^x(e^2x-1)","(e^2x-1)/2e^x","1/2e^x(e^(2x)-1)","(e^(2x)-1)/2e^x"],equation:"{{\\sinh x}={\\frac{e^x-e^{-x}}{2}}={\\frac{e^{2x}-1}{2e^x}}}"}},
+            { prompt:{equation:"{\\cosh x}"}, answer:{correctAnswers:["1/2(e^x+e^(-x))","(e^x+e^(-x))/2","1/2e^x(e^2x+1)","(e^2x+1)/2e^x","1/2e^x(e^(2x)+1)","(e^(2x)+1)/2e^x"],equation:"{{\\cosh x}={\\frac{e^x+e^{-x}}{2}}={\\frac{e^{2x}+1}{2e^x}}}"}},
+            { prompt:{equation:"{\\tanh x}"}, answer:{correctAnswers:["sinh(x)/cosh(x)","sinh/cosh","(e^x-e^(-x))/(e^x+e^(-x))"],equation:"{{\\tanh x}={\\frac{\\sinh x}{\\cosh x}}={\\frac{e^x-e^{-x}}{e^x+e^{-x}}}}"}},
+            { prompt:{equation:"{\\coth x}"}, answer:{correctAnswers:["cosh(x)/sinh(x)","cosh/sinh","(e^x+e^(-x))/(e^x-e^(-x))"],equation:"{{\\coth x}={\\frac{\\cosh x}{\\sinh x}}={\\frac{e^x+e^{-x}}{e^x-e^{-x}}}}"}},
+            { prompt:{equation:"{\\text{sech } x}"}, answer:{correctAnswers:["1/cosh(x)","1/cosh","2/(e^x+e^(-x))"],equation:"{{\\text{sech } x}={\\frac{1}{\\cosh x}}={\\frac{2}{e^x+e^{-x}}}}"}},
+            { prompt:{equation:"{\\text{csch } x}"}, answer:{correctAnswers:["1/sinh(x)","1/sinh","2/(e^x-e^(-x))"],equation:"{{\\text{csch } x}={\\frac{1}{\\sinh x}}={\\frac{2}{e^x-e^{-x}}}}"}},
+        ]
+    },
+    {
+        category:"Identità tra seno e coseno",
+        questions: [
             { prompt:{equation:"{\\sin^2 x+\\cos^2 x}"}, answer:{correctAnswers:"1",equation:"{{\\sin^2 x+\\cos^2 x}=1}"}},
+
             { prompt:{equation:"{1-\\cos^2 x}"},answer:{correctAnswers:["sin^2","sin^2(x)"],equation:"{{1-\\cos^2 x}=\\sin^2 x}"}},
             { prompt:{equation:"{1-\\sin^2 x}"},answer:{correctAnswers:["cos^2","cos^2(x)"],equation:"{{1-\\sin^2 x}=\\cos^2 x}"}},
             { prompt:{equation:"{\\sin^2 x}"}, answer:{correctAnswers:["1-cos^2","1-cos^2(x)"],equation:"{{\\sin^2 x}=1-\\cos^2 x}"}},
             { prompt:{equation:"{\\cos^2 x}"},answer:{correctAnswers:["1-sin^2","1-sin^2(x)"],equation:"{{\\cos^2 x}=1-\\sin^2 x}"}},
-            /*{ prompt:{equation:"\\sin x}"}, answer:{correctAnswers:["±√1-cos^2","±√(1-cos^2)"]}},
-            { prompt:{equation:"\\cos x}"}, answer:{correctAnswers:["±√1-sin^2","±√(1-sin^2)"]}},*/
+            { prompt:{equation:"\\sin x}"}, answer:{correctAnswers:["±√1-cos^2","±√(1-cos^2)"]}},
+            { prompt:{equation:"\\cos x}"}, answer:{correctAnswers:["±√1-sin^2","±√(1-sin^2)"]}},
+
+            // somma/sottrazione nell'argomento
             { prompt:{equation:"{\\cos (a \\pm b)}"},answer:{correctAnswers:["cos(a)*cos(b)∓sin(a)*sin(b)","cos(a)cos(b)∓sin(a)sin(b)"],equation:"{\\cos (\\alpha \\pm \\beta)=\\cos \\alpha \\cos \\beta \\mp \\sin \\alpha \\sin \\beta}"}},
             { prompt:{equation:"{\\sin (a \\pm b)}"},answer:{correctAnswers:["sin(a)*cos(b)±cos(a)*sin(b)","sin(a)cos(b)±cos(a)sin(b)"],equation:"{\\sin(\\alpha \\pm \\beta)=\\sin \\alpha \\cos \\beta \\pm \\cos \\alpha \\sin \\beta}"}},
+
+            // Werner, prodotti tra seno e coseno
+            { prompt:{equation:"{\\cos \\alpha \\cos \\beta}"},answer:{correctAnswers:["1/2[cos(a-b)+cos(a+b)]","1/2(cos(a-b)+cos(a+b))","(cos(a-b)+cos(a+b))/2"],equation:"{{\\cos \\alpha \\cos \\beta}=\\frac{1}{2}[\\cos(\\alpha-\\beta)+\\cos(\\alpha+\\beta)]}"}},
+            { prompt:{equation:"{\\sin \\alpha \\sin \\beta}"},answer:{correctAnswers:["1/2[cos(a-b)-cos(a+b)]","1/2(cos(a-b)-cos(a+b))","(cos(a-b)-cos(a+b))/2"],equation:"{{\\sin \\alpha \\sin \\beta}=\\frac{1}{2}[\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)]}"}},
+            { prompt:{equation:"{\\sin \\alpha \\cos \\beta}"},answer:{correctAnswers:["1/2[sin(a-b)+sin(a+b)]","1/2(sin(a-b)+sin(a+b))","(sin(a-b)+sin(a+b))/2"],equation:"{{\\sin \\alpha \\cos \\beta}=\\frac{1}{2}[\\sin(\\alpha-\\beta)+\\sin(\\alpha+\\beta)]}"}},
+
+            // Prostaferesi, somme tra seno/seno e coseno/coseno
+            { prompt:{equation:"{\\sin \\alpha + \\sin \\beta}"},answer:{correctAnswers:["2sin((a+b)/2)cos((a-b)/2)","2*sin((a+b)/2)cos((a-b)/2)",],equation:"{{\\sin \\alpha + \\sin \\beta}=2\\sin(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}"}},
+            { prompt:{equation:"{\\sin \\alpha - \\sin \\beta}"},answer:{correctAnswers:["2cos((a+b)/2)sin((a-b)/2)","2*cos((a+b)/2)sin((a-b)/2)",],equation:"{{\\sin \\alpha - \\sin \\beta}=2\\cos(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}"}},
+            { prompt:{equation:"{\\cos \\alpha + \\cos \\beta}"},answer:{correctAnswers:["2cos((a+b)/2)cos((a-b)/2)","2*cos((a+b)/2)cos((a-b)/2)",],equation:"{{\\cos \\alpha + \\cos \\beta}=2\\cos(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}"}},
+            { prompt:{equation:"{\\cos \\alpha - \\cos \\beta}"},answer:{correctAnswers:["-2sin((a+b)/2)sin((a-b)/2)","-2*sin((a+b)/2)sin((a-b)/2)",],equation:"{{\\cos \\alpha - \\cos \\beta}=-2\\sin(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}"}},
         ]
     },
     {
@@ -150,7 +180,7 @@ const categories: categoryCollection = [
             { prompt:{equation:"{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}"}, answer:{correctAnswers:"e^a",equation:"{{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}=e^\\alpha}"}},
         ]
     },
-    {
+    /*{
         category:"Equivalenze asintotiche",
         questions:[
                 { prompt:{equation:"{\\sin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{{\\sin x \\sim x} \\text{, per } {x \\rightarrow 0}}"}},
@@ -163,7 +193,7 @@ const categories: categoryCollection = [
                 { prompt:{equation:"{\\arcsin x \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\arcsin x \\sim x \\text{, per } {x \\rightarrow 0}}"}},
                 { prompt:{equation:"{\\ln (1+x) \\sim ？ \\text{per } {x \\rightarrow 0}}",text:""}, answer:{correctAnswers:"x",equation:"{\\ln (1+x) \\sim x \\text{, per } {x \\rightarrow 0}}"}},
         ]
-    },
+    },*/
     {
         category:"Proprietà degli o-piccolo",
         questions:[
