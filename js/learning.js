@@ -3,81 +3,81 @@ const categories = [
     {
         category: "Trigonometria",
         questions: [
-            { prompt: { equation: "{\\cos 0^\\circ}" }, answer: { correctAnswers: "1", equation: "{\\cos 0^\\circ=1}" } },
-            { prompt: { equation: "{\\cos 360^\\circ}" }, answer: { correctAnswers: "1", equation: "{\\cos 360^\\circ=1}" } },
-            { prompt: { equation: "{\\cos 2 \\pi}" }, answer: { correctAnswers: "1", equation: "{\\cos 2 \\pi=1}" } },
-            { prompt: { equation: "{\\tan 45^\\circ}" }, answer: { correctAnswers: "1", equation: "{\\tan 45^\\circ=1}" } },
-            { prompt: { equation: "{\\tan \\frac{\\pi}{4}}" }, answer: { correctAnswers: "1", equation: "{\\tan \\frac{\\pi}{4}=1}" } },
-            { prompt: { equation: "{\\sin 90^\\circ}" }, answer: { correctAnswers: "1", equation: "{\\sin 90^\\circ=1}" } },
-            { prompt: { equation: "{\\sin \\frac{\\pi}{2}}" }, answer: { correctAnswers: "1", equation: "{\\sin \\frac{\\pi}{2}=1}" } },
-            { prompt: { equation: "{\\sin 0^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\sin 0^\\circ=0}" } },
-            { prompt: { equation: "{\\sin 360^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\sin 360^\\circ=0}" } },
-            { prompt: { equation: "{\\sin 2 \\pi}" }, answer: { correctAnswers: "0", equation: "{\\sin 2 \\pi=0}" } },
-            { prompt: { equation: "{\\tan 0^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\tan 0^\\circ=0}" } },
-            { prompt: { equation: "{\\tan 360^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\tan 360^\\circ=0}" } },
-            { prompt: { equation: "{\\tan 2 \\pi}" }, answer: { correctAnswers: "0", equation: "{\\tan 2 \\pi=0}" } },
-            { prompt: { equation: "{\\cos 90^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\cos 90^\\circ=0}" } },
-            { prompt: { equation: "{\\cos \\frac{\\pi}{2}}" }, answer: { correctAnswers: "0", equation: "{\\cos \\frac{\\pi}{2}=0}" } },
-            { prompt: { equation: "{\\sin 180^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\sin 180^\\circ=0}" } },
-            { prompt: { equation: "{\\sin \\pi}" }, answer: { correctAnswers: "0", equation: "{\\sin \\pi=0}" } },
-            { prompt: { equation: "{\\tan 180^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\tan 180^\\circ=}" } },
-            { prompt: { equation: "{\\tan \\pi}" }, answer: { correctAnswers: "0", equation: "{\\tan \\pi=}" } },
-            { prompt: { equation: "{\\cos 270^\\circ}" }, answer: { correctAnswers: "0", equation: "{\\cos 270^\\circ=0}" } },
-            { prompt: { equation: "{\\cos \\frac{3}{2} \\pi}" }, answer: { correctAnswers: "0", equation: "{\\cos \\frac{3}{2} \\pi=0}" } },
-            { prompt: { equation: "{\\cos 30^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{\\cos 30^\\circ=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\cos \\frac{\\pi}{6}}" }, answer: { correctAnswers: "√3/2", equation: "{\\cos \\frac{\\pi}{6}=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin 60^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin 60^\\circ=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin \\frac{\\pi}{3}}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin \\frac{\\pi}{3}=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin (90^\\circ-30^\\circ)=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin 120^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin 120^\\circ=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin \\frac{2}{3} \\pi=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "√3/2", equation: "{\\sin (90^\\circ+30^\\circ)=\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\sin 30^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{\\sin 30^\\circ=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\sin \\frac{\\pi}{6}}" }, answer: { correctAnswers: "1/2", equation: "{\\sin \\frac{\\pi}{6}=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\cos 60^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{\\cos 60^\\circ=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\cos \\frac{\\pi}{3}}" }, answer: { correctAnswers: "1/2", equation: "{\\cos \\frac{\\pi}{3}=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\cos (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "1/2", equation: "{\\cos (90^\\circ-30^\\circ)=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\sin 150^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{\\sin 150^\\circ=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\sin \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "1/2", equation: "{\\sin \\frac{5}{6} \\pi=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\sin (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "1/2", equation: "{\\sin (180^\\circ-30^\\circ)=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\tan 30^\\circ}" }, answer: { correctAnswers: "√3/3", equation: "{\\tan 30^\\circ=\\frac{\\sqrt 3}{3}}" } },
-            { prompt: { equation: "{\\tan \\frac{\\pi}{6}}" }, answer: { correctAnswers: "√3/3", equation: "{\\tan \\frac{\\pi}{6}=\\frac{\\sqrt 3}{3}}" } },
-            { prompt: { equation: "{\\cos 45^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{\\cos 45^\\circ=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\cos \\frac{\\pi}{4}}" }, answer: { correctAnswers: "√2/2", equation: "{\\cos \\frac{\\pi}{4}=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\sin 45^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{\\sin 45^\\circ=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\sin \\frac{\\pi}{4}}" }, answer: { correctAnswers: "√2/2", equation: "{\\sin \\frac{\\pi}{4}=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\sin 135^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{\\sin 135^\\circ=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\sin \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "√2/2", equation: "{\\sin \\frac{3}{4} \\pi=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\sin (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "√2/2", equation: "{\\sin (90^\\circ+45^\\circ)=\\frac{\\sqrt 2}{3}}" } },
-            { prompt: { equation: "{\\tan 60^\\circ}" }, answer: { correctAnswers: "√3", equation: "{=\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan \\frac{\\pi}{3}}" }, answer: { correctAnswers: "√3", equation: "{=\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "√3", equation: "{=\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan 90^\\circ}" }, answer: { correctAnswers: ["-", "ne"], equation: "{\\tan 90^\\circ=\\nexists}" } },
-            { prompt: { equation: "{\\tan \\frac{\\pi}{2}}" }, answer: { correctAnswers: ["-", "ne"], equation: "{\\tan \\frac{\\pi}{2}=\\nexists}" } },
-            { prompt: { equation: "{\\tan 270^\\circ}" }, answer: { correctAnswers: ["-", "ne"], equation: "{\\tan 270^\\circ=\\nexists}" } },
-            { prompt: { equation: "{\\tan \\frac{3}{2} \\pi}" }, answer: { correctAnswers: ["-", "ne"], equation: "{\\tan \\frac{3}{2} \\pi=\\nexists}" } },
-            { prompt: { equation: "{\\cos 120^\\circ}" }, answer: { correctAnswers: "-1/2", equation: "{\\cos 120^\\circ=-\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\cos \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "-1/2", equation: "{\\cos \\frac{2}{3} \\pi=-\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\cos (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "-1/2", equation: "{\\cos (90^\\circ+30^\\circ)=-\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\tan 120^\\circ}" }, answer: { correctAnswers: "-√3", equation: "{\\tan 120^\\circ=-\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "-√3", equation: "{\\tan \\frac{2}{3} \\pi=-\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "-√3", equation: "{\\tan (90^\\circ+30^\\circ)=-\\sqrt 3}" } },
-            { prompt: { equation: "{\\tan 135^\\circ}" }, answer: { correctAnswers: "-1", equation: "{\\tan 135^\\circ=-1}" } },
-            { prompt: { equation: "{\\tan \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "-1", equation: "{\\tan \\frac{3}{4} \\pi=-1}" } },
-            { prompt: { equation: "{\\tan (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "-1", equation: "{\\tan (90^\\circ+45^\\circ)=-1}" } },
-            { prompt: { equation: "{\\cos 180^\\circ}" }, answer: { correctAnswers: "-1", equation: "{\\cos 180^\\circ=-1}" } },
-            { prompt: { equation: "{\\cos \\pi}" }, answer: { correctAnswers: "-1", equation: "{\\cos \\pi=-1}" } },
-            { prompt: { equation: "{\\sin 270^\\circ}" }, answer: { correctAnswers: "-1", equation: "{\\sin 270^\\circ=-1}" } },
-            { prompt: { equation: "{\\sin \\frac{3}{2} \\pi}" }, answer: { correctAnswers: "-1", equation: "{\\sin \\frac{3}{2} \\pi=-1}" } },
-            { prompt: { equation: "{\\cos 135^\\circ}" }, answer: { correctAnswers: "-√2/2", equation: "{\\cos 135^\\circ=-\\frac{\\sqrt 2}{2}}" } },
-            { prompt: { equation: "{\\cos \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "-√2/2", equation: "{\\cos \\frac{3}{4} \\pi=-\\frac{\\sqrt 2}{2}}" } },
-            { prompt: { equation: "{\\cos (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "-√2/2", equation: "{\\cos (90^\\circ+45^\\circ)=-\\frac{\\sqrt 2}{2}}" } },
-            { prompt: { equation: "{\\tan 150^\\circ}" }, answer: { correctAnswers: "-√3/3", equation: "{\\tan 150^\\circ=-\\frac{\\sqrt 3}{3}}" } },
-            { prompt: { equation: "{\\tan \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "-√3/3", equation: "{\\tan \\frac{5}{6} \\pi=-\\frac{\\sqrt 3}{3}}" } },
-            { prompt: { equation: "{\\tan (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "-√3/3", equation: "{\\tan (180^\\circ-30^\\circ)=-\\frac{\\sqrt 3}{3}}" } },
-            { prompt: { equation: "{\\cos 150^\\circ}" }, answer: { correctAnswers: "-√3/2", equation: "{\\cos 150^\\circ=-\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\cos \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "-√3/2", equation: "{\\cos \\frac{5}{6} \\pi=-\\frac{\\sqrt 3}{2}}" } },
-            { prompt: { equation: "{\\cos (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "-√3/2", equation: "{\\cos (180^\\circ-30^\\circ)=-\\frac{\\sqrt 3}{2}}" } },
+            { prompt: { equation: "{\\cos 0^\\circ}" }, answer: { correctAnswers: "1", equation: "{{\\cos 0^\\circ}={1}}" } },
+            { prompt: { equation: "{\\cos 360^\\circ}" }, answer: { correctAnswers: "1", equation: "{{\\cos 360^\\circ}={1}}" } },
+            { prompt: { equation: "{\\cos 2 \\pi}" }, answer: { correctAnswers: "1", equation: "{{\\cos 2 \\pi}={1}}" } },
+            { prompt: { equation: "{\\tan 45^\\circ}" }, answer: { correctAnswers: "1", equation: "{{\\tan 45^\\circ}={1}}" } },
+            { prompt: { equation: "{\\tan \\frac{\\pi}{4}}" }, answer: { correctAnswers: "1", equation: "{{\\tan \\frac{\\pi}{4}}={1}}" } },
+            { prompt: { equation: "{\\sin 90^\\circ}" }, answer: { correctAnswers: "1", equation: "{{\\sin 90^\\circ}={1}}" } },
+            { prompt: { equation: "{\\sin \\frac{\\pi}{2}}" }, answer: { correctAnswers: "1", equation: "{{\\sin \\frac{\\pi}{2}}={1}}" } },
+            { prompt: { equation: "{\\sin 0^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\sin 0^\\circ}={0}}" } },
+            { prompt: { equation: "{\\sin 360^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\sin 360^\\circ}={0}}" } },
+            { prompt: { equation: "{\\sin 2 \\pi}" }, answer: { correctAnswers: "0", equation: "{{\\sin 2 \\pi}={0}}" } },
+            { prompt: { equation: "{\\tan 0^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\tan 0^\\circ}={0}}" } },
+            { prompt: { equation: "{\\tan 360^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\tan 360^\\circ}={0}}" } },
+            { prompt: { equation: "{\\tan 2 \\pi}" }, answer: { correctAnswers: "0", equation: "{{\\tan 2 \\pi}={0}}" } },
+            { prompt: { equation: "{\\cos 90^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\cos 90^\\circ}={0}}" } },
+            { prompt: { equation: "{\\cos \\frac{\\pi}{2}}" }, answer: { correctAnswers: "0", equation: "{{\\cos \\frac{\\pi}{2}}={0}}" } },
+            { prompt: { equation: "{\\sin 180^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\sin 180^\\circ}={0}}" } },
+            { prompt: { equation: "{\\sin \\pi}" }, answer: { correctAnswers: "0", equation: "{{\\sin \\pi}={0}}" } },
+            { prompt: { equation: "{\\tan 180^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\tan 180^\\circ}={0}}" } },
+            { prompt: { equation: "{\\tan \\pi}" }, answer: { correctAnswers: "0", equation: "{{\\tan \\pi}={0}}" } },
+            { prompt: { equation: "{\\cos 270^\\circ}" }, answer: { correctAnswers: "0", equation: "{{\\cos 270^\\circ}={0}}" } },
+            { prompt: { equation: "{\\cos \\frac{3}{2} \\pi}" }, answer: { correctAnswers: "0", equation: "{{\\cos \\frac{3}{2} \\pi}={0}}" } },
+            { prompt: { equation: "{\\cos 30^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{{\\cos 30^\\circ}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{\\pi}{6}}" }, answer: { correctAnswers: "√3/2", equation: "{{\\cos \\frac{\\pi}{6}}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin 60^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin 60^\\circ}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{\\pi}{3}}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin \\frac{\\pi}{3}}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin (90^\\circ-30^\\circ)}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin 120^\\circ}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin 120^\\circ}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin \\frac{2}{3} \\pi}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "√3/2", equation: "{{\\sin (90^\\circ+30^\\circ)}={\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\sin 30^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{{\\sin 30^\\circ}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{\\pi}{6}}" }, answer: { correctAnswers: "1/2", equation: "{{\\sin \\frac{\\pi}{6}}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\cos 60^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{{\\cos 60^\\circ}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{\\pi}{3}}" }, answer: { correctAnswers: "1/2", equation: "{{\\cos \\frac{\\pi}{3}}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\cos (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "1/2", equation: "{{\\cos (90^\\circ-30^\\circ)}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\sin 150^\\circ}" }, answer: { correctAnswers: "1/2", equation: "{{\\sin 150^\\circ}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "1/2", equation: "{{\\sin \\frac{5}{6} \\pi}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\sin (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "1/2", equation: "{{\\sin (180^\\circ-30^\\circ)}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\tan 30^\\circ}" }, answer: { correctAnswers: "√3/3", equation: "{{\\tan 30^\\circ}={\\frac{\\sqrt 3}{3}}}" } },
+            { prompt: { equation: "{\\tan \\frac{\\pi}{6}}" }, answer: { correctAnswers: "√3/3", equation: "{{\\tan \\frac{\\pi}{6}}={\\frac{\\sqrt 3}{3}}}" } },
+            { prompt: { equation: "{\\cos 45^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{{\\cos 45^\\circ}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{\\pi}{4}}" }, answer: { correctAnswers: "√2/2", equation: "{{\\cos \\frac{\\pi}{4}}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\sin 45^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{{\\sin 45^\\circ}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{\\pi}{4}}" }, answer: { correctAnswers: "√2/2", equation: "{{\\sin \\frac{\\pi}{4}}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\sin 135^\\circ}" }, answer: { correctAnswers: "√2/2", equation: "{{\\sin 135^\\circ}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\sin \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "√2/2", equation: "{{\\sin \\frac{3}{4} \\pi}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\sin (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "√2/2", equation: "{{\\sin (90^\\circ+45^\\circ)}={\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\tan 60^\\circ}" }, answer: { correctAnswers: "√3", equation: "{{\\tan 60^\\circ}={\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan \\frac{\\pi}{3}}" }, answer: { correctAnswers: "√3", equation: "{{\\tan \\frac{\\pi}{3}}={\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan (90^\\circ-30^\\circ)}" }, answer: { correctAnswers: "√3", equation: "{{\\tan (90^\\circ-30^\\circ)}={\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan 90^\\circ}" }, answer: { correctAnswers: ["-", "ne"], equation: "{{\\tan 90^\\circ}={\\nexists}}" } },
+            { prompt: { equation: "{\\tan \\frac{\\pi}{2}}" }, answer: { correctAnswers: ["-", "ne"], equation: "{{\\tan \\frac{\\pi}{2}}={\\nexists}}" } },
+            { prompt: { equation: "{\\tan 270^\\circ}" }, answer: { correctAnswers: ["-", "ne"], equation: "{{\\tan 270^\\circ}={\\nexists}}" } },
+            { prompt: { equation: "{\\tan \\frac{3}{2} \\pi}" }, answer: { correctAnswers: ["-", "ne"], equation: "{{\\tan \\frac{3}{2} \\pi}={\\nexists}}" } },
+            { prompt: { equation: "{\\cos 120^\\circ}" }, answer: { correctAnswers: "-1/2", equation: "{{\\cos 120^\\circ}={-\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "-1/2", equation: "{{\\cos \\frac{2}{3} \\pi}={-\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\cos (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "-1/2", equation: "{{\\cos (90^\\circ+30^\\circ)}={-\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\tan 120^\\circ}" }, answer: { correctAnswers: "-√3", equation: "{{\\tan 120^\\circ}={-\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan \\frac{2}{3} \\pi}" }, answer: { correctAnswers: "-√3", equation: "{{\\tan \\frac{2}{3} \\pi}={-\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan (90^\\circ+30^\\circ)}" }, answer: { correctAnswers: "-√3", equation: "{{\\tan (90^\\circ+30^\\circ)}={-\\sqrt 3}}" } },
+            { prompt: { equation: "{\\tan 135^\\circ}" }, answer: { correctAnswers: "-1", equation: "{{\\tan 135^\\circ}={-1}}" } },
+            { prompt: { equation: "{\\tan \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "-1", equation: "{{\\tan \\frac{3}{4} \\pi}={-1}}" } },
+            { prompt: { equation: "{\\tan (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "-1", equation: "{{\\tan (90^\\circ+45^\\circ)}={-1}}" } },
+            { prompt: { equation: "{\\cos 180^\\circ}" }, answer: { correctAnswers: "-1", equation: "{{\\cos 180^\\circ}={-1}}" } },
+            { prompt: { equation: "{\\cos \\pi}" }, answer: { correctAnswers: "-1", equation: "{{\\cos \\pi}={-1}}" } },
+            { prompt: { equation: "{\\sin 270^\\circ}" }, answer: { correctAnswers: "-1", equation: "{{\\sin 270^\\circ}={-1}}" } },
+            { prompt: { equation: "{\\sin \\frac{3}{2} \\pi}" }, answer: { correctAnswers: "-1", equation: "{{\\sin \\frac{3}{2} \\pi}={-1}}" } },
+            { prompt: { equation: "{\\cos 135^\\circ}" }, answer: { correctAnswers: "-√2/2", equation: "{{\\cos 135^\\circ}={-\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{3}{4} \\pi}" }, answer: { correctAnswers: "-√2/2", equation: "{{\\cos \\frac{3}{4} \\pi}={-\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\cos (90^\\circ+45^\\circ)}" }, answer: { correctAnswers: "-√2/2", equation: "{{\\cos (90^\\circ+45^\\circ)}={-\\frac{\\sqrt 2}{2}}}" } },
+            { prompt: { equation: "{\\tan 150^\\circ}" }, answer: { correctAnswers: "-√3/3", equation: "{{\\tan 150^\\circ}={-\\frac{\\sqrt 3}{3}}}" } },
+            { prompt: { equation: "{\\tan \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "-√3/3", equation: "{{\\tan \\frac{5}{6} \\pi}={-\\frac{\\sqrt 3}{3}}}" } },
+            { prompt: { equation: "{\\tan (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "-√3/3", equation: "{{\\tan (180^\\circ-30^\\circ)}={-\\frac{\\sqrt 3}{3}}}" } },
+            { prompt: { equation: "{\\cos 150^\\circ}" }, answer: { correctAnswers: "-√3/2", equation: "{{\\cos 150^\\circ}={-\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\cos \\frac{5}{6} \\pi}" }, answer: { correctAnswers: "-√3/2", equation: "{{\\cos \\frac{5}{6} \\pi}={-\\frac{\\sqrt 3}{2}}}" } },
+            { prompt: { equation: "{\\cos (180^\\circ-30^\\circ)}" }, answer: { correctAnswers: "-√3/2", equation: "{{\\cos (180^\\circ-30^\\circ)}={-\\frac{\\sqrt 3}{2}}}" } },
         ]
     },
     {
@@ -109,38 +109,38 @@ const categories = [
             { prompt: { equation: "{1-\\sin^2 x}" }, answer: { correctAnswers: ["cos^2", "cos^2(x)"], equation: "{{1-\\sin^2 x}=\\cos^2 x}" } },
             { prompt: { equation: "{\\sin^2 x}" }, answer: { correctAnswers: ["1-cos^2", "1-cos^2(x)"], equation: "{{\\sin^2 x}=1-\\cos^2 x}" } },
             { prompt: { equation: "{\\cos^2 x}" }, answer: { correctAnswers: ["1-sin^2", "1-sin^2(x)"], equation: "{{\\cos^2 x}=1-\\sin^2 x}" } },
-            { prompt: { equation: "\\sin x}" }, answer: { correctAnswers: ["±√1-cos^2", "±√(1-cos^2)"] } },
-            { prompt: { equation: "\\cos x}" }, answer: { correctAnswers: ["±√1-sin^2", "±√(1-sin^2)"] } },
+            { prompt: { equation: "{\\sin x}" }, answer: { correctAnswers: ["±√1-cos^2", "±√(1-cos^2)"], equation: "{{\\sin x}={\\pm \\sqrt{1-\\cos^2(x)}}}" } },
+            { prompt: { equation: "{\\cos x}" }, answer: { correctAnswers: ["±√1-sin^2", "±√(1-sin^2)"], equation: "{{\\cos x}={\\pm \\sqrt{1-\\sin^2(x)}}}" } },
             // somma/sottrazione nell'argomento
-            { prompt: { equation: "{\\cos (a \\pm b)}" }, answer: { correctAnswers: ["cos(a)*cos(b)∓sin(a)*sin(b)", "cos(a)cos(b)∓sin(a)sin(b)"], equation: "{\\cos (\\alpha \\pm \\beta)=\\cos \\alpha \\cos \\beta \\mp \\sin \\alpha \\sin \\beta}" } },
-            { prompt: { equation: "{\\sin (a \\pm b)}" }, answer: { correctAnswers: ["sin(a)*cos(b)±cos(a)*sin(b)", "sin(a)cos(b)±cos(a)sin(b)"], equation: "{\\sin(\\alpha \\pm \\beta)=\\sin \\alpha \\cos \\beta \\pm \\cos \\alpha \\sin \\beta}" } },
+            { prompt: { equation: "{\\cos (a \\pm b)}" }, answer: { correctAnswers: ["cos(a)*cos(b)∓sin(a)*sin(b)", "cos(a)cos(b)∓sin(a)sin(b)"], equation: "{{\\cos (\\alpha \\pm \\beta)}={\\cos \\alpha \\cos \\beta \\mp \\sin \\alpha \\sin \\beta}}" } },
+            { prompt: { equation: "{\\sin (a \\pm b)}" }, answer: { correctAnswers: ["sin(a)*cos(b)±cos(a)*sin(b)", "sin(a)cos(b)±cos(a)sin(b)"], equation: "{{\\sin(\\alpha \\pm \\beta)}={\\sin \\alpha \\cos \\beta \\pm \\cos \\alpha \\sin \\beta}}" } },
             // Werner, prodotti tra seno e coseno
-            { prompt: { equation: "{\\cos \\alpha \\cos \\beta}" }, answer: { correctAnswers: ["1/2[cos(a-b)+cos(a+b)]", "1/2(cos(a-b)+cos(a+b))", "(cos(a-b)+cos(a+b))/2"], equation: "{{\\cos \\alpha \\cos \\beta}=\\frac{1}{2}[\\cos(\\alpha-\\beta)+\\cos(\\alpha+\\beta)]}" } },
-            { prompt: { equation: "{\\sin \\alpha \\sin \\beta}" }, answer: { correctAnswers: ["1/2[cos(a-b)-cos(a+b)]", "1/2(cos(a-b)-cos(a+b))", "(cos(a-b)-cos(a+b))/2"], equation: "{{\\sin \\alpha \\sin \\beta}=\\frac{1}{2}[\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)]}" } },
-            { prompt: { equation: "{\\sin \\alpha \\cos \\beta}" }, answer: { correctAnswers: ["1/2[sin(a-b)+sin(a+b)]", "1/2(sin(a-b)+sin(a+b))", "(sin(a-b)+sin(a+b))/2"], equation: "{{\\sin \\alpha \\cos \\beta}=\\frac{1}{2}[\\sin(\\alpha-\\beta)+\\sin(\\alpha+\\beta)]}" } },
+            { prompt: { equation: "{\\cos \\alpha \\cos \\beta}" }, answer: { correctAnswers: ["1/2[cos(a-b)+cos(a+b)]", "1/2(cos(a-b)+cos(a+b))", "(cos(a-b)+cos(a+b))/2"], equation: "{{\\cos \\alpha \\cos \\beta}={\\frac{1}{2}[\\cos(\\alpha-\\beta)+\\cos(\\alpha+\\beta)]}}" } },
+            { prompt: { equation: "{\\sin \\alpha \\sin \\beta}" }, answer: { correctAnswers: ["1/2[cos(a-b)-cos(a+b)]", "1/2(cos(a-b)-cos(a+b))", "(cos(a-b)-cos(a+b))/2"], equation: "{{\\sin \\alpha \\sin \\beta}={\\frac{1}{2}[\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)]}}" } },
+            { prompt: { equation: "{\\sin \\alpha \\cos \\beta}" }, answer: { correctAnswers: ["1/2[sin(a-b)+sin(a+b)]", "1/2(sin(a-b)+sin(a+b))", "(sin(a-b)+sin(a+b))/2"], equation: "{{\\sin \\alpha \\cos \\beta}={\\frac{1}{2}[\\sin(\\alpha-\\beta)+\\sin(\\alpha+\\beta)]}}" } },
             // Prostaferesi, somme tra seno/seno e coseno/coseno
-            { prompt: { equation: "{\\sin \\alpha + \\sin \\beta}" }, answer: { correctAnswers: ["2sin((a+b)/2)cos((a-b)/2)", "2*sin((a+b)/2)cos((a-b)/2)",], equation: "{{\\sin \\alpha + \\sin \\beta}=2\\sin(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}" } },
-            { prompt: { equation: "{\\sin \\alpha - \\sin \\beta}" }, answer: { correctAnswers: ["2cos((a+b)/2)sin((a-b)/2)", "2*cos((a+b)/2)sin((a-b)/2)",], equation: "{{\\sin \\alpha - \\sin \\beta}=2\\cos(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}" } },
-            { prompt: { equation: "{\\cos \\alpha + \\cos \\beta}" }, answer: { correctAnswers: ["2cos((a+b)/2)cos((a-b)/2)", "2*cos((a+b)/2)cos((a-b)/2)",], equation: "{{\\cos \\alpha + \\cos \\beta}=2\\cos(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}" } },
-            { prompt: { equation: "{\\cos \\alpha - \\cos \\beta}" }, answer: { correctAnswers: ["-2sin((a+b)/2)sin((a-b)/2)", "-2*sin((a+b)/2)sin((a-b)/2)",], equation: "{{\\cos \\alpha - \\cos \\beta}=-2\\sin(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}" } },
+            { prompt: { equation: "{\\sin \\alpha + \\sin \\beta}" }, answer: { correctAnswers: ["2sin((a+b)/2)cos((a-b)/2)", "2*sin((a+b)/2)cos((a-b)/2)",], equation: "{{\\sin \\alpha + \\sin \\beta}={2\\sin(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}}" } },
+            { prompt: { equation: "{\\sin \\alpha - \\sin \\beta}" }, answer: { correctAnswers: ["2cos((a+b)/2)sin((a-b)/2)", "2*cos((a+b)/2)sin((a-b)/2)",], equation: "{{\\sin \\alpha - \\sin \\beta}={2\\cos(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}}" } },
+            { prompt: { equation: "{\\cos \\alpha + \\cos \\beta}" }, answer: { correctAnswers: ["2cos((a+b)/2)cos((a-b)/2)", "2*cos((a+b)/2)cos((a-b)/2)",], equation: "{{\\cos \\alpha + \\cos \\beta}={2\\cos(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})}}" } },
+            { prompt: { equation: "{\\cos \\alpha - \\cos \\beta}" }, answer: { correctAnswers: ["-2sin((a+b)/2)sin((a-b)/2)", "-2*sin((a+b)/2)sin((a-b)/2)",], equation: "{{\\cos \\alpha - \\cos \\beta}={-2\\sin(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})}}" } },
         ]
     },
     {
         category: "Limiti notevoli",
         questions: [
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}=1}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}" }, answer: { correctAnswers: "k", equation: "{{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}=k, \\forall k \\in \\mathbb{R}}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0^+} x \\ln x}" }, answer: { correctAnswers: "0", equation: "{{\\lim_{x \\rightarrow 0^+} x \\ln x}=0}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}" }, answer: { correctAnswers: ["ln(a)", "log(a)"], equation: "{{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}=\\ln a}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}" }, answer: { correctAnswers: "1/2", equation: "{{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}=\\frac{1}{2}}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+\\frac{1}{x})^x}" }, answer: { correctAnswers: "e", equation: "{{\\lim_{x \\rightarrow \\infty} (1+\\frac{1}{x})^x}=e}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+x)^{-x}}" }, answer: { correctAnswers: "e", equation: "{{\\lim_{x \\rightarrow \\infty} (1+x)^{-x}}=e}" } },
-            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}" }, answer: { correctAnswers: "e^a", equation: "{{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}=e^\\alpha}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\sin x}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\ln(1+x)}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\tan x}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{e^x-1}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\arctan x}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}" }, answer: { correctAnswers: "1", equation: "{{\\lim_{x \\rightarrow 0} \\frac{\\arcsin x}{x}}={1}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}" }, answer: { correctAnswers: "k", equation: "{{\\lim_{x \\rightarrow 0} \\frac{(1+x)^k-1}{x}}={k, \\forall k \\in \\mathbb{R}}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0^+} x \\ln x}" }, answer: { correctAnswers: "0", equation: "{{\\lim_{x \\rightarrow 0^+} x \\ln x}={0}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}" }, answer: { correctAnswers: ["ln(a)", "log(a)"], equation: "{{\\lim_{x \\rightarrow 0} \\frac{a^x-1}{x}}={\\ln a}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}" }, answer: { correctAnswers: "1/2", equation: "{{\\lim_{x \\rightarrow 0} \\frac{1-\\cos x}{x^2}}={\\frac{1}{2}}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+\\frac{1}{x})^x}" }, answer: { correctAnswers: "e", equation: "{{\\lim_{x \\rightarrow \\infty} (1+\\frac{1}{x})^x}={e}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+x)^{-x}}" }, answer: { correctAnswers: "e", equation: "{{\\lim_{x \\rightarrow \\infty} (1+x)^{-x}}={e}}" } },
+            { prompt: { equation: "{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}" }, answer: { correctAnswers: "e^a", equation: "{{\\lim_{x \\rightarrow \\infty} (1+\\frac{\\alpha}{x})^x}={e^\\alpha}}" } },
         ]
     },
     /*{
@@ -160,14 +160,14 @@ const categories = [
     {
         category: "Proprietà degli o-piccolo",
         questions: [
-            { prompt: { equation: "{o(f(x))}" }, answer: { correctAnswers: "f(x)o(1)", equation: "{o(f(x)) = f(x)o(1)}" } },
-            { prompt: { equation: "{o(o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(o(f(x))) = o(f(x))}" } },
-            { prompt: { equation: "{f(x) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{f(x) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
-            { prompt: { equation: "{\\alpha \\text{ } o(f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{\\alpha \\text{ } o(f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
-            { prompt: { equation: "{o(\\alpha \\text{ } f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(\\alpha \\text{ } f(x)) = o(f(x)) \\text{, } \\forall \\alpha \\ne 0}" } },
-            { prompt: { equation: "{[o(f(x))]^{\\alpha}}" }, answer: { correctAnswers: ["o([f(x)]^a)", "o(f(x)^a)"], equation: "{[o(f(x))]^{\\alpha} = o([f(x)]^{\\alpha}) \\text{, } \\forall \\alpha \\gt 0}" } },
-            { prompt: { equation: "{o(f(x)+o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{o(f(x)+o(f(x))) = o(f(x))}" } },
-            { prompt: { equation: "{o(f(x)) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{o(f(x)) \\text{ } o(g(x)) = o(f(x) \\text{ } g(x))}" } },
+            { prompt: { equation: "{o(f(x))}" }, answer: { correctAnswers: "f(x)o(1)", equation: "{{o(f(x))}={f(x)o(1)}}" } },
+            { prompt: { equation: "{o(o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{{o(o(f(x)))}={o(f(x))}}" } },
+            { prompt: { equation: "{f(x) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{{f(x) \\text{ } o(g(x))}={o(f(x) \\text{ } g(x))}}" } },
+            { prompt: { equation: "{\\alpha \\text{ } o(f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{{\\alpha \\text{ } o(f(x))}={o(f(x)) \\text{, } \\forall \\alpha \\ne 0}}" } },
+            { prompt: { equation: "{o(\\alpha \\text{ } f(x))}" }, answer: { correctAnswers: "o(f(x))", equation: "{{o(\\alpha \\text{ } f(x))}={o(f(x)) \\text{, } \\forall \\alpha \\ne 0}}" } },
+            { prompt: { equation: "{[o(f(x))]^{\\alpha}}" }, answer: { correctAnswers: ["o([f(x)]^a)", "o(f(x)^a)"], equation: "{{[o(f(x))]^{\\alpha}}={o([f(x)]^{\\alpha}) \\text{, } \\forall \\alpha \\gt 0}}" } },
+            { prompt: { equation: "{o(f(x)+o(f(x)))}" }, answer: { correctAnswers: "o(f(x))", equation: "{{o(f(x)+o(f(x)))}={o(f(x))}}" } },
+            { prompt: { equation: "{o(f(x)) \\text{ } o(g(x))}" }, answer: { correctAnswers: ["o(f(x)g(x))", "o(f(x)*g(x))"], equation: "{{o(f(x)) \\text{ } o(g(x))}={o(f(x) \\text{ } g(x))}}" } },
         ]
     },
     {
@@ -360,15 +360,47 @@ const categories = [
             // inversa
             { prompt: { equation: "{\\text{Sia } {f(x)} \\text{ una funzione, } {(f^{-1})'}}" }, answer: { correctAnswers: ["1/f'(f^(-1)(x))", "1/(f'(f^(-1)(x)))", "1/f'∘f^(-1)", "1/(f'∘f^(-1))"], equation: "{(f^{-1})'=\\frac{1}{f' \\circ f^{-1}} \\text{ oppure } (f^{-1}(x))'=\\frac{1}{f'(f^{-1}(x))}}" } },
         ]
+    },
+    {
+        category: "Integrali di funzioni elementari",
+        questions: [
+            // casi semplici
+            { prompt: { equation: "{\\int dx}" }, answer: { correctAnswers: ["x+c", "x"], equation: "{{\\int dx}={x+C}}" } },
+            { prompt: { equation: "{\\int x^\\beta dx}" }, answer: { correctAnswers: ["x^(b+1)/b+1+c", "x^(b+1)/b+1"], equation: "{{\\int x^\\beta dx}={\\frac{x^{\\beta+1}}{\\beta+1}+C}}" } },
+            { prompt: { equation: "{\\int \\frac{1}{x} dx}" }, answer: { correctAnswers: ["log|x|+c", "log|x|"], equation: "{{\\int \\frac{1}{x} dx}={\\log|x|+C}}" } },
+            { prompt: { equation: "{\\int e^x dx}" }, answer: { correctAnswers: ["e^x+c", "e^x"], equation: "{{\\int e^x dx}={e^x+C}}" } },
+            { prompt: { equation: "{\\int \\sin(x)dx}" }, answer: { correctAnswers: ["-cosx+c", "-cos(x)+c", "-cosx", "-cos(x)"], equation: "{{\\int \\sin(x)dx}={-\\cos(x)+C}}" } },
+            { prompt: { equation: "{\\int \\cos(x)dx}" }, answer: { correctAnswers: ["sinx+c", "sin(x)+c", "sinx", "sin(x)"], equation: "{{\\int \\cos(x)dx}={\\sin(x)+C}}" } },
+            { prompt: { equation: "{\\int \\-sin(x)dx}" }, answer: { correctAnswers: ["cosx+c", "cos(x)+c", "cosx", "cos(x)"], equation: "{{\\int \\-sin(x)dx}={\\cos(x)+C}}" } },
+            { prompt: { equation: "{\\int \\-cos(x)dx}" }, answer: { correctAnswers: ["-sinx+c", "-sin(x)+c", "-sinx", "-sin(x)"], equation: "{{\\int \\-cos(x)dx}={-\\sin(x)+C}}" } },
+            { prompt: { equation: "{\\int \\frac{1}{1+x^2}dx}" }, answer: { correctAnswers: ["arctan(x)+c", "arctanx+c", "tan^(-1)(x)+c", "tan^(-1)x+c", "arctan(x)", "arctanx", "tan^(-1)(x)", "tan^(-1)x"], equation: "{{\\int \\frac{1}{1+x^2}dx}={\\arctan(x)+C}}" } },
+            { prompt: { equation: "{\\int \\frac{1}{\\sqrt{1-x^2}}dx}" }, answer: { correctAnswers: ["arcsin(x)+c", "arcsinx+c", "sin^(-1)(x)+c", "sin^(-1)x+c", "arcsin(x)", "arcsinx", "sin^(-1)(x)", "sin^(-1)x"], equation: "{{\\int \\frac{1}{\\sqrt{1-x^2}}dx}={\\arcsin(x)+C}}" } },
+            { prompt: { equation: "{\\int -\\frac{1}{\\sqrt{1-x^2}}dx}" }, answer: { correctAnswers: ["arccos(x)+c", "arccosx+c", "cos^(-1)(x)+c", "cos^(-1)x+c", "arccos(x)", "arccosx", "cos^(-1)(x)", "cos^(-1)x"], equation: "{{\\int -\\frac{1}{\\sqrt{1-x^2}}dx}={\\arccos(x)+C}}" } },
+            { prompt: { equation: "{\\int \\sinh(x)dx}" }, answer: { correctAnswers: ["cosh(x)+c", "cosh(x)"], equation: "{{\\int \\sinh(x)dx}={\\cosh(x)+C}}" } },
+            { prompt: { equation: "{\\int \\cosh(x)dx}" }, answer: { correctAnswers: ["sinh(x)+c", "sinh(x)"], equation: "{{\\int \\cosh(x)dx}={\\sinh(x)+C}}" } },
+            // casi generali
+            { prompt: { equation: "{\\int f'(x)f(x)dx}" }, answer: { correctAnswers: ["f(x)^2/2+c", "f(x)^2/2"], equation: "{{\\int f'(x)f(x)dx}={\\frac{f(x)^2}{2}+C}}" } },
+            { prompt: { equation: "{\\int f'(x)e^{f(x)}dx}" }, answer: { correctAnswers: ["e^f(x)+c", "e^f(x)"], equation: "{{\\int f'(x)e^{f(x)}dx}={e^{f(x)}+C}}" } },
+            { prompt: { equation: "{\\int \\frac{f'(x)}{f(x)}dx}" }, answer: { correctAnswers: ["log|f(x)|+c", "log|f(x)|"], equation: "{{\\int \\frac{f'(x)}{f(x)}dx}={\\log|f(x)|+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\sin(f(x))dx}" }, answer: { correctAnswers: ["-cos(f(x))+c", "-cos(f(x))"], equation: "{{\\int f'(x)\\sin(f(x))dx}={-\\cos(f(x))+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\cos(f(x))dx}" }, answer: { correctAnswers: ["sin(f(x))+c", "sin(f(x))"], equation: "{{\\int f'(x)\\cos(f(x))dx}={\\sin(f(x))+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\-sin(f(x))dx}" }, answer: { correctAnswers: ["cos(f(x))+c", "cos(f(x))"], equation: "{{\\int f'(x)\\-sin(f(x))dx}={\\cos(f(x))+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\-cos(f(x))dx}" }, answer: { correctAnswers: ["-sin(f(x))+c", "-sin(f(x))"], equation: "{{\\int f'(x)\\-cos(f(x))dx}={-\\sin(f(x))+C}}" } },
+            { prompt: { equation: "{\\int \\frac{f'(x)}{1+f(x)^2}dx}" }, answer: { correctAnswers: ["arctan(f(x))+c", "tan^(-1)(f(x))+c", "arctan(f(x))", "tan^(-1)(f(x))",], equation: "{{\\int \\frac{f'(x)}{1+f(x)^2}dx}={\\arctan(f(x))+C}}" } },
+            { prompt: { equation: "{\\int \\frac{f'(x)}{\\sqrt{1-f(x)^2}}dx}" }, answer: { correctAnswers: ["arcsin(f(x))+c", "sin^(-1)(f(x))+c", "arcsin(f(x))", "sin^(-1)(f(x))",], equation: "{{\\int \\frac{f'(x)}{\\sqrt{1-f(x)^2}}dx}={\\arcsin(f(x))+C}}" } },
+            { prompt: { equation: "{\\int -\\frac{f'(x)}{\\sqrt{1-f(x)^2}}dx}" }, answer: { correctAnswers: ["arccos(f(x))+c", "cos^(-1)(f(x))+c", "arccos(f(x))", "cos^(-1)(f(x))",], equation: "{{\\int -\\frac{f'(x)}{\\sqrt{1-f(x)^2}}dx}={\\arccos(f(x))+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\sinh(f(x))dx}" }, answer: { correctAnswers: ["cosh(f(x))+c", "cosh(f(x))"], equation: "{{\\int f'(x)\\sinh(f(x))dx}={\\cosh(f(x))+C}}" } },
+            { prompt: { equation: "{\\int f'(x)\\cosh(f(x))dx}" }, answer: { correctAnswers: ["sinh(f(x))+c", "sinh(f(x))"], equation: "{{\\int f'(x)\\cosh(f(x))dx}={\\sinh(f(x))+C}}" } },
+        ]
     }
 ];
 window.addEventListener("load", () => {
     const debug = /(&|\?)debug=true/.test(window.location.href), dictionary = /(&|\?)dictionary=true/.test(window.location.href);
-    function catLog(category, text) {
-        return `[Category='${category}'] ${text}`;
+    function catLog(categoryName, categoryIndex, text) {
+        return `[CategoryName='${categoryName}',CategoryIndex=${categoryIndex}] ${text}`;
     }
-    function catQuestionLog(category, questionIndex, text) {
-        return `[Category='${category}'${typeof questionIndex === "number" ? `,QuestionIndex=${questionIndex}` : ""}] ${text}`;
+    function catQuestionLog(categoryName, categoryIndex, questionIndex, text) {
+        return `[CategoryName='${categoryName}',CategoryIndex=${categoryIndex}${typeof questionIndex === "number" ? `,QuestionIndex=${questionIndex}` : ""}] ${text}`;
     }
     function hasBadBrackets(equation = "") {
         let lb = 0, rb = 0;
@@ -396,10 +428,10 @@ window.addEventListener("load", () => {
             const categoryContainer = categories[i], name = categoryContainer.category, questions = categoryContainer.questions;
             console.group(name);
             if (questions.length === 0)
-                console.warn(catLog(name, "Empty category!"));
+                console.warn(catLog(name, i, "Empty category!"));
             for (let k = i - 1; k > 0; k--) {
                 if (name === categories[k].category) {
-                    console.warn(catLog(name, "Duplicate category name!"));
+                    console.warn(catLog(name, i, "Duplicate category name!"));
                     break;
                 }
             }
@@ -407,18 +439,18 @@ window.addEventListener("load", () => {
             for (let j = 0; j < categories[i].questions.length; j++) {
                 const { prompt, answer } = questions[j];
                 if (typeof prompt.equation === "undefined" && typeof prompt.text === "undefined")
-                    console.error(catQuestionLog(name, j, "No prompt to display for this question!"));
+                    console.error(catQuestionLog(name, i, j, "No prompt to display for this question!"));
                 else if (typeof answer.equation === "undefined")
-                    console.error(catQuestionLog(name, j, "No answer to display for this question!"));
+                    console.error(catQuestionLog(name, i, j, "No answer to display for this question!"));
                 else if (typeof answer.correctAnswers === "undefined" || Array.isArray(answer.correctAnswers) && answer.correctAnswers.length === 0)
-                    console.error(catQuestionLog(name, j, "No correct answers are provided for this question!"));
+                    console.error(catQuestionLog(name, i, j, "No correct answers are provided for this question!"));
                 else if (typeof answer.correctAnswers === "string" && answer.correctAnswers === "")
-                    console.error(catQuestionLog(name, j, "The only correct answer, provided for this question, is empty!"));
+                    console.error(catQuestionLog(name, i, j, "The only correct answer, provided for this question, is empty!"));
                 const [pBadBrackets, plb, prb] = hasBadBrackets(prompt.equation), [aBadBrackets, alb, arb] = hasBadBrackets(answer.equation);
                 if (pBadBrackets !== -1)
-                    console.error(catQuestionLog(name, j, `The equation provided for the prompt has ${plb} left-curly-brackets and ${prb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${prompt.equation}`));
+                    console.error(catQuestionLog(name, i, j, `The equation provided for the prompt has ${plb} left-curly-brackets and ${prb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${prompt.equation}`));
                 if (aBadBrackets !== -1)
-                    console.error(catQuestionLog(name, j, `The equation provided for the answer has ${alb} left-curly-brackets and ${arb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${answer.equation}`));
+                    console.error(catQuestionLog(name, i, j, `The equation provided for the answer has ${alb} left-curly-brackets and ${arb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${answer.equation}`));
             }
             console.groupEnd();
         }
@@ -501,7 +533,7 @@ window.addEventListener("load", () => {
             displayAnswer();
     }
     function answerQuestion() {
-        const { correctAnswers, equation } = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _answerInput.value.toLowerCase();
+        const { correctAnswers } = categories[_categoryIndex].questions[_questionIndex].answer, userAnswer = _answerInput.value.toLowerCase();
         if (userAnswer === "skip" || userAnswer === "s") {
             pickQuestion();
         }
@@ -517,12 +549,17 @@ window.addEventListener("load", () => {
         _answerInput.value = "";
         _answerInput.placeholder = typeof correctAnswers === "string" ? correctAnswers : correctAnswers[~~(Math.random() * correctAnswers.length)];
         const _target = dictionary ? _answerContainer : _answerTitle;
-        if (typeof equation === "string") {
-            // @ts-ignore
-            _target.innerHTML = MathJax.tex2mml((!dictionary ? "\\text{Risposta }\\implies" : "") + equation, {});
+        try {
+            if (typeof equation === "string") {
+                // @ts-ignore
+                _target.innerHTML = MathJax.tex2mml((!dictionary ? "\\text{Risposta }\\implies" : "") + equation, {});
+            }
+            else {
+                _target.textContent = "Risposta = " + (typeof correctAnswers === "string" ? correctAnswers : correctAnswers.join(" oppure "));
+            }
         }
-        else {
-            _target.textContent = "Risposta = " + (typeof correctAnswers === "string" ? correctAnswers : correctAnswers.join(" oppure "));
+        catch (e) {
+            setTimeout(displayAnswer, 50);
         }
     }
     function updateQuestionUI() {

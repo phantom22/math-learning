@@ -3,12 +3,12 @@ window.addEventListener("load", () => {
     const debug = /(&|\?)debug=true/.test(window.location.href),
           dictionary = /(&|\?)dictionary=true/.test(window.location.href);
 
-    function catLog(category:string,text:string) {
-        return `[Category='${category}'] ${text}`;
+    function catLog(categoryName:string,categoryIndex:number,text:string) {
+        return `[CategoryName='${categoryName}',CategoryIndex=${categoryIndex}] ${text}`;
     }
 
-    function catQuestionLog(category:string,questionIndex:number,text:string) {
-        return `[Category='${category}'${typeof questionIndex==="number"?`,QuestionIndex=${questionIndex}`:""}] ${text}`;
+    function catQuestionLog(categoryName:string,categoryIndex:number,questionIndex:number,text:string) {
+        return `[CategoryName='${categoryName}',CategoryIndex=${categoryIndex}${typeof questionIndex==="number"?`,QuestionIndex=${questionIndex}`:""}] ${text}`;
     }
 
     function hasBadBrackets(equation=""): [number,number,number] {
@@ -36,24 +36,24 @@ window.addEventListener("load", () => {
                 name = categoryContainer.category,
                 questions = categoryContainer.questions;
             console.group(name);
-            if (questions.length===0) console.warn(catLog(name,"Empty category!"));
+            if (questions.length===0) console.warn(catLog(name,i,"Empty category!"));
             for (let k=i-1; k>0; k--) {
                 if (name===categories[k].category) { 
-                    console.warn(catLog(name,"Duplicate category name!"));
+                    console.warn(catLog(name,i,"Duplicate category name!"));
                     break;
                 } 
             };
 
             for (let j=0; j<categories[i].questions.length; j++) {
                 const {prompt,answer} = questions[j];
-                if (typeof prompt.equation==="undefined"&&typeof prompt.text==="undefined") console.error(catQuestionLog(name,j,"No prompt to display for this question!"));
-                else if (typeof answer.equation==="undefined") console.error(catQuestionLog(name,j,"No answer to display for this question!"));
-                else if (typeof answer.correctAnswers==="undefined"||Array.isArray(answer.correctAnswers)&&answer.correctAnswers.length===0) console.error(catQuestionLog(name,j,"No correct answers are provided for this question!"));
-                else if (typeof answer.correctAnswers==="string"&&answer.correctAnswers==="") console.error(catQuestionLog(name,j,"The only correct answer, provided for this question, is empty!"));
+                if (typeof prompt.equation==="undefined"&&typeof prompt.text==="undefined") console.error(catQuestionLog(name,i,j,"No prompt to display for this question!"));
+                else if (typeof answer.equation==="undefined") console.error(catQuestionLog(name,i,j,"No answer to display for this question!"));
+                else if (typeof answer.correctAnswers==="undefined"||Array.isArray(answer.correctAnswers)&&answer.correctAnswers.length===0) console.error(catQuestionLog(name,i,j,"No correct answers are provided for this question!"));
+                else if (typeof answer.correctAnswers==="string"&&answer.correctAnswers==="") console.error(catQuestionLog(name,i,j,"The only correct answer, provided for this question, is empty!"));
 
                 const [pBadBrackets,plb,prb] = hasBadBrackets(prompt.equation), [aBadBrackets,alb,arb] = hasBadBrackets(answer.equation);
-                if (pBadBrackets!==-1) console.error(catQuestionLog(name,j,`The equation provided for the prompt has ${plb} left-curly-brackets and ${prb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${prompt.equation}`))
-                if (aBadBrackets!==-1) console.error(catQuestionLog(name,j,`The equation provided for the answer has ${alb} left-curly-brackets and ${arb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${answer.equation}`))
+                if (pBadBrackets!==-1) console.error(catQuestionLog(name,i,j,`The equation provided for the prompt has ${plb} left-curly-brackets and ${prb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${prompt.equation}`))
+                if (aBadBrackets!==-1) console.error(catQuestionLog(name,i,j,`The equation provided for the answer has ${alb} left-curly-brackets and ${arb} right-curly-brackets, MathJax won't be able to render this text properly!\n    ${answer.equation}`))
             }
             console.groupEnd();
         }
@@ -141,7 +141,7 @@ window.addEventListener("load", () => {
     }
 
     function answerQuestion() {
-        const {correctAnswers,equation} = categories[_categoryIndex].questions[_questionIndex].answer,
+        const {correctAnswers} = categories[_categoryIndex].questions[_questionIndex].answer,
             userAnswer = _answerInput.value.toLowerCase();
         if (userAnswer==="skip"||userAnswer==="s") {
             pickQuestion();
@@ -159,12 +159,17 @@ window.addEventListener("load", () => {
         _answerInput.value = "";
         _answerInput.placeholder = typeof correctAnswers==="string"?correctAnswers:correctAnswers[~~(Math.random() * correctAnswers.length)];
         const _target = dictionary ? _answerContainer : _answerTitle;
-        if (typeof equation==="string") {
-            // @ts-ignore
-            _target.innerHTML = MathJax.tex2mml((!dictionary?"\\text{Risposta }\\implies":"")+equation, {});
+        try {
+            if (typeof equation==="string") {
+                // @ts-ignore
+                _target.innerHTML = MathJax.tex2mml((!dictionary?"\\text{Risposta }\\implies":"")+equation, {});
+            }
+            else {
+                _target.textContent = "Risposta = "+(typeof correctAnswers==="string" ? correctAnswers : correctAnswers.join(" oppure "));
+            }
         }
-        else {
-            _target.textContent = "Risposta = "+(typeof correctAnswers==="string" ? correctAnswers : correctAnswers.join(" oppure "));
+        catch(e) {
+            setTimeout(displayAnswer,50);
         }
     }
 
